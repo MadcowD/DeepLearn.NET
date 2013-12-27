@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace NeuralNetwork
+﻿namespace NeuralNetwork
 {
     public class Network
     {
@@ -12,7 +7,6 @@ namespace NeuralNetwork
             this.activation = activation;
 
             //Initialize the neural layers. These layers will be static and therefore will be contained within an array.
-
         }
 
         #region Fields

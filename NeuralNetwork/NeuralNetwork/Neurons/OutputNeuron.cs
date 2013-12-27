@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NeuralNetwork.Neurons
+﻿namespace NeuralNetwork.Neurons
 {
     /// <summary>
     /// Type specific implementation of the neuron class for output neurons.
@@ -23,6 +17,7 @@ namespace NeuralNetwork.Neurons
         {
             return desired - activation.Function(Net);
         }
-        #endregion
+
+        #endregion Properties
     }
 }

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace NeuralNetwork
 {
@@ -23,8 +20,8 @@ namespace NeuralNetwork
 
         #region Fields
 
-        Func<double, double> derivative;
-        Func<double, double> function;
+        private Func<double, double> derivative;
+        private Func<double, double> function;
 
         #endregion Fields
 
@@ -42,11 +39,10 @@ namespace NeuralNetwork
         public Func<double, double> Function
         { get { return function; } }
 
-
         #endregion Properties
 
-
         #region Sigmoids
+
         /// <summary>
         /// The hyperbolic tangent activation function.
         /// </summary>

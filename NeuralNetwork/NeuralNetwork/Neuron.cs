@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace NeuralNetwork
+﻿namespace NeuralNetwork
 {
     /// <summary>
     /// The base unit of the neural network.
@@ -15,7 +10,7 @@ namespace NeuralNetwork
         {
             Net = 0;
         }
-        
+
         /// <summary>
         /// Resets the given neuron to its initial state.
         /// </summary>
@@ -25,6 +20,7 @@ namespace NeuralNetwork
         }
 
         #region Properties
+
         /// <summary>
         /// The net input to the sigmoid function of the neuron.
         /// </summary>
@@ -35,7 +31,8 @@ namespace NeuralNetwork
         /// </summary>
         /// <param name="activation">The activation function with which the output is calculated.</param>
         /// <returns></returns>
-        public virtual double GetOutput(Sigmoid activation){
+        public virtual double GetOutput(Sigmoid activation)
+        {
             return activation.Function(Net);
         }
 
