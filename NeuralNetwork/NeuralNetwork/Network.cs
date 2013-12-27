@@ -78,22 +78,19 @@ namespace NeuralNetwork
             for (int i = 0; i < inputs.Length; i++)
                 neurons[0][i].Net = inputs[i];
 
-
             //Feed Forward
             for (int layer = 0; layer < neurons.Length; layer++)
             {
                 //Update the output
-                foreach(Neuron neuron in neurons[layer])
+                foreach (Neuron neuron in neurons[layer])
                     neuron.UpdateOutput(this.activation);
 
                 //Feed the connections forward unless on the last layer.
-                if(layer != neurons.Length -1)
-                    foreach(Connection connection in connections[layer])
+                if (layer != neurons.Length - 1)
+                    foreach (Connection connection in connections[layer])
                         connection.FeedForward();
             }
         }
-
-
 
         #region Fields
 

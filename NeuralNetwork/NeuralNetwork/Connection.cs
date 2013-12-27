@@ -59,7 +59,7 @@
         /// <summary>
         /// The weight associated with a connection.
         /// </summary>
-        public double Weight { get; private set; }
+        public double Weight { private set; get; }
 
         #endregion Properties
     }
