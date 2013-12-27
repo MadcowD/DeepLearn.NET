@@ -64,6 +64,37 @@ namespace NeuralNetwork
             #endregion Connection Initialization
         }
 
+        /// <summary>
+        /// Feeds the network forward achieving an output for a given set of inputs.
+        /// </summary>
+        /// <param name="input">The set of inputs to be given to the input neurons.</param>
+        public void FeedForward(double[] inputs)
+        {
+            //Make sure input is same length.
+            if (inputs.Length != neurons[0].Length)
+                throw new ArgumentException("Input not same count as neural input layer");
+
+            //Set the inputs
+            for (int i = 0; i < inputs.Length; i++)
+                neurons[0][i].Net = inputs[i];
+
+
+            //Feed Forward
+            for (int layer = 0; layer < neurons.Length; layer++)
+            {
+                //Update the output
+                foreach(Neuron neuron in neurons[layer])
+                    neuron.UpdateOutput(this.activation);
+
+                //Feed the connections forward unless on the last layer.
+                if(layer != neurons.Length -1)
+                    foreach(Connection connection in connections[layer])
+                        connection.FeedForward();
+            }
+        }
+
+
+
         #region Fields
 
         private Sigmoid activation;
