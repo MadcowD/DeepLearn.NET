@@ -9,6 +9,8 @@
         public Neuron()
         {
             Net = 0;
+            Output = 0;
+            Error = 0;
         }
 
         /// <summary>
