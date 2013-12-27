@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NeuralNetwork.Neurons;
+using System;
 
 namespace NeuralNetwork
 {
@@ -7,8 +8,36 @@ namespace NeuralNetwork
         public Network(Sigmoid activation, double learningRate, int inputSize, int outputSize, params int[] hiddenLayers)
         {
             this.activation = activation;
+            this.Bias = new BiasNeuron();
 
+            #region Layer Initialization
             //Initialize the neural layers. These layers will be static and therefore will be contained within an array.
+            int layerCount = 2 + ((hiddenLayers == null) ? 0 : hiddenLayers.Length);
+            neurons = new Neuron[layerCount][];
+
+            //Initialize the layers and connections thereof.
+            for(int layer = 0; layer < layerCount; layer++)
+            {
+                //Count is equal to the respective size of the layers.
+                int count = (layer == 0) ? inputSize :
+                    (layer == layerCount -1) ? outputSize
+                        : hiddenLayers[layer -1];
+
+                neurons[layer] = new Neuron[count];
+
+                //Fill the layer with neurons.
+                for (int k = 0; k < count; k++){
+                    if (layer == 0) //Input
+                        neurons[layer][k] = new InputNeuron();
+                    else if (layer == layerCount - 1) //Output
+                        neurons[layer][k] = new OutputNeuron();
+                    else //Hidden
+                        neurons[layer][k] = new HiddenNeuron();
+                }
+            }
+            #endregion Layer Initialization
+
+
         }
 
         #region Fields
@@ -21,7 +50,21 @@ namespace NeuralNetwork
         /// </summary>
         private Neuron[][] neurons;
 
+        /// <summary>
+        /// The array of connections on every layer. The first connection is always the bias.
+        /// </summary>
+        private Connection[][] connections;
+
         #endregion Fields
+
+        #region Properties
+
+        /// <summary>
+        /// The neural network's bias.
+        /// </summary>
+        public BiasNeuron Bias { private set; get; }
+
+        #endregion
 
         #region Helpers
 
