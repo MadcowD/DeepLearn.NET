@@ -10,23 +10,24 @@ namespace NeuralNetwork
             this.activation = activation;
             this.Bias = new BiasNeuron();
 
-            #region Layer Initialization
             //Initialize the neural layers. These layers will be static and therefore will be contained within an array.
             int layerCount = 2 + ((hiddenLayers == null) ? 0 : hiddenLayers.Length);
-            neurons = new Neuron[layerCount][];
 
-            //Initialize the layers and connections thereof.
-            for(int layer = 0; layer < layerCount; layer++)
+            #region Neuron Initialization
+
+            neurons = new Neuron[layerCount][];
+            for (int layer = 0; layer < layerCount; layer++)
             {
                 //Count is equal to the respective size of the layers.
                 int count = (layer == 0) ? inputSize :
-                    (layer == layerCount -1) ? outputSize
-                        : hiddenLayers[layer -1];
+                    (layer == layerCount - 1) ? outputSize
+                        : hiddenLayers[layer - 1];
 
                 neurons[layer] = new Neuron[count];
 
                 //Fill the layer with neurons.
-                for (int k = 0; k < count; k++){
+                for (int k = 0; k < count; k++)
+                {
                     if (layer == 0) //Input
                         neurons[layer][k] = new InputNeuron();
                     else if (layer == layerCount - 1) //Output
@@ -35,7 +36,34 @@ namespace NeuralNetwork
                         neurons[layer][k] = new HiddenNeuron();
                 }
             }
-            #endregion Layer Initialization
+
+            #endregion 
+
+            #region Connection Initialization
+
+            connections = new Connection[layerCount - 1][];
+            for (int layer = 0; layer < layerCount-1; layer++)
+            {
+                //Count is equal to the the amount of possible permutations between the layers + the bias and the layer.
+                int count = (neurons[layer].Length + 1) * neurons[layer + 1].Length; //(n_l + n_b)n_(l+1)
+                connections[layer] = new Connection[count];
+
+                //Fill the connections for the layers.
+                for (int j = 0; j < neurons[layer].Length + 1; j++)
+                    for (int i = 0; i < neurons[layer + 1].Length; i++)
+                    {
+                        int con = i + j * neurons[layer + 1].Length;
+
+                        if (j == 0) //If the bias
+                            connections[layer][con] = new Connection(Bias, neurons[layer + 1][i]);
+                        else //If normal
+                            connections[layer][con] = new Connection(neurons[layer][j - 1], neurons[layer + 1][i]);
+                    }
+
+                
+            }
+
+            #endregion
 
 
         }
@@ -64,7 +92,7 @@ namespace NeuralNetwork
         /// </summary>
         public BiasNeuron Bias { private set; get; }
 
-        #endregion
+        #endregion Properties
 
         #region Helpers
 
