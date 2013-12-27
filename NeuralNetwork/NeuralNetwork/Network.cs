@@ -1,4 +1,5 @@
-﻿namespace NeuralNetwork
+﻿using System;
+namespace NeuralNetwork
 {
     public class Network
     {
@@ -15,10 +16,19 @@
 
         /// <summary>
         /// The neurons and their respective layers (self contained within the network).
-        /// These neurons along with their respective layers  will be constant during runtime, therefore an aray is used.
+        /// These neurons along with their respective layers  will be constant during runtime, therefore an array is used.
         /// </summary>
         private Neuron[][] neurons;
 
         #endregion Fields
+
+        #region Helpers
+
+        /// <summary>
+        /// Generates random numbers associated with the neural network.
+        /// </summary>
+        public static Random R = new Random();
+
+        #endregion
     }
 }
