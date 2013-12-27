@@ -19,20 +19,5 @@ namespace NeuralNetwork
             this.p2 = p2;
             this.p3 = p3;
         }
-
-        #region Sigmoids
-        /// <summary>
-        /// The hyperbolic tangent activation function.
-        /// </summary>
-        public static Sigmoid HyperbolicTangent =
-            new Sigmoid(x => Math.Tanh(x), x => 1 - Math.Pow(Math.Tanh(x), 2));
-
-        public static Sigmoid Logistic =
-            new Sigmoid(x => 1/(1+Math.Exp(-x)), x => Math.Exp(x)/Math.Pow(1 + Math.Exp(x),2));
-
-        public static Sigmoid Linear =
-            new Sigmoid(x => x, x => 1);
-
-        #endregion Sigmoids
     }
 }
