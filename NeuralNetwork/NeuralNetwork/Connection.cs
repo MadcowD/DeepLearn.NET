@@ -28,6 +28,14 @@
         {
         }
 
+        /// <summary>
+        /// Feeds the product of output from the anterior neuron  and the weight of the connection forward to the anterior neuron.
+        /// </summary>
+        public void FeedForward()
+        {
+            PosteriorNeuron.Net += AnteriorNeuron.Output * Weight;
+        }
+
         #region Properties
 
         /// <summary>
