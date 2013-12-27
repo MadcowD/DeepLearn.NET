@@ -10,7 +10,7 @@ namespace NeuralNetwork
     {
         static void Main(string[] args)
         {
-            Network nn = new Network(Network.HyperbolicTangent, 2, 2, 2);
+            Network nn = new Network(Sigmoid.HyperbolicTangent, 2, 2, 2);
         }
     }
 }

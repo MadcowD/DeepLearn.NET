@@ -5,19 +5,26 @@ using System.Text;
 
 namespace NeuralNetwork
 {
-    class Network
+    public class Network
     {
-        private int p1;
-        private int p2;
-        private int p3;
-
-        public Network(Sigmoid sigmoid, int p1, int p2, int p3)
+        public Network(Sigmoid activation, double learningRate, int inputSize, int outputSize, params int[] hiddenLayers)
         {
-            // TODO: Complete member initialization
-            this.sigmoid = sigmoid;
-            this.p1 = p1;
-            this.p2 = p2;
-            this.p3 = p3;
+            this.activation = activation;
+
+            //Initialize the neural layers. These layers will be static and therefore will be contained within an array.
+
         }
+
+        #region Fields
+
+        private Sigmoid activation;
+
+        /// <summary>
+        /// The neurons and their respective layers (self contained within the network).
+        /// These neurons along with their respective layers  will be constant during runtime, therefore an aray is used.
+        /// </summary>
+        private Neuron[][] neurons;
+
+        #endregion Fields
     }
 }
