@@ -37,12 +37,12 @@ namespace NeuralNetwork
                 }
             }
 
-            #endregion 
+            #endregion Neuron Initialization
 
             #region Connection Initialization
 
             connections = new Connection[layerCount - 1][];
-            for (int layer = 0; layer < layerCount-1; layer++)
+            for (int layer = 0; layer < layerCount - 1; layer++)
             {
                 //Count is equal to the the amount of possible permutations between the layers + the bias and the layer.
                 int count = (neurons[layer].Length + 1) * neurons[layer + 1].Length; //(n_l + n_b)n_(l+1)
@@ -59,13 +59,9 @@ namespace NeuralNetwork
                         else //If normal
                             connections[layer][con] = new Connection(neurons[layer][j - 1], neurons[layer + 1][i]);
                     }
-
-                
             }
 
-            #endregion
-
-
+            #endregion Connection Initialization
         }
 
         #region Fields
