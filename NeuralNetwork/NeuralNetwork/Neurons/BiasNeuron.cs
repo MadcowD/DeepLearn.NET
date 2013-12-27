@@ -6,12 +6,11 @@
     public class BiasNeuron : Neuron
     {
         /// <summary>
-        /// Gets the output of the bias neuron. Always returns one.
+        /// Updates the output of the bias neuron. Always returns one.
         /// </summary>
-        /// <returns>The output of the bias neuron. Always one.</returns>
-        public override double GetOutput(Sigmoid activation)
+        public override void UpdateOutput(Sigmoid activation)
         {
-            return 1;
+            Output = 1;
         }
     }
 }

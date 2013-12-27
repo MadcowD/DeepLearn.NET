@@ -6,12 +6,11 @@
     public class InputNeuron : Neuron
     {
         /// <summary>
-        /// Returns the inactivated net value.
+        /// Updates the inactivated net for output.
         /// </summary>
-        /// <returns></returns>
-        public override double GetOutput(Sigmoid activation)
+        public override void UpdateOutput(Sigmoid activation)
         {
-            return Net;
+            Output = Net;
         }
     }
 }

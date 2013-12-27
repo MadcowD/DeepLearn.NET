@@ -8,14 +8,13 @@
         #region Properties
 
         /// <summary>
-        /// Gets the error of the output neuron based on some desired output and a sigmoid activation function.
+        /// Updates the error of the output neuron based on some desired output and a sigmoid activation function.
         /// </summary>
         /// <param name="activation">The activation with which the output will be calculated/</param>
         /// <param name="desired">The desired output of this neuron for a given training set.</param>
-        /// <returns>The neural error of the output neuron.</returns>
-        public override double GetError(Sigmoid activation, double desired)
+        public override void UpdateError(Sigmoid activation, double desired)
         {
-            return desired - activation.Function(Net);
+            Error = desired - activation.Function(Net);
         }
 
         #endregion Properties
