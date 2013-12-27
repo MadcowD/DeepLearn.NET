@@ -1,4 +1,4 @@
-﻿namespace NeuralNetwork.Neurons
+﻿﻿namespace NeuralNetwork.Neurons
 {
     /// <summary>
     /// Type specific implementation of the neuron class for output neurons.
