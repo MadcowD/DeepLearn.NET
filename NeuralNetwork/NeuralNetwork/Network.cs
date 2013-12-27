@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace NeuralNetwork
 {
     public class Network
@@ -29,6 +30,6 @@ namespace NeuralNetwork
         /// </summary>
         public static Random R = new Random();
 
-        #endregion
+        #endregion Helpers
     }
 }

@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NeuralNetwork
+﻿namespace NeuralNetwork
 {
     /// <summary>
     /// The connection held between two neurons with a given weight.
     /// </summary>
     public class Connection
     {
-
         /// <summary>
         /// Initializes the connection.
         /// </summary>
@@ -31,11 +24,12 @@ namespace NeuralNetwork
         /// <param name="anteriorNeuron">The neuron on the anterior side of the connection.</param>
         /// <param name="posteriorNeuron">The neuron on the posterior side of the connection.</param>
         public Connection(Neuron anteriorNeuron, Neuron posteriorNeuron)
-            : this(Network.R.NextDouble()*2 -1 , anteriorNeuron, posteriorNeuron)
+            : this(Network.R.NextDouble() * 2 - 1, anteriorNeuron, posteriorNeuron)
         {
         }
 
         #region Properties
+
         /// <summary>
         /// The anterior neuron within the connection.
         /// </summary>
@@ -58,6 +52,7 @@ namespace NeuralNetwork
         /// The weight associated with a connection.
         /// </summary>
         public double Weight { get; private set; }
+
         #endregion Properties
     }
 }

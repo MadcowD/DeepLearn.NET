@@ -1,5 +1,4 @@
-﻿using System;
-namespace NeuralNetwork
+﻿namespace NeuralNetwork
 {
     /// <summary>
     /// The base unit of the neural network.
@@ -26,8 +25,6 @@ namespace NeuralNetwork
         /// The net input to the sigmoid function of the neuron.
         /// </summary>
         public double Net { set; get; }
-
-
 
         public double Output { get; protected set; }
 
