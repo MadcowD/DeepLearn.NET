@@ -104,12 +104,13 @@ namespace NeuralNetwork
             if(desired.Length != neurons[neurons.Length-1].Length)
                 throw new ArgumentException("Desired set not of proper length to match output layer size");
 
+            GlobalError = 0;
             //Calculate global sum squared error
             for(int i = 0; i < desired.Length; i++){
                 neurons[neurons.Length-1][i].UpdateError(this.activation, desired[i]);
-                GlobalError += neurons[neurons.Length - 1][i].Error;
+                GlobalError += Math.Pow(neurons[neurons.Length - 1][i].Output - desired[i],2);
             }
-            GlobalError = 0.5 * Math.Pow(GlobalError, 2);
+            GlobalError *= 0.5;
 
             Console.WriteLine(GlobalError);
             //Propagate the error backwards
@@ -154,6 +155,11 @@ namespace NeuralNetwork
         /// </summary>
         private Connection[][] connections;
 
+        /// <summary>
+        /// The rate at which weights change in the neural network
+        /// </summary>
+        private double learningRate;
+
         #endregion Fields
 
         #region Properties
@@ -169,15 +175,5 @@ namespace NeuralNetwork
         public double GlobalError {private set; get; }
         
         #endregion Properties
-
-        #region Helpers
-
-        /// <summary>
-        /// Generates random numbers associated with the neural network.
-        /// </summary>
-        public static Random R = new Random();
-        private double learningRate;
-
-        #endregion Helpers
     }
 }
