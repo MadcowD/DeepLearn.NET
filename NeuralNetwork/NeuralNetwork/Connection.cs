@@ -51,9 +51,9 @@
         /// <summary>
         /// Updates the weight of the connection using the weight update rule. dW = ERROR_posterior * OUTPUT_anterior
         /// </summary>
-        public void UpdateWeight()
+        public void UpdateWeight(double learningRate)
         {
-            Weight = PosteriorNeuron.Error * AnteriorNeuron.Output;
+            Weight = PosteriorNeuron.Error * AnteriorNeuron.Output * learningRate;
         }
 
         /// <summary>
