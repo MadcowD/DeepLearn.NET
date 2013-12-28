@@ -92,6 +92,40 @@ namespace NeuralNetwork
             }
         }
 
+
+        /// <summary>
+        /// Propagates the global error backwards through the network using the error backpropagation algorithm
+        /// </summary>
+        /// <param name="desired">The set of desired outputs to which the output neurons will be matched</param>
+        public void BackPropagate(double[] desired)
+        {
+            //Make sure the output layer is the same length as the desired array.
+            if(desired.Length != neurons[neurons.Length-1].Length)
+                throw new ArgumentException("Desired set not of proper length to match output layer size");
+
+            //Calculate global sum squared error
+            for(int i = 0; i < desired.Length; i++){
+                neurons[neurons.Length-1][i].UpdateError(this.activation, desired[i]);
+                GlobalError += neurons[neurons.Length - 1][i].Error;
+            }
+            GlobalError = 0.5 * Math.Pow(GlobalError, 2);
+
+            //Propagate the error backwards
+            for (int layer = neurons.Length - 2; layer >= 0; layer--)
+                foreach (Neuron n in neurons[layer])
+                {
+                    double errorCoefficient = 0;
+                    //Take the sum of Posterior Error * weight
+                    foreach (Connection con in connections[layer])
+                        if (con.AnteriorNeuron.Equals(n))
+                            errorCoefficient += con.PosteriorNeuron.Error * con.Weight;
+
+                    //Update the error with the derivative of the network's sigmoid 
+                    n.UpdateError(this.activation, errorCoefficient);
+                    Console.WriteLine(n.Error);
+                }
+        }
+
         #region Fields
 
         private Sigmoid activation;
@@ -116,6 +150,11 @@ namespace NeuralNetwork
         /// </summary>
         public BiasNeuron Bias { private set; get; }
 
+        /// <summary>
+        /// The global error of the network using some squared error.
+        /// </summary>
+        public double GlobalError {private set; get; }
+        
         #endregion Properties
 
         #region Helpers
