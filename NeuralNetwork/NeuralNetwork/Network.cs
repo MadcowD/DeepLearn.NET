@@ -8,6 +8,7 @@ namespace NeuralNetwork
         public Network(Sigmoid activation, double learningRate, int inputSize, int outputSize, params int[] hiddenLayers)
         {
             this.activation = activation;
+            this.learningRate = learningRate;
             this.Bias = new BiasNeuron();
 
             //Initialize the neural layers. These layers will be static and therefore will be contained within an array.
@@ -110,6 +111,7 @@ namespace NeuralNetwork
             }
             GlobalError = 0.5 * Math.Pow(GlobalError, 2);
 
+            Console.WriteLine(GlobalError);
             //Propagate the error backwards
             for (int layer = neurons.Length - 2; layer >= 0; layer--)
                 foreach (Neuron n in neurons[layer])
@@ -122,8 +124,19 @@ namespace NeuralNetwork
 
                     //Update the error with the derivative of the network's sigmoid 
                     n.UpdateError(this.activation, errorCoefficient);
-                    Console.WriteLine(n.Error);
                 }
+        }
+
+
+        /// <summary>
+        /// Updates all of the weights in the neural network based on neural error.
+        /// </summary>
+        public void UpdateWeights()
+        {
+            //Update the weights of every connection.
+            foreach (Connection[] layer in connections)
+                foreach (Connection connection in layer)
+                    connection.UpdateWeight(this.learningRate);
         }
 
         #region Fields
@@ -163,6 +176,7 @@ namespace NeuralNetwork
         /// Generates random numbers associated with the neural network.
         /// </summary>
         public static Random R = new Random();
+        private double learningRate;
 
         #endregion Helpers
     }
