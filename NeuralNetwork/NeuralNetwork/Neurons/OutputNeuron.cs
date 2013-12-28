@@ -14,7 +14,7 @@
         /// <param name="desired">The desired output of this neuron for a given training set.</param>
         public override void UpdateError(Sigmoid activation, double desired)
         {
-            Error = desired - activation.Function(Net);
+            Error = (desired - this.Output) *activation.Derivative(Net);
         }
 
         #endregion Properties
