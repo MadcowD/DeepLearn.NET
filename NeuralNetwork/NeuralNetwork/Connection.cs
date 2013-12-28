@@ -24,7 +24,7 @@
         /// <param name="anteriorNeuron">The neuron on the anterior side of the connection.</param>
         /// <param name="posteriorNeuron">The neuron on the posterior side of the connection.</param>
         public Connection(Neuron anteriorNeuron, Neuron posteriorNeuron)
-            : this(Network.R.NextDouble() * 2 - 1, anteriorNeuron, posteriorNeuron)
+            : this(Gaussian.GetRandomGaussian(), anteriorNeuron, posteriorNeuron)
         {
         }
 
@@ -51,9 +51,9 @@
         /// <summary>
         /// Updates the weight of the connection using the weight update rule. dW = ERROR_posterior * OUTPUT_anterior
         /// </summary>
-        public void UpdateWeight(double learningRate)
+        public void UpdateWeight(double learningRate) //todo add momentum
         {
-            Weight = PosteriorNeuron.Error * AnteriorNeuron.Output * learningRate;
+            Weight -= PosteriorNeuron.Error * AnteriorNeuron.Output * learningRate;
         }
 
         /// <summary>
