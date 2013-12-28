@@ -10,6 +10,7 @@
          /// </summary>
          public override void UpdateOutput(Sigmoid activation)
          {
+             Net = 1;
              Output = 1;
          }
      }
