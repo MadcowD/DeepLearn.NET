@@ -36,6 +36,16 @@
             PosteriorNeuron.Net += AnteriorNeuron.Output * Weight;
         }
 
+
+        #region Fields
+
+        /// <summary>
+        /// The last delta weight (used for momentum)
+        /// </summary>
+        private double lastDeltaWeight = 0;
+
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -51,9 +61,11 @@
         /// <summary>
         /// Updates the weight of the connection using the weight update rule. dW = ERROR_posterior * OUTPUT_anterior
         /// </summary>
-        public void UpdateWeight(double learningRate) //todo add momentum
+        public void UpdateWeight(double learningRate, double momentum)
         {
-            Weight -= PosteriorNeuron.Error * AnteriorNeuron.Output * learningRate;
+            double deltaWeight = (PosteriorNeuron.Error * AnteriorNeuron.Output * learningRate) + momentum * lastDeltaWeight;
+            Weight -= deltaWeight;
+            lastDeltaWeight = deltaWeight;
         }
 
         /// <summary>
