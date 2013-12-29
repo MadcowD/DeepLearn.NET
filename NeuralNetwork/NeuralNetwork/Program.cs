@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace NeuralNetwork
 {
@@ -8,16 +9,51 @@ namespace NeuralNetwork
         {
             
 
-            Network nn = new Network(new int[] {1,2,1}, new Sigmoid[] { Sigmoid.Logistic, Sigmoid.Logistic, Sigmoid.Linear});
-
-            //Do a test training for a 1 to 1 in-out network
-            for(int i = 0; i < 50; i++){
-                double error = nn.Train(new double[] { 0.0 }, new double[] { 2.5 }, 0.12, 0);
+            Network nn = new Network(new int[] {2,4,2}, new Sigmoid[] { Sigmoid.None, Sigmoid.Logistic, Sigmoid.Linear});
 
 
-                    Console.WriteLine("Iteration {0}:\n\tInput {1:0.000} Output {2:0.000} Error {3:0.000}", i, 0.0, nn.GetOutput()[0], error);
+            //XNOR
+            double[][] input, desired;
+            input = new double[][] {
+                new double [] { 0, 0 },
+                new double[]  { 1, 0 },
+                new double[]  { 0, 1 },
+                new double[]  { 1, 1 } };
 
+            desired = new double[][]{
+                new double [] {1, 0},
+                new double [] {0, 1},
+                new double [] {0, 1},
+                new double [] {1, 0}};
+
+            double error = 0;
+            int maxCount = 1000000, count = 0;
+
+            do
+            {
+                count++;
+                error = 0;
+                for (int i = 0; i < 4; i++)
+                    error += nn.Train(input[i], desired[i], 1, 0.0);
+
+                    Console.WriteLine("EPOCH {0}: Error {1:0.000}", count, error);
+
+            } while (error > 0.0001 && count <= maxCount);
+            //Console.WriteLine("EPOCH {0}: Error {1:0.000}", count, error);
+
+            for (int i = 0; i < 4; i++)
+            {
+                nn.FeedForward(input[i]);
+                Console.WriteLine(String.Join(",", nn.Input) + " -> " + String.Join(",", desired[i]));
+                Console.WriteLine(String.Join(",", nn.Output));
             }
+
+            //Save error history
+            string[] filedata = new string[nn.ErrorHistory.Length];
+            for (int i = 0; i < filedata.Length; i++)
+                filedata[i] = i.ToString() + " " + nn.ErrorHistory[i].ToString();
+
+            File.WriteAllLines(@"C:\temp\XOR.txt", filedata);
 
             Console.ReadKey();
 

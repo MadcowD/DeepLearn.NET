@@ -1,11 +1,30 @@
 ﻿using NeuralNetwork.Neurons;
 using System;
+using System.Collections.Generic;
 
 namespace NeuralNetwork
 {
     public class Network
     {
+        #region Constructors
+        /// <summary>
+        /// Creates a network with default 
+        /// </summary>
+        /// <param name="layers"></param>
+        public Network(params int[] layers)
+        {
+            if (layers == null)
+                throw new ArgumentNullException("layers");
 
+            Sigmoid[] funcs  = new Sigmoid[layers.Length];
+            
+            //Standard activations [0] = none, [1] = sigmoid, [output] = linear
+            funcs[0] = Sigmoid.None;
+            funcs[funcs.Length - 1] = Sigmoid.Linear;
+            for (int i = 0; i < funcs.Length; i++)
+                if (i != 0 && i != funcs.Length - 1)
+                    funcs[i] = Sigmoid.Logistic;
+        }
 
         /// <summary>
         /// Constructs a neural network with full control over activations.
@@ -14,6 +33,8 @@ namespace NeuralNetwork
         /// <param name="activations"></param>
         public Network(int[] layers, Sigmoid[] activations)
         {
+            if (layers.Length < 2)
+                throw new ArgumentException("Not enough layers specified", "layers");
             if (activations.Length != layers.Length)
                 throw new ArgumentException("Uneven layer to activation match up (see length)");
 
@@ -73,7 +94,16 @@ namespace NeuralNetwork
             #endregion Connection Initialization
         }
 
+        #endregion
 
+        /// <summary>
+        /// Trains the neural network using a given input and desired output set.
+        /// </summary>
+        /// <param name="input">The input</param>
+        /// <param name="desired">The desired output of the neural network</param>
+        /// <param name="learningRate">The rate at which weights will change</param>
+        /// <param name="momentum">The momentum with which weight change occurs.</param>
+        /// <returns></returns>
         public double Train(double[] input, double[] desired, double learningRate, double momentum)
         {
             FeedForward(input);
@@ -84,7 +114,6 @@ namespace NeuralNetwork
             //Console.WriteLine("\tInput ({0}) Output ({1}) Error {2:0.000}" , String.Join(", ", GetInput()), String.Join(", ", GetOutput()), this.GlobalError);
             return GlobalError;
         }
-
 
         #region Network Functions
         /// <summary>
@@ -144,6 +173,8 @@ namespace NeuralNetwork
                 GlobalError += Math.Pow(neurons[neurons.Length - 1][i].Output - desired[i],2);
             }
 
+            errorHistory.Add(GlobalError);
+
             //Propagate the error backwards
             for (int layer = neurons.Length - 2; layer >= 0; layer--)
                 foreach (Neuron n in neurons[layer])
@@ -170,32 +201,6 @@ namespace NeuralNetwork
                 foreach (Connection connection in layer)
                     connection.UpdateWeight(learningRate, momentum);
         }
-        
-
-        /// <summary>
-        /// Gets the input of the neural network.
-        /// </summary>
-        /// <returns>An array of input values for the neural network.</returns>
-        public double[] GetInput()
-        {
-            double[] input = new double[neurons[0].Length];
-            for (int i = 0; i < neurons[0].Length; i++)
-                input[i] = neurons[0][i].Net;
-
-            return input;
-        }
-
-        /// <summary>
-        /// Gets the output of the neural network.
-        /// </summary>
-        public double[] GetOutput()
-        {
-            double[] output = new double[neurons[neurons.Length - 1].Length];
-            for (int i = 0; i < neurons[neurons.Length - 1].Length; i++)
-                output[i] = neurons[neurons.Length - 1][i].Output;
-
-            return output;
-        }
         #endregion
 
         #region Fields
@@ -212,6 +217,13 @@ namespace NeuralNetwork
         /// The array of connections on every layer. The first connection is always the bias.
         /// </summary>
         private Connection[][] connections;
+
+        /// <summary>
+        /// The error history for a given training set.
+        /// </summary>
+        /// <returns></returns>
+        private List<double> errorHistory = new List<double>();
+
         #endregion Fields
 
         #region Properties
@@ -222,9 +234,51 @@ namespace NeuralNetwork
         public BiasNeuron Bias { private set; get; }
 
         /// <summary>
+        /// Gets the input of the neural network.
+        /// </summary>
+        /// <returns>An array of input values for the neural network.</returns>
+        public double[] Input
+        {
+            get
+            {
+                double[] input = new double[neurons[0].Length];
+                for (int i = 0; i < neurons[0].Length; i++)
+                    input[i] = neurons[0][i].Net;
+
+                return input;
+            }
+        }
+
+        /// <summary>
+        /// Gets the output of the neural network.
+        /// </summary>
+        public double[] Output
+        {
+            get
+            {
+                double[] output = new double[neurons[neurons.Length - 1].Length];
+                for (int i = 0; i < neurons[neurons.Length - 1].Length; i++)
+                    output[i] = neurons[neurons.Length - 1][i].Output;
+
+                return output;
+            }
+        }
+
+        /// <summary>
         /// The global error of the network using some squared error.
         /// </summary>
         public double GlobalError {private set; get; }
+
+        /// <summary>
+        /// Gets an array of the error history
+        /// </summary>
+        public double[] ErrorHistory
+        {
+            get
+            {
+                return errorHistory.ToArray();
+            }
+        }
         
         #endregion Properties
     }
