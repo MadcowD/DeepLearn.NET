@@ -5,14 +5,24 @@ namespace NeuralNetwork
 {
     public class Network
     {
-        public Network(Sigmoid activation, double learningRate, int inputSize, int outputSize, params int[] hiddenLayers)
+
+
+        /// <summary>
+        /// Constructs a neural network with full control over activations.
+        /// </summary>
+        /// <param name="layers"></param>
+        /// <param name="activations"></param>
+        public Network(int[] layers, Sigmoid[] activations)
         {
-            this.activation = activation;
-            this.learningRate = learningRate;
+            if (activations.Length != layers.Length)
+                throw new ArgumentException("Uneven layer to activation match up (see length)");
+
+
+            this.activations = activations;
             this.Bias = new BiasNeuron();
 
             //Initialize the neural layers. These layers will be static and therefore will be contained within an array.
-            int layerCount = 2 + ((hiddenLayers == null) ? 0 : hiddenLayers.Length);
+            int layerCount = layers.Length;
 
             #region Neuron Initialization
 
@@ -20,9 +30,7 @@ namespace NeuralNetwork
             for (int layer = 0; layer < layerCount; layer++)
             {
                 //Count is equal to the respective size of the layers.
-                int count = (layer == 0) ? inputSize :
-                    (layer == layerCount - 1) ? outputSize
-                        : hiddenLayers[layer - 1];
+                int count = layers[layer];
 
                 neurons[layer] = new Neuron[count];
 
@@ -65,6 +73,18 @@ namespace NeuralNetwork
             #endregion Connection Initialization
         }
 
+
+        public double Train(double[] input, double[] desired, double learningRate, double momentum)
+        {
+            FeedForward(input);
+            BackPropagate(desired);
+            UpdateWeights(learningRate, momentum);
+
+            return GlobalError;
+        }
+
+
+        #region Network Functions
         /// <summary>
         /// Feeds the network forward achieving an output for a given set of inputs.
         /// </summary>
@@ -84,7 +104,12 @@ namespace NeuralNetwork
             {
                 //Update the output
                 foreach (Neuron neuron in neurons[layer])
-                    neuron.UpdateOutput(this.activation);
+                {
+                    if(layer == 0)
+                        (neuron as InputNeuron).UpdateOutput(this.activations[layer]);
+                    else
+                        neuron.UpdateOutput(this.activations[layer]);
+                }
 
                 //Feed the connections forward unless on the last layer.
                 if (layer != neurons.Length - 1)
@@ -107,12 +132,10 @@ namespace NeuralNetwork
             GlobalError = 0;
             //Calculate global sum squared error
             for(int i = 0; i < desired.Length; i++){
-                neurons[neurons.Length-1][i].UpdateError(this.activation, desired[i]);
+                (neurons[neurons.Length-1][i] as OutputNeuron).UpdateError(this.activations[neurons.Length-1], desired[i]);
                 GlobalError += Math.Pow(neurons[neurons.Length - 1][i].Output - desired[i],2);
             }
-            GlobalError *= 0.5;
 
-            Console.WriteLine(GlobalError);
             //Propagate the error backwards
             for (int layer = neurons.Length - 2; layer >= 0; layer--)
                 foreach (Neuron n in neurons[layer])
@@ -120,11 +143,11 @@ namespace NeuralNetwork
                     double errorCoefficient = 0;
                     //Take the sum of Posterior Error * weight
                     foreach (Connection con in connections[layer])
-                        if (con.AnteriorNeuron.Equals(n))
-                            errorCoefficient += con.PosteriorNeuron.Error * con.Weight;
+                        if (con.PosteriorNeuron.Equals(n))
+                            errorCoefficient += con.AnteriorNeuron.Error * con.Weight;
 
                     //Update the error with the derivative of the network's sigmoid 
-                    n.UpdateError(this.activation, errorCoefficient);
+                    n.UpdateError(this.activations[layer], errorCoefficient);
                 }
         }
 
@@ -132,17 +155,30 @@ namespace NeuralNetwork
         /// <summary>
         /// Updates all of the weights in the neural network based on neural error.
         /// </summary>
-        public void UpdateWeights()
+        public void UpdateWeights(double learningRate, double momentum)
         {
             //Update the weights of every connection.
             foreach (Connection[] layer in connections)
                 foreach (Connection connection in layer)
-                    connection.UpdateWeight(this.learningRate);
+                    connection.UpdateWeight(learningRate, momentum);
         }
+
+        /// <summary>
+        /// Gets the output of the neural network.
+        /// </summary>
+        public double[] GetOutput()
+        {
+            double[] output = new double[neurons[neurons.Length - 1].Length];
+            for (int i = 0; i < neurons[neurons.Length - 1].Length; i++)
+                output[i] = neurons[neurons.Length - 1][i].Output;
+
+            return output;
+        }
+        #endregion
 
         #region Fields
 
-        private Sigmoid activation;
+        private Sigmoid[] activations;
 
         /// <summary>
         /// The neurons and their respective layers (self contained within the network).
@@ -154,12 +190,6 @@ namespace NeuralNetwork
         /// The array of connections on every layer. The first connection is always the bias.
         /// </summary>
         private Connection[][] connections;
-
-        /// <summary>
-        /// The rate at which weights change in the neural network
-        /// </summary>
-        private double learningRate;
-
         #endregion Fields
 
         #region Properties

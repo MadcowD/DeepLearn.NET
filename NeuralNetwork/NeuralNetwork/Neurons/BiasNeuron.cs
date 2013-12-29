@@ -11,6 +11,7 @@
          public override void UpdateOutput(Sigmoid activation)
          {
              Net = 1;
+             Error = 0;
              Output = 1;
          }
      }
