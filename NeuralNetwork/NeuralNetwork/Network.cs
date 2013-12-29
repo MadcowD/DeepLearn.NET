@@ -80,6 +80,8 @@ namespace NeuralNetwork
             BackPropagate(desired);
             UpdateWeights(learningRate, momentum);
 
+            //DEBUG INFO
+            //Console.WriteLine("\tInput ({0}) Output ({1}) Error {2:0.000}" , String.Join(", ", GetInput()), String.Join(", ", GetOutput()), this.GlobalError);
             return GlobalError;
         }
 
@@ -94,6 +96,12 @@ namespace NeuralNetwork
             //Make sure input is same length.
             if (inputs.Length != neurons[0].Length)
                 throw new ArgumentException("Input not same count as neural input layer");
+
+
+            //Reset neurons
+            foreach (Neuron[] layer in neurons)
+                foreach (Neuron n in layer)
+                    n.Reset();
 
             //Set the inputs
             for (int i = 0; i < inputs.Length; i++)
@@ -161,6 +169,20 @@ namespace NeuralNetwork
             foreach (Connection[] layer in connections)
                 foreach (Connection connection in layer)
                     connection.UpdateWeight(learningRate, momentum);
+        }
+        
+
+        /// <summary>
+        /// Gets the input of the neural network.
+        /// </summary>
+        /// <returns>An array of input values for the neural network.</returns>
+        public double[] GetInput()
+        {
+            double[] input = new double[neurons[0].Length];
+            for (int i = 0; i < neurons[0].Length; i++)
+                input[i] = neurons[0][i].Net;
+
+            return input;
         }
 
         /// <summary>

@@ -19,6 +19,8 @@
         public void Reset()
         {
             Net = 0;
+            Error = 0;
+            Output = 0;
         }
 
         #region Properties
