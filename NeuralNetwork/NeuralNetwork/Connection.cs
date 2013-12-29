@@ -36,7 +36,6 @@
             PosteriorNeuron.Net += AnteriorNeuron.Output * Weight;
         }
 
-
         #region Fields
 
         /// <summary>
@@ -44,7 +43,7 @@
         /// </summary>
         private double lastDeltaWeight = 0;
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 

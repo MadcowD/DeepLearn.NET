@@ -7,8 +7,9 @@ namespace NeuralNetwork
     public class Network
     {
         #region Constructors
+
         /// <summary>
-        /// Creates a network with default 
+        /// Creates a network with default
         /// </summary>
         /// <param name="layers"></param>
         public Network(params int[] layers)
@@ -16,8 +17,8 @@ namespace NeuralNetwork
             if (layers == null)
                 throw new ArgumentNullException("layers");
 
-            Sigmoid[] funcs  = new Sigmoid[layers.Length];
-            
+            Sigmoid[] funcs = new Sigmoid[layers.Length];
+
             //Standard activations [0] = none, [1] = sigmoid, [output] = linear
             funcs[0] = Sigmoid.None;
             funcs[funcs.Length - 1] = Sigmoid.Linear;
@@ -37,7 +38,6 @@ namespace NeuralNetwork
                 throw new ArgumentException("Not enough layers specified", "layers");
             if (activations.Length != layers.Length)
                 throw new ArgumentException("Uneven layer to activation match up (see length)");
-
 
             this.activations = activations;
             this.Bias = new BiasNeuron();
@@ -94,7 +94,7 @@ namespace NeuralNetwork
             #endregion Connection Initialization
         }
 
-        #endregion
+        #endregion Constructors
 
         /// <summary>
         /// Trains the neural network using a given input and desired output set.
@@ -116,6 +116,7 @@ namespace NeuralNetwork
         }
 
         #region Network Functions
+
         /// <summary>
         /// Feeds the network forward achieving an output for a given set of inputs.
         /// </summary>
@@ -125,7 +126,6 @@ namespace NeuralNetwork
             //Make sure input is same length.
             if (inputs.Length != neurons[0].Length)
                 throw new ArgumentException("Input not same count as neural input layer");
-
 
             //Reset neurons
             foreach (Neuron[] layer in neurons)
@@ -157,7 +157,6 @@ namespace NeuralNetwork
             }
         }
 
-
         /// <summary>
         /// Propagates the global error backwards through the network using the error backpropagation algorithm
         /// </summary>
@@ -165,14 +164,16 @@ namespace NeuralNetwork
         public void BackPropagate(double[] desired)
         {
             //Make sure the output layer is the same length as the desired array.
-            if(desired.Length != neurons[neurons.Length-1].Length)
+            if (desired.Length != neurons[neurons.Length - 1].Length)
                 throw new ArgumentException("Desired set not of proper length to match output layer size");
 
             GlobalError = 0;
+
             //Calculate global sum squared error
-            for(int i = 0; i < desired.Length; i++){
-                (neurons[neurons.Length-1][i] as OutputNeuron).UpdateError(this.activations[neurons.Length-1], desired[i]);
-                GlobalError += Math.Pow(neurons[neurons.Length - 1][i].Output - desired[i],2);
+            for (int i = 0; i < desired.Length; i++)
+            {
+                (neurons[neurons.Length - 1][i] as OutputNeuron).UpdateError(this.activations[neurons.Length - 1], desired[i]);
+                GlobalError += Math.Pow(neurons[neurons.Length - 1][i].Output - desired[i], 2);
             }
 
             errorHistory.Add(GlobalError);
@@ -182,16 +183,16 @@ namespace NeuralNetwork
                 foreach (Neuron n in neurons[layer])
                 {
                     double errorCoefficient = 0;
+
                     //Take the sum of Posterior Error * weight
                     foreach (Connection con in connections[layer])
                         if (con.PosteriorNeuron.Equals(n))
                             errorCoefficient += con.AnteriorNeuron.Error * con.Weight;
 
-                    //Update the error with the derivative of the network's sigmoid 
+                    //Update the error with the derivative of the network's sigmoid
                     n.UpdateError(this.activations[layer], errorCoefficient);
                 }
         }
-
 
         /// <summary>
         /// Updates all of the weights in the neural network based on neural error.
@@ -203,7 +204,8 @@ namespace NeuralNetwork
                 foreach (Connection connection in layer)
                     connection.UpdateWeight(learningRate, momentum);
         }
-        #endregion
+
+        #endregion Network Functions
 
         #region Fields
 
@@ -269,7 +271,7 @@ namespace NeuralNetwork
         /// <summary>
         /// The global error of the network using some squared error.
         /// </summary>
-        public double GlobalError {private set; get; }
+        public double GlobalError { private set; get; }
 
         /// <summary>
         /// Gets an array of the error history
@@ -281,7 +283,7 @@ namespace NeuralNetwork
                 return errorHistory.ToArray();
             }
         }
-        
+
         #endregion Properties
     }
 }
