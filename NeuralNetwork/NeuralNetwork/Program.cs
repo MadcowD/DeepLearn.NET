@@ -9,7 +9,7 @@ namespace NeuralNetwork
         {
             
 
-            Network nn = new Network(new int[] {2,4,2}, new Sigmoid[] { Sigmoid.None, Sigmoid.Logistic, Sigmoid.Linear});
+            Network nn = new Network(new int[] {2,4,1}, new Sigmoid[] { Sigmoid.None, Sigmoid.Logistic, Sigmoid.Linear});
 
 
             //XNOR
@@ -21,13 +21,13 @@ namespace NeuralNetwork
                 new double[]  { 1, 1 } };
 
             desired = new double[][]{
-                new double [] {1, 0},
-                new double [] {0, 1},
-                new double [] {0, 1},
-                new double [] {1, 0}};
+                new double [] {1},
+                new double [] {0},
+                new double [] {0},
+                new double [] {1}};
 
             double error = 0;
-            int maxCount = 1000000, count = 0;
+            int maxCount = 100000, count = 0;
 
             do
             {

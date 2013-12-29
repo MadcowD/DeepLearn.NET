@@ -142,8 +142,10 @@ namespace NeuralNetwork
                 //Update the output
                 foreach (Neuron neuron in neurons[layer])
                 {
-                    if(layer == 0)
+                    if (layer == 0)
                         (neuron as InputNeuron).UpdateOutput(this.activations[layer]);
+                    else if (neuron is BiasNeuron)
+                        (neuron as BiasNeuron).UpdateOutput(this.activations[layer]);
                     else
                         neuron.UpdateOutput(this.activations[layer]);
                 }

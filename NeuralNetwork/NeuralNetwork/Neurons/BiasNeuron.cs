@@ -10,9 +10,9 @@
          /// </summary>
          public override void UpdateOutput(Sigmoid activation)
          {
-             Net = 0;
-             Error = 0;
-             Output = 0;
+             Net = 1;
+             Error = 1;
+             Output = 1;
          }
      }
  }
