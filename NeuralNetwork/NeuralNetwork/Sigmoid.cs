@@ -55,6 +55,9 @@ namespace NeuralNetwork
         public static Sigmoid Linear =
             new Sigmoid(x => x, x => 1);
 
+        public static Sigmoid None =
+            new Sigmoid(x => 0, x => 0);
+
         #endregion Sigmoids
     }
 }
