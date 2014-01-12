@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NeuralNetwork
+namespace NeuralLibrary
 {
     /// <summary>
     /// Defines some generic sigmoid activation function and its derivative.

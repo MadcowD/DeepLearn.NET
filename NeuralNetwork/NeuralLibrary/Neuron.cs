@@ -1,4 +1,4 @@
-﻿namespace NeuralNetwork
+﻿namespace NeuralLibrary
 {
     /// <summary>
     /// The base unit of the neural network.

@@ -7,8 +7,8 @@
     <ProjectGuid>{F99A0859-A3E1-4A7F-A13C-B3B64808A5E6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NeuralNetwork</RootNamespace>
-    <AssemblyName>NeuralNetwork</AssemblyName>
+    <RootNamespace>TicTacToe</RootNamespace>
+    <AssemblyName>TicTacToe</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,22 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
-    <Compile Include="Gaussian.cs" />
-    <Compile Include="Network.cs" />
-    <Compile Include="Neuron.cs" />
-    <Compile Include="Neurons\BiasNeuron.cs" />
-    <Compile Include="Neurons\HiddenNeuron.cs" />
-    <Compile Include="Neurons\InputNeuron.cs" />
-    <Compile Include="Neurons\OutputNeuron.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sigmoid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\NeuralLibrary\NeuralLibrary.csproj">
+      <Project>{cca9a4f2-2092-4fa2-aa77-740e81f787db}</Project>
+      <Name>NeuralLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

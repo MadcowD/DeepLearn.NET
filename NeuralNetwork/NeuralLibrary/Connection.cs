@@ -1,4 +1,4 @@
-﻿namespace NeuralNetwork
+﻿namespace NeuralLibrary
 {
     /// <summary>
     /// The connection held between two neurons with a given weight.

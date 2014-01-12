@@ -1,8 +1,8 @@
-﻿using NeuralNetwork.Neurons;
+﻿using NeuralLibrary.Neurons;
 using System;
 using System.Collections.Generic;
 
-namespace NeuralNetwork
+namespace NeuralLibrary
 {
     public class Network
     {
