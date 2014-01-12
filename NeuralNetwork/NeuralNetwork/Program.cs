@@ -1,6 +1,5 @@
 ﻿using NeuralLibrary;
 using System;
-using System.IO;
 
 namespace TicTacToe
 {
@@ -8,7 +7,7 @@ namespace TicTacToe
     {
         private static void Main(string[] args)
         {
-            Network nn = new Network(new int[] { 9, 8, 8 , 8, 2 }, new Sigmoid[] { Sigmoid.None, Sigmoid.Logistic, Sigmoid.Logistic, Sigmoid.Logistic, Sigmoid.Logistic });
+            Network nn = new Network(new int[] { 9, 8, 8, 8, 2 }, new Sigmoid[] { Sigmoid.None, Sigmoid.Logistic, Sigmoid.Logistic, Sigmoid.Logistic, Sigmoid.Logistic });
 
             //XNOR
             double[][] input, desired;
@@ -46,7 +45,7 @@ namespace TicTacToe
                 new double [] {0, 1},
                 new double [] {0, 1}
             };
-            
+
             double error = 0;
             int maxCount = 100000, count = 0;
 
@@ -57,16 +56,10 @@ namespace TicTacToe
                 for (int i = 0; i < desired.Length; i++)
                     error += nn.Train(input[i], desired[i], 8.6, 0.3);
 
-
-
-                
                 {
                     Console.WriteLine("EPOCH {0}: Error {1:0.000}", count, error);
-
                 }
             } while (error > 0.001 && count <= maxCount);
-
-          
 
             ////Save error history
             //string[] filedata = new string[nn.ErrorHistory.Length];
@@ -74,7 +67,6 @@ namespace TicTacToe
             //    filedata[i] = i.ToString() + "\t" + nn.ErrorHistory[i].ToString();
 
             //File.WriteAllLines(@"C:\temp\XOR.txt", filedata);
-
 
             while (true)
             {

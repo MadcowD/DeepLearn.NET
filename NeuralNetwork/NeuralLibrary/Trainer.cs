@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NeuralLibrary
+﻿namespace NeuralLibrary
 {
     /// <summary>
     /// Trains the a neural network given a DataSet
@@ -17,7 +11,6 @@ namespace NeuralLibrary
             this.network = network;
         }
 
-
         /// <summary>
         /// Treains the neural network over a given number of epochs using backpropagation.
         /// </summary>
@@ -27,15 +20,15 @@ namespace NeuralLibrary
         /// <param name="momentum">The momentum at which the network will begin to learn.</param>
         /// <returns>Whether or not the network was sucessful in learning.</returns>
         public bool Train(int epochs, double minimumError, double learningRate, double momentum)
-        {   
+        {
             int epoch = 0;
             double error = 0;
-            
-            do 
+
+            do
             {
                 error = 0;
 
-                foreach(DataPoint dp in trainingSet)
+                foreach (DataPoint dp in trainingSet)
                     error += network.Train(dp.Input, dp.Desired, learningRate, momentum);
             }
             while (epoch < epochs && error > minimumError);
@@ -44,8 +37,10 @@ namespace NeuralLibrary
         }
 
         #region Fields
+
         private Network network;
         private DataSet trainingSet;
-        #endregion
+
+        #endregion Fields
     }
 }
