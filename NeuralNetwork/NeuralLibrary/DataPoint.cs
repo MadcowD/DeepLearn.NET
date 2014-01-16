@@ -1,6 +1,6 @@
 ﻿namespace NeuralLibrary
 {
-    public class DataPoint
+    public abstract class DataPoint
     {
         public double[] Input { get; }
 
