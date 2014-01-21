@@ -12,20 +12,11 @@ namespace NeuralLibrary
         /// Creates a network with default
         /// </summary>
         /// <param name="layers"></param>
-        public Network(params int[] layers)
+        public Network(params int[] layers)  : this(layers, GenerateSigmoids(layers))
         {
-            if (layers == null)
-                throw new ArgumentNullException("layers");
-
-            Sigmoid[] funcs = new Sigmoid[layers.Length];
-
-            //Standard activations [0] = none, [1] = sigmoid, [output] = linear
-            funcs[0] = Sigmoid.None;
-            funcs[funcs.Length - 1] = Sigmoid.Linear;
-            for (int i = 0; i < funcs.Length; i++)
-                if (i != 0 && i != funcs.Length - 1)
-                    funcs[i] = Sigmoid.Logistic;
         }
+
+
 
         /// <summary>
         /// Constructs a neural network with full control over activations.
@@ -203,6 +194,26 @@ namespace NeuralLibrary
             foreach (Connection[] layer in connections)
                 foreach (Connection connection in layer)
                     connection.UpdateWeight(learningRate, momentum);
+        }
+
+        /// <summary>
+        /// Generates the sigmoid functions for the neural consteruct
+        /// </summary>
+        /// <param name="layers">THe number of layers inb the network.</param>
+        /// <returns></returns>
+        private static Sigmoid[] GenerateSigmoids(int[] layers){
+            
+            Sigmoid[] funcs = new Sigmoid[layers.Length];
+
+            //Standard activations [0] = none, [1] = sigmoid, [output] = linear
+            funcs[0] = Sigmoid.None;
+            funcs[funcs.Length - 1] = Sigmoid.Linear;
+            for (int i = 0; i < funcs.Length; i++)
+                if (i != 0 && i != funcs.Length - 1)
+                    funcs[i] = Sigmoid.Logistic;
+            
+            return funcs;
+
         }
 
         #endregion Network Functions

@@ -1,4 +1,5 @@
-﻿namespace NeuralLibrary
+﻿using System;
+namespace NeuralLibrary
 {
     /// <summary>
     /// Trains the a neural network given a DataSet
@@ -19,17 +20,22 @@
         /// <param name="learningRate">The learning rate at which the network will begin to learn.</param>
         /// <param name="momentum">The momentum at which the network will begin to learn.</param>
         /// <returns>Whether or not the network was sucessful in learning.</returns>
-        public bool Train(int epochs, double minimumError, double learningRate, double momentum)
+        public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool debug = false)
         {
             int epoch = 0;
             double error = 0;
+            trainingSet.Load();
 
             do
             {
                 error = 0;
+                epoch++;
 
                 foreach (DataPoint dp in trainingSet)
                     error += network.Train(dp.Input, dp.Desired, learningRate, momentum);
+
+                if (debug)
+                    Console.WriteLine("Epoch {0}: Error = {1}", epoch, error);
             }
             while (epoch < epochs && error > minimumError);
 

@@ -1,9 +1,24 @@
 ﻿namespace NeuralLibrary
 {
-    public abstract class DataPoint
+    public class DataPoint
     {
-        public double[] Input { get; }
+        public DataPoint(double[] input, double[] desired)
+        {
+            this.input = input;
+            this.desired = desired;
+        }
 
-        public double[] Desired { get; }
+        #region Fields
+
+        private double[] desired;
+        private double[] input;
+        #endregion
+
+        #region Properties
+        public double[] Input { get { return input; } }
+
+        public double[] Desired { get { return desired; }  }
+
+        #endregion Properties
     }
 }
