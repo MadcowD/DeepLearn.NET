@@ -20,7 +20,7 @@ namespace NeuralLibrary
         /// <param name="learningRate">The learning rate at which the network will begin to learn.</param>
         /// <param name="momentum">The momentum at which the network will begin to learn.</param>
         /// <returns>Whether or not the network was sucessful in learning.</returns>
-        public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool debug = false)
+        public bool Train(int epochs, double minimumError, double learningRate, double momentum)
         {
             int epoch = 0;
             double error = 0;
@@ -34,8 +34,9 @@ namespace NeuralLibrary
                 foreach (DataPoint dp in trainingSet)
                     error += network.Train(dp.Input, dp.Desired, learningRate, momentum);
 
-                if (debug)
-                    Console.WriteLine("Epoch {0}: Error = {1}", epoch, error);
+#if DEBUG
+                Console.WriteLine("Epoch {0}: Error = {1}", epoch, error);
+#endif
             }
             while (epoch < epochs && error > minimumError);
 
