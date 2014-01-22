@@ -29,6 +29,13 @@
         }
 
         /// <summary>
+        /// Nudges the weights.
+        /// </summary>
+        public void NudgeWeight(){
+            this.Weight = Gaussian.GetRandomGaussian();
+        }
+
+        /// <summary>
         /// Feeds the product of output from the anterior neuron  and the weight of the connection forward to the anterior neuron.
         /// </summary>
         public void FeedForward()

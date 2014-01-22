@@ -296,5 +296,12 @@ namespace NeuralLibrary
         }
 
         #endregion Properties
+
+        public void NudgeWeights()
+        {
+            foreach (Connection[] layer in this.connections)
+                foreach (Connection connection in layer)
+                    connection.NudgeWeight();
+        }
     }
 }
