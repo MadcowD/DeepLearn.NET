@@ -32,12 +32,12 @@ namespace WisconsonCancer
                         }
 
 
-                        double[] desired = new double[2] { -1, -1 };
+                        double[] desired = new double[1] { 0 };
                         //Switch inputs
                         if (double.Parse(s[s.Length - 1]) == 2)
-                            desired[0] = 1;
+                            desired[0] = 0;
                         else
-                            desired[1] = 1;
+                            desired[0] = 1;
 
                         this.Add(new DataPoint(inputs, desired));
                     }

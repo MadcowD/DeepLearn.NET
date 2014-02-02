@@ -42,10 +42,10 @@ namespace NeuralLibrary
                     error += network.Train(dp.Input, dp.Desired, learningRate, momentum);
 
                 //TODO: REMOVE
-                if (error > 750)
-                {
-                    network.NudgeWeights();
-                }
+                //if (error > 375)
+                //{
+                //    network.NudgeWeights();
+                //}
 
                 //PERFORM NUDGING
                 if (nudging && epoch % 3000 == 0)
