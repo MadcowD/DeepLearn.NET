@@ -1,6 +1,8 @@
 ﻿using NeuralLibrary.Neurons;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace NeuralLibrary
 {
@@ -296,6 +298,7 @@ namespace NeuralLibrary
         }
 
         #endregion Properties
+
 
         public void NudgeWeights()
         {

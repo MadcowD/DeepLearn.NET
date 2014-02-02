@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections;
 namespace NeuralLibrary
 {
@@ -30,7 +30,7 @@ namespace NeuralLibrary
             //nudging
             double error0 = -1;
             double error1 = -1;
-            
+
             trainingSet.Load();
 
             do
@@ -42,19 +42,19 @@ namespace NeuralLibrary
                     error += network.Train(dp.Input, dp.Desired, learningRate, momentum);
 
                 //PERFORM NUDGING
-                if (nudging && epoch % 3000 == 0)
+                if (nudging && epoch % 10 == 0)
                 {
                     //push error along the stack
                     error0 = error1;
                     error1 = error;
 
-                    if (error > network.Output.Length * 10 || (Math.Abs(error1 - error0) < 0.0001))
+                    if ((Math.Abs(error1 - error0) < 0.0001))
                         network.NudgeWeights();
                 }
-                                         
-                
 
-                
+
+
+
 #if DEBUG
                 Console.WriteLine("Epoch {0}: Error = {1}", epoch, error);
 #endif
