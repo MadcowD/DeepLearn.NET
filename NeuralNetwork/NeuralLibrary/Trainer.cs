@@ -41,14 +41,20 @@ namespace NeuralLibrary
                 foreach (DataPoint dp in trainingSet)
                     error += network.Train(dp.Input, dp.Desired, learningRate, momentum);
 
+                //TODO: REMOVE
+                if (error > 750)
+                {
+                    network.NudgeWeights();
+                }
+
                 //PERFORM NUDGING
-                if (nudging && epoch % 10 == 0)
+                if (nudging && epoch % 3000 == 0)
                 {
                     //push error along the stack
                     error0 = error1;
                     error1 = error;
 
-                    if ((Math.Abs(error1 - error0) < 0.0001))
+                    if (error > network.Output.Length*10 || (Math.Abs(error1 - error0) < 0.0001))
                         network.NudgeWeights();
                 }
 
