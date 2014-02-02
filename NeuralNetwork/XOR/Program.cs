@@ -13,8 +13,8 @@ namespace XOR
         {
             Network nn = new Network(2, 4, 1);
             Trainer xorTrainer = new Trainer(nn, new XORDataSet());
-            if(xorTrainer.Train(1000000, 0.01, 0.2, 0.95))
-                nn.SaveWeights(@"C:\Users\William\Dropbox\ISEF\tits.txt");
+            if (xorTrainer.Train(1000000, 0.01, 0.2, 0.95))
+                Console.WriteLine("yes");
 
           
 
