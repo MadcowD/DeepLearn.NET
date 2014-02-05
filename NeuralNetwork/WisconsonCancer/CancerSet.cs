@@ -11,7 +11,7 @@ namespace WisconsonCancer
         public override void Load()
         {
             //Console.WriteLine("Loading dataset.");
-                using (StreamReader sr = new StreamReader("breast-cancerWisconson.data"))
+                using (StreamReader sr = new StreamReader("breast-cancerWisconsonTesting.data"))
                 {
                     while (true)
                     {

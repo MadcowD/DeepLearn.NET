@@ -1,6 +1,7 @@
 ﻿using NeuralLibrary;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,18 @@ namespace WisconsonCancer
     {
         static void Main(string[] args)
         {
-
-            
-            Network nn = new Network(new int[] {9, 12, 2},
-                new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent,
+            Network nn = new Network(new int[] {9, 20, 1},
+                new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent, 
                  Sigmoid.HyperbolicTangent});
             Trainer cancerTrainer = new Trainer(nn, new CancerSet());
-            Console.Write(cancerTrainer.Train(100000, 177.58, 0.08, 0.1));
+            Console.Write(cancerTrainer.Train(40000000, 70, 0.04, 0, true));
+
+            //Save error history
+            string[] filedata = new string[cancerTrainer.ErrorHistory.Count];
+            for (int i = 0; i < filedata.Length; i++)
+                filedata[i] = i.ToString() + "\t" + cancerTrainer.ErrorHistory[i].ToString();
+
+            File.WriteAllLines(@"C:\temp\XOR.txt", filedata);
 
             while (true)
             {
