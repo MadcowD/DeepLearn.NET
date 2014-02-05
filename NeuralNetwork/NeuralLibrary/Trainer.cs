@@ -1,5 +1,6 @@
 ﻿﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 namespace NeuralLibrary
 {
     /// <summary>
@@ -11,6 +12,7 @@ namespace NeuralLibrary
         {
             this.trainingSet = trainingSet;
             this.network = network;
+            this.ErrorHistory = new List<double>();
         }
 
         /// <summary>
@@ -24,6 +26,7 @@ namespace NeuralLibrary
         /// <returns>Whether or not the network was sucessful in learning.</returns>
         public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool nudging = true)
         {
+            ErrorHistory.Clear();
             int epoch = 0;
             double error = 0;
 
@@ -38,24 +41,31 @@ namespace NeuralLibrary
                 error = 0;
                 epoch++;
 
+                //trainingSet.Shuffle();
                 foreach (DataPoint dp in trainingSet)
                     error += network.Train(dp.Input, dp.Desired, learningRate, momentum);
 
+                this.ErrorHistory.Add(error);
+
                 //TODO: REMOVE
-                //if (error > 375)
-                //{
-                //    network.NudgeWeights();
-                //}
+                if (error > 375)
+                {
+                    ErrorHistory.Clear();
+                    network.NudgeWeights();
+                }
 
                 //PERFORM NUDGING
-                if (nudging && epoch % 3000 == 0)
+                if (nudging && epoch % 10 == 0)
                 {
                     //push error along the stack
                     error0 = error1;
                     error1 = error;
 
-                    if (error > network.Output.Length*10 || (Math.Abs(error1 - error0) < 0.0001))
+                    if ((Math.Abs(error1 - error0) < 0.05))
+                    {
+                        ErrorHistory.Clear();
                         network.NudgeWeights();
+                    }
                 }
 
 
@@ -69,6 +79,15 @@ namespace NeuralLibrary
 
             return (error <= minimumError);
         }
+
+        #region Properties
+
+        /// <summary>
+        /// The error history for a given training session (nn);
+        /// </summary>
+        public List<double> ErrorHistory { private set; get; }
+
+        #endregion
 
         #region Fields
 

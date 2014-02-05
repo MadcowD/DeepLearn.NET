@@ -169,8 +169,6 @@ namespace NeuralLibrary
                 GlobalError += Math.Pow(neurons[neurons.Length - 1][i].Output - desired[i], 2);
             }
 
-            errorHistory.Add(GlobalError);
-
             //Propagate the error backwards
             for (int layer = neurons.Length - 2; layer >= 0; layer--)
                 foreach (Neuron n in neurons[layer])
@@ -235,12 +233,6 @@ namespace NeuralLibrary
         /// </summary>
         private Connection[][] connections;
 
-        /// <summary>
-        /// The error history for a given training set.
-        /// </summary>
-        /// <returns></returns>
-        private List<double> errorHistory = new List<double>();
-
         #endregion Fields
 
         #region Properties
@@ -285,17 +277,6 @@ namespace NeuralLibrary
         /// The global error of the network using some squared error.
         /// </summary>
         public double GlobalError { private set; get; }
-
-        /// <summary>
-        /// Gets an array of the error history
-        /// </summary>
-        public double[] ErrorHistory
-        {
-            get
-            {
-                return errorHistory.ToArray();
-            }
-        }
 
         #endregion Properties
 
