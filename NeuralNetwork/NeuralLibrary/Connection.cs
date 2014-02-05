@@ -1,4 +1,6 @@
-﻿namespace NeuralLibrary
+﻿using NeuralLibrary.Neurons;
+using System;
+namespace NeuralLibrary
 {
     /// <summary>
     /// The connection held between two neurons with a given weight.
@@ -48,7 +50,7 @@
         /// <summary>
         /// The last delta weight (used for momentum)
         /// </summary>
-        private double lastDeltaWeight = 0;
+        protected double lastDeltaWeight = 0;
 
         #endregion Fields
 
@@ -57,27 +59,49 @@
         /// <summary>
         /// The anterior neuron within the connection.
         /// </summary>
-        public Neuron AnteriorNeuron { private set; get; }
+        public Neuron AnteriorNeuron { protected set; get; }
 
         /// <summary>
         /// The posterior neuron within the connection.
         /// </summary>
-        public Neuron PosteriorNeuron { private set; get; }
+        public Neuron PosteriorNeuron { protected set; get; }
 
         /// <summary>
         /// Updates the weight of the connection using the weight update rule. dW = ERROR_posterior * OUTPUT_anterior
         /// </summary>
-        public void UpdateWeight(double learningRate, double momentum)
+        public virtual void UpdateWeight(double learningRate, double momentum)
         {
-            double deltaWeight = (PosteriorNeuron.Error * AnteriorNeuron.Output * learningRate) + momentum * lastDeltaWeight;
-            Weight -= deltaWeight;
+            double deltaWeight = -(Gradient * learningRate) + momentum * lastDeltaWeight;
+            Weight += deltaWeight;
             lastDeltaWeight = deltaWeight;
+        }
+
+        /// <summary>
+        /// Gets the gradient of the connection,
+        /// </summary>
+        public double Gradient
+        { 
+            get
+            {
+                double output = 0;
+                if (AnteriorNeuron is BiasNeuron)
+                    output = (AnteriorNeuron as BiasNeuron).Output;
+                else if(AnteriorNeuron is InputNeuron)
+                    output = (AnteriorNeuron as InputNeuron).Output;
+                else
+                    output = AnteriorNeuron.Output;
+
+                //if (PosteriorNeuron.Error * output == 0)
+                //    Console.WriteLine("SHIT");
+                return PosteriorNeuron.Error * output;
+
+            }
         }
 
         /// <summary>
         /// The weight associated with a connection.
         /// </summary>
-        public double Weight { private set; get; }
+        public double Weight { protected set; get; }
 
         #endregion Properties
     }

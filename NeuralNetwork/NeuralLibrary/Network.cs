@@ -14,7 +14,7 @@ namespace NeuralLibrary
         /// Creates a network with default
         /// </summary>
         /// <param name="layers"></param>
-        public Network(params int[] layers)  : this(layers, GenerateSigmoids(layers))
+        public Network(bool RPROP = false, params int[] layers)  : this(layers, GenerateSigmoids(layers), RPROP)
         {
         }
 
@@ -25,7 +25,7 @@ namespace NeuralLibrary
         /// </summary>
         /// <param name="layers"></param>
         /// <param name="activations"></param>
-        public Network(int[] layers, Sigmoid[] activations)
+        public Network(int[] layers, Sigmoid[] activations, bool RPROP = false)
         {
             if (layers.Length < 2)
                 throw new ArgumentException("Not enough layers specified", "layers");
@@ -63,14 +63,19 @@ namespace NeuralLibrary
             #endregion Neuron Initialization
 
             #region Connection Initialization
-
-            connections = new Connection[layerCount - 1][];
+            if(RPROP)
+                connections = new RPROPConnection[layerCount - 1][];
+            else
+                connections = new Connection[layerCount - 1][];
+            
             for (int layer = 0; layer < layerCount - 1; layer++)
             {
                 //Count is equal to the the amount of possible permutations between the layers + the bias and the layer.
                 int count = (neurons[layer].Length + 1) * neurons[layer + 1].Length; //(n_l + n_b)n_(l+1)
-                connections[layer] = new Connection[count];
-
+                if(RPROP)
+                    connections[layer] = new RPROPConnection[count];
+                else
+                    connections[layer] = new Connection[count];
                 //Fill the connections for the layers.
                 for (int j = 0; j < neurons[layer].Length + 1; j++)
                     for (int i = 0; i < neurons[layer + 1].Length; i++)
@@ -78,9 +83,13 @@ namespace NeuralLibrary
                         int con = i + j * neurons[layer + 1].Length;
 
                         if (j == 0) //If the bias
-                            connections[layer][con] = new Connection(Bias, neurons[layer + 1][i]);
+                            connections[layer][con] = 
+                                RPROP ? new RPROPConnection(Bias, neurons[layer + 1][i])
+                                : new Connection(Bias, neurons[layer + 1][i]);
                         else //If normal
-                            connections[layer][con] = new Connection(neurons[layer][j - 1], neurons[layer + 1][i]);
+                            connections[layer][con] = 
+                                RPROP ? new RPROPConnection(neurons[layer][j - 1], neurons[layer + 1][i])
+                                : new Connection(neurons[layer][j - 1], neurons[layer + 1][i]);
                     }
             }
 
@@ -177,8 +186,8 @@ namespace NeuralLibrary
 
                     //Take the sum of Posterior Error * weight
                     foreach (Connection con in connections[layer])
-                        if (con.PosteriorNeuron.Equals(n))
-                            errorCoefficient += con.AnteriorNeuron.Error * con.Weight;
+                        if (con.AnteriorNeuron.Equals(n))
+                            errorCoefficient += con.PosteriorNeuron.Error * con.Weight;
 
                     //Update the error with the derivative of the network's sigmoid
                     n.UpdateError(this.activations[layer], errorCoefficient);

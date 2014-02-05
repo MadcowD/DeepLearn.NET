@@ -30,7 +30,7 @@
         /// </summary>
         public double Net { set; get; }
 
-        public double Output { get; protected set; }
+        public virtual double Output { get; protected set; }
 
         /// <summary>
         /// Updates the output of the neuron.

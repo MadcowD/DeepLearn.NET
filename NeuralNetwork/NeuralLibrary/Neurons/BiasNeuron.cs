@@ -12,7 +12,8 @@
          {
              Net = 1;
              Error = 1;
-             Output = 1;
          }
+
+         public override double Output { get { return 1; } }
      }
  }
