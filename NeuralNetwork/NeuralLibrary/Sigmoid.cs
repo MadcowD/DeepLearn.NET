@@ -49,6 +49,10 @@ namespace NeuralLibrary
         public static Sigmoid HyperbolicTangent =
             new Sigmoid(x => Math.Tanh(x), x => 1 - Math.Pow(Math.Tanh(x), 2));
 
+        public static Sigmoid HyperbolicStep =
+            new Sigmoid(x => Math.Round(HyperbolicTangent.Function(x)),
+                x => Math.Round(HyperbolicTangent.Derivative(x)));
+
         public static Sigmoid Logistic =
             new Sigmoid(x => 1 / (1 + Math.Exp(-x)), x => Math.Exp(x) / Math.Pow(1 + Math.Exp(x), 2));
 
