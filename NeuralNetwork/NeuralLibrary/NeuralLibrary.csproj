@@ -50,6 +50,7 @@
     <Compile Include="Neurons\InputNeuron.cs" />
     <Compile Include="Neurons\OutputNeuron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RPROPConnection.cs" />
     <Compile Include="Sigmoid.cs" />
     <Compile Include="Trainer.cs" />
   </ItemGroup>

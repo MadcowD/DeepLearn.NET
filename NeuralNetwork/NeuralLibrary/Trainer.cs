@@ -61,7 +61,7 @@ namespace NeuralLibrary
                     error0 = error1;
                     error1 = error;
 
-                    if ((Math.Abs(error1 - error0) < 0.1))
+                    if ((Math.Abs(error1 - error0) < 0.0001))
                     {
                         ErrorHistory.Clear();
                         network.NudgeWeights();
