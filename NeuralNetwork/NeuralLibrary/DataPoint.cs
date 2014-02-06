@@ -12,12 +12,14 @@
 
         private double[] desired;
         private double[] input;
-        #endregion
+
+        #endregion Fields
 
         #region Properties
+
         public double[] Input { get { return input; } }
 
-        public double[] Desired { get { return desired; }  }
+        public double[] Desired { get { return desired; } }
 
         #endregion Properties
     }

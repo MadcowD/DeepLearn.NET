@@ -1,5 +1,5 @@
 ﻿using NeuralLibrary.Neurons;
-using System;
+
 namespace NeuralLibrary
 {
     /// <summary>
@@ -33,7 +33,8 @@ namespace NeuralLibrary
         /// <summary>
         /// Nudges the weights.
         /// </summary>
-        public void NudgeWeight(){
+        public void NudgeWeight()
+        {
             this.Weight = Gaussian.GetRandomGaussian();
         }
 
@@ -80,19 +81,18 @@ namespace NeuralLibrary
         /// Gets the gradient of the connection,
         /// </summary>
         public double Gradient
-        { 
+        {
             get
             {
                 double output = 0;
                 if (AnteriorNeuron is BiasNeuron)
                     output = (AnteriorNeuron as BiasNeuron).Output;
-                else if(AnteriorNeuron is InputNeuron)
+                else if (AnteriorNeuron is InputNeuron)
                     output = (AnteriorNeuron as InputNeuron).Output;
                 else
                     output = AnteriorNeuron.Output;
 
                 return PosteriorNeuron.Error * output;
-
             }
         }
 

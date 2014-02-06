@@ -1,8 +1,5 @@
 ﻿using NeuralLibrary.Neurons;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Xml.Serialization;
 
 namespace NeuralLibrary
 {
@@ -14,11 +11,10 @@ namespace NeuralLibrary
         /// Creates a network with default
         /// </summary>
         /// <param name="layers"></param>
-        public Network(bool RPROP = false, params int[] layers)  : this(layers, GenerateSigmoids(layers), RPROP)
+        public Network(bool RPROP = false, params int[] layers)
+            : this(layers, GenerateSigmoids(layers), RPROP)
         {
         }
-
-
 
         /// <summary>
         /// Constructs a neural network with full control over activations.
@@ -63,13 +59,15 @@ namespace NeuralLibrary
             #endregion Neuron Initialization
 
             #region Connection Initialization
-                connections = new Connection[layerCount - 1][];
-            
+
+            connections = new Connection[layerCount - 1][];
+
             for (int layer = 0; layer < layerCount - 1; layer++)
             {
                 //Count is equal to the the amount of possible permutations between the layers + the bias and the layer.
                 int count = (neurons[layer].Length + 1) * neurons[layer + 1].Length; //(n_l + n_b)n_(l+1)
-                    connections[layer] = new Connection[count];
+                connections[layer] = new Connection[count];
+
                 //Fill the connections for the layers.
                 for (int j = 0; j < neurons[layer].Length + 1; j++)
                     for (int i = 0; i < neurons[layer + 1].Length; i++)
@@ -173,7 +171,7 @@ namespace NeuralLibrary
                 foreach (Neuron n in neurons[layer])
                 {
                     double errorCoefficient = 0;
-                    
+
                     //Take the sum of Posterior Error * weight
                     foreach (Connection con in connections[layer])
                         if (con.AnteriorNeuron.Equals(n))
@@ -200,8 +198,8 @@ namespace NeuralLibrary
         /// </summary>
         /// <param name="layers">THe number of layers inb the network.</param>
         /// <returns></returns>
-        private static Sigmoid[] GenerateSigmoids(int[] layers){
-            
+        private static Sigmoid[] GenerateSigmoids(int[] layers)
+        {
             Sigmoid[] funcs = new Sigmoid[layers.Length];
 
             //Standard activations [0] = none, [1] = sigmoid, [output] = linear
@@ -210,9 +208,8 @@ namespace NeuralLibrary
             for (int i = 0; i < funcs.Length; i++)
                 if (i != 0 && i != funcs.Length - 1)
                     funcs[i] = Sigmoid.Logistic;
-            
-            return funcs;
 
+            return funcs;
         }
 
         #endregion Network Functions
@@ -278,7 +275,6 @@ namespace NeuralLibrary
         public double GlobalError { private set; get; }
 
         #endregion Properties
-
 
         public void NudgeWeights()
         {

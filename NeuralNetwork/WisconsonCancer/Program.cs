@@ -1,19 +1,15 @@
 ﻿using NeuralLibrary;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WisconsonCancer
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Network nn = new Network(new int[] {9, 15, 6, 1},
-                new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent, Sigmoid.HyperbolicTangent, 
+            Network nn = new Network(new int[] { 9, 15, 6, 1 },
+                new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent, Sigmoid.HyperbolicTangent,
                  Sigmoid.HyperbolicTangent});
             Trainer cancerTrainer = new Trainer(nn, new CancerSet());
             Console.Write(cancerTrainer.Train(40000000, 3.67, 0.04, 0.2, false));
@@ -38,8 +34,6 @@ namespace WisconsonCancer
                 Console.WriteLine(String.Join(",", nn.Output));
             }
             Console.ReadKey();
-
-            
         }
     }
 }

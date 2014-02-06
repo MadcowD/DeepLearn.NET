@@ -1,16 +1,11 @@
 ﻿using NeuralLibrary;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace XOR
 {
     /// <summary>
     /// The XOR DataSet is the standardized truth table for the XOR (^) operation.
     /// </summary>
-    class XORDataSet : DataSet
+    internal class XORDataSet : DataSet
     {
         public override void Load()
         {

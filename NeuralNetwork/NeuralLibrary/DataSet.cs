@@ -24,7 +24,7 @@ namespace NeuralLibrary
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         public DataSet Shuffle()
-        { 
+        {
             int n = this.Count;
             while (n > 1)
             {
