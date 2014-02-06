@@ -72,6 +72,7 @@ namespace NeuralLibrary
 
 
 #if DEBUG
+                Console.ReadKey();
                 Console.WriteLine("Epoch {0}: Error = {1}", epoch, error);
 #endif
             }

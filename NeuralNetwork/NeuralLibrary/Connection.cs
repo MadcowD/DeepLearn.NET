@@ -91,8 +91,6 @@ namespace NeuralLibrary
                 else
                     output = AnteriorNeuron.Output;
 
-                //if (PosteriorNeuron.Error * output == 0)
-                //    Console.WriteLine("SHIT");
                 return PosteriorNeuron.Error * output;
 
             }

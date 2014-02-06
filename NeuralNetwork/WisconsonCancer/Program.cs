@@ -12,11 +12,11 @@ namespace WisconsonCancer
     {
         static void Main(string[] args)
         {
-            Network nn = new Network(new int[] {9, 20, 1},
-                new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent, 
+            Network nn = new Network(new int[] {9, 15, 6, 1},
+                new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent, Sigmoid.HyperbolicTangent, 
                  Sigmoid.HyperbolicTangent});
             Trainer cancerTrainer = new Trainer(nn, new CancerSet());
-            Console.Write(cancerTrainer.Train(40000000, 10, 0.04, 0, true));
+            Console.Write(cancerTrainer.Train(40000000, 3.67, 0.04, 0.2, false));
 
             //Save error history
             string[] filedata = new string[cancerTrainer.ErrorHistory.Count];

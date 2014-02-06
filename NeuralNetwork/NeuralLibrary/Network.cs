@@ -63,18 +63,12 @@ namespace NeuralLibrary
             #endregion Neuron Initialization
 
             #region Connection Initialization
-            if(RPROP)
-                connections = new RPROPConnection[layerCount - 1][];
-            else
                 connections = new Connection[layerCount - 1][];
             
             for (int layer = 0; layer < layerCount - 1; layer++)
             {
                 //Count is equal to the the amount of possible permutations between the layers + the bias and the layer.
                 int count = (neurons[layer].Length + 1) * neurons[layer + 1].Length; //(n_l + n_b)n_(l+1)
-                if(RPROP)
-                    connections[layer] = new RPROPConnection[count];
-                else
                     connections[layer] = new Connection[count];
                 //Fill the connections for the layers.
                 for (int j = 0; j < neurons[layer].Length + 1; j++)
@@ -83,13 +77,9 @@ namespace NeuralLibrary
                         int con = i + j * neurons[layer + 1].Length;
 
                         if (j == 0) //If the bias
-                            connections[layer][con] = 
-                                RPROP ? new RPROPConnection(Bias, neurons[layer + 1][i])
-                                : new Connection(Bias, neurons[layer + 1][i]);
+                            connections[layer][con] = new Connection(Bias, neurons[layer + 1][i]);
                         else //If normal
-                            connections[layer][con] = 
-                                RPROP ? new RPROPConnection(neurons[layer][j - 1], neurons[layer + 1][i])
-                                : new Connection(neurons[layer][j - 1], neurons[layer + 1][i]);
+                            connections[layer][con] = new Connection(neurons[layer][j - 1], neurons[layer + 1][i]);
                     }
             }
 
@@ -183,7 +173,7 @@ namespace NeuralLibrary
                 foreach (Neuron n in neurons[layer])
                 {
                     double errorCoefficient = 0;
-
+                    
                     //Take the sum of Posterior Error * weight
                     foreach (Connection con in connections[layer])
                         if (con.AnteriorNeuron.Equals(n))
