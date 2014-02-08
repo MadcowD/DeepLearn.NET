@@ -99,7 +99,7 @@ namespace NeuralLibrary
         /// <summary>
         /// The weight associated with a connection.
         /// </summary>
-        public double Weight { protected set; get; }
+        public double Weight { internal set; get; }
 
         #endregion Properties
     }

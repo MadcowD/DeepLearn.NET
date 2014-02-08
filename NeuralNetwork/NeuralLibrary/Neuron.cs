@@ -1,4 +1,7 @@
-﻿namespace NeuralLibrary
+﻿using System.Linq;
+
+
+namespace NeuralLibrary
 {
     /// <summary>
     /// The base unit of the neural network.
@@ -57,5 +60,14 @@
         }
 
         #endregion Properties
+
+        public int GetID(Network network)
+        {
+            foreach (Neuron[] n in network.Neurons)
+                for (int i = 0; i < n.Length; i++)
+                    if (n[i].Equals(this))
+                        return i;
+            return -1;
+        }
     }
 }

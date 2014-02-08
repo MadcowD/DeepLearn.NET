@@ -12,7 +12,7 @@ namespace WisconsonCancer
                 new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent, Sigmoid.HyperbolicTangent,
                  Sigmoid.HyperbolicTangent});
             Trainer cancerTrainer = new Trainer(nn, new CancerSet());
-            Console.Write(cancerTrainer.Train(40000000, 3.67, 0.04, 0.2, false));
+            Console.Write(cancerTrainer.Train(40000000, 6, 0.04, 0.2, false));
 
             //Save error history
             string[] filedata = new string[cancerTrainer.ErrorHistory.Count];
