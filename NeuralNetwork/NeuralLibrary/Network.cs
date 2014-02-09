@@ -258,7 +258,7 @@ namespace NeuralLibrary
             for (int i = 0; i < desired.Length; i++)
             {
                 (Neurons[Neurons.Length - 1][i] as OutputNeuron).UpdateError(this.Activations[Neurons.Length - 1], desired[i]);
-                GlobalError += Math.Pow(Neurons[Neurons.Length - 1][i].Output - desired[i], 2);
+                GlobalError += Math.Pow(Neurons[Neurons.Length - 1][i].Output - desired[i], 2)/2;
             }
 
             //Propagate the error backwards
@@ -381,6 +381,21 @@ namespace NeuralLibrary
             return Connections[layer].First(x =>
                 x.AnteriorNeuron.GetID(this) == anteriorNeuron
                 && x.PosteriorNeuron.GetID(this) == posteriorNeuron);
+        }
+
+
+        /// <summary>
+        /// Gets an array of the ewights in the nwetwork.
+        /// </summary>
+        /// <returns></returns>
+        public double[] GetWeights()
+        {
+            List<double> weights = new List<double>();
+            foreach (Connection[] layer in Connections)
+                foreach (Connection c in layer)
+                    weights.Add(c.Weight);
+
+            return weights.ToArray();
         }
 
         #endregion Properties

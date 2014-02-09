@@ -21,6 +21,23 @@
 
         public double[] Desired { get { return desired; } }
 
+
+        public override string ToString()
+        {
+            string x = "";
+
+            foreach (double input in Input)
+            {
+                x += "," + ((int)input).ToString();
+            }
+            foreach(double output in Desired)
+            {
+                x += "," + (2 + 2 *(int)output).ToString();
+            }
+
+            return x;
+        }
+
         #endregion Properties
     }
 }

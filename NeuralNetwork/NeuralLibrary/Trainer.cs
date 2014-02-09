@@ -34,8 +34,6 @@ namespace NeuralLibrary
             double error0 = -1;
             double error1 = -1;
 
-            trainingSet.Load();
-
             do
             {
                 error = 0;
