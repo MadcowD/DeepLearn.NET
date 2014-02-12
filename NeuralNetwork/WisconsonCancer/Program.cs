@@ -9,8 +9,9 @@ namespace WisconsonCancer
 {
     internal class Program
     {
-        public static double Step(double d){
-            if(d > 0.05)
+        public static double Step(double d)
+        {
+            if (d > 0.05)
                 return 1;
             else
                 return 0;
@@ -38,7 +39,7 @@ namespace WisconsonCancer
                     foreach (DataPoint dp in cset)
                     {
                         nn.FeedForward(dp.Input);
-                        error += Math.Pow(dp.Desired[0] - nn.Output[0], 2) / 2; 
+                        error += Math.Pow(dp.Desired[0] - nn.Output[0], 2) / 2;
                     }
 
                     file.Add(x.ToString() + " " + y.ToString() + " " + error.ToString());
@@ -54,18 +55,18 @@ namespace WisconsonCancer
         /// <param name="args"></param>
         public static void MainInputOutputVairence(string[] args)
         {
-            
+
 
             string fileName = fileTest + "nn8\\inputOuputData";
             Network nn = Network.Load(fileTest + "nn8\\network.nn");
 
             //make 4 level surfaces
-            for(int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 Console.WriteLine("Surface " + i);
                 List<string> file = new List<string>();
-                double v = i*1.67;
-                
+                double v = i * 1.67;
+
                 for (double x = 0; x < 10; x += 0.1)
                     for (double y = 0; y < 10; y += 0.1)
                     {
@@ -99,7 +100,7 @@ namespace WisconsonCancer
                 Network nn = Network.Load(fileTest + "nn" + i + "\\network.nn");
 
                 double[] weights = nn.GetWeights();
-                for(int ix = 0; ix < nn.GetWeights().Length; ix++)
+                for (int ix = 0; ix < nn.GetWeights().Length; ix++)
                     file.Add((i).ToString() + " " + (ix).ToString() + " " + (weights[ix]).ToString());
 
             }
@@ -127,10 +128,10 @@ namespace WisconsonCancer
                 List<string> file = new List<string>();
 
 
-                for (int set = 0; set < cset.Count; set++ )
+                for (int set = 0; set < cset.Count; set++)
                 {
                     nn.FeedForward(cset[set].Input);
-                    error[i][set] = Math.Pow(Step(nn.Output[0]) - cset[set].Desired[0], 2)/2;
+                    error[i][set] = Math.Pow(Step(nn.Output[0]) - cset[set].Desired[0], 2) / 2;
                     TotalError += error[i][set];
                     file.Add(set + " " + error[i][set]);
                 }
@@ -141,7 +142,7 @@ namespace WisconsonCancer
 
             List<string> full = new List<string>();
             double fullError = 0;
-            for(int i = 0; i < cset.Count; i++)
+            for (int i = 0; i < cset.Count; i++)
             {
                 double errorinst = 0;
 
@@ -154,14 +155,14 @@ namespace WisconsonCancer
                 full.Add(i + " " + errorinst.ToString());
             }
 
-            fullError/= cset.Count;
+            fullError /= cset.Count;
             full.Add(fullError.ToString());
             System.IO.File.WriteAllLines(fileTest + "analysis.txt", full);
 
-            
+
         }
 
-        
+
         /// <summary>
         /// Trains the neural network given outputs
         /// </summary>

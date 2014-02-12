@@ -102,8 +102,7 @@ namespace NeuralLibrary
             BackPropagate(desired);
             UpdateWeights(learningRate, momentum);
 
-            //DEBUG INFO
-            //Console.WriteLine("\tInput ({0}) Output ({1}) Error {2:0.000}" , String.Join(", ", GetInput()), String.Join(", ", GetOutput()), this.GlobalError);
+
             return GlobalError;
         }
 
@@ -190,10 +189,9 @@ namespace NeuralLibrary
 
         #endregion Read/Write
 
-
         #region Network Functions
         /// <summary>
-        /// nUDGES ALL OF THE WEIGHTS OF THE NEURAL NETWORK
+        /// Nudges all of the weights in the network
         /// </summary>
         public void NudgeWeights()
         {
@@ -289,7 +287,7 @@ namespace NeuralLibrary
         }
 
         /// <summary>
-        /// Generates the sigmoid functions for the neural consteruct
+        /// Generates the sigmoid functions for the neural construct
         /// </summary>
         /// <param name="layers">THe number of layers inb the network.</param>
         /// <returns></returns>
@@ -399,7 +397,5 @@ namespace NeuralLibrary
         }
 
         #endregion Properties
-
-
     }
 }
