@@ -7,7 +7,7 @@ namespace XOR
     {
         private static void Main(string[] args)
         {
-            Network nn = new Network(false, 2,4,1);
+            Network nn = new Network(false, 2,5,1);
             DataSet ds = new XORDataSet();
             ds.Load();
             Trainer xorTrainer = new Trainer(nn, ds);
