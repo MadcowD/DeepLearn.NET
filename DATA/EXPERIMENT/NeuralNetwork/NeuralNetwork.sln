@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralLibrary", "NeuralLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XOR", "XOR\XOR.csproj", "{3CD91FF5-5345-4BFA-9EDE-81DA6B2E793C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericalExperiment", "NumericalExperiment\NumericalExperiment.csproj", "{0F743CA4-5BFA-4431-9914-FEC329FFFE77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,16 @@ Global
 		{3CD91FF5-5345-4BFA-9EDE-81DA6B2E793C}.Release|ARM.ActiveCfg = Release|Any CPU
 		{3CD91FF5-5345-4BFA-9EDE-81DA6B2E793C}.Release|x64.ActiveCfg = Release|Any CPU
 		{3CD91FF5-5345-4BFA-9EDE-81DA6B2E793C}.Release|x86.ActiveCfg = Release|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Release|ARM.ActiveCfg = Release|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Release|x64.ActiveCfg = Release|Any CPU
+		{0F743CA4-5BFA-4431-9914-FEC329FFFE77}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
