@@ -1,0 +1,35 @@
+ Network nn = new Network(9, 9, 9, 9, 6, 2);
+            Trainer cancerTrainer = new Trainer(nn, new CancerSet());
+            double learningRate = 0.1444;
+            double bestError = 100000;
+
+            int epoch = 0;
+            double ge;
+            double bestAverage = 100000;
+
+            int spread = 50;
+
+            double geSum = 0;
+            while (!cancerTrainer.Train(100000, 210, learningRate, 0.1, out ge))
+            {
+                                geSum += ge;
+                if (ge < bestError)
+                {
+                    bestError = ge;
+                    Console.WriteLine("NEW: {0}: {1}", bestError, learningRate);
+                }
+
+                Console.WriteLine(epoch);
+                epoch++;
+
+
+                 if (epoch % spread == 0)
+                 {
+                     if (geSum / spread < bestAverage)
+                     {
+                         bestAverage = geSum / spread;
+                         Console.WriteLine("NEW BEST AVG:");
+                     }
+                     Console.WriteLine("LR-EVG {0}: {1}", learningRate, geSum / spread);
+                     geSum = 0;
+                     learningRate -= 0.0001;
