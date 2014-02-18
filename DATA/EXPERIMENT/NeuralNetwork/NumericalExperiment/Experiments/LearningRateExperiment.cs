@@ -8,9 +8,10 @@ namespace NumericalExperiment.Experiments
 {
     public class LearningRateExperiment : Experiment
     {
+        public LearningRateExperiment
         public override string[] Run()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
