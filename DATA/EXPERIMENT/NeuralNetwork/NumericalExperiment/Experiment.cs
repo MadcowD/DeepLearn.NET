@@ -10,11 +10,10 @@ namespace NumericalExperiment
 {
     public abstract class Experiment
     {
-        public Experiment(DataSet trainingSet, DataSet testingSet)
+        public Experiment(CancerData trainingSet, CancerData testingSet)
         {
             this.trainingSet = trainingSet;
             this.testingSet = testingSet;
-            this.data = new List<string>();
         }
 
         /// <summary>
@@ -23,14 +22,13 @@ namespace NumericalExperiment
         /// </summary>
         public virtual void Run()
         {
-            this.data.Clear();
         }
 
         /// <summary>
         /// Runs the experiment as a thread.
         /// </summary>
         /// <returns></returns>
-        public sealed bool RunAsThread()
+        public bool RunAsThread()
         {
             if (worker == null)
             {
@@ -51,31 +49,30 @@ namespace NumericalExperiment
         /// Writes data to a file and then clears the data.
         /// </summary>
         /// <param name="fileLocation"></param>
-        public void SaveData(string fileLocation)
+        public void SaveData(string fileLocation, List<string> data)
         {
-            System.IO.File.WriteAllLines(fileLocation, data.ToArray());
+            System.IO.File.WriteAllLines(DATASTORE + PERSIST + fileLocation, data.ToArray());
             data.Clear();
         }
 
         #region Properties
 
-        /// <summary>
-        /// The data for a given experiment.
-        /// </summary>
-        protected List<String> data;
-
 
         /// <summary>
         /// The datastore location
         /// </summary>
-        public static string DATASTORE = @"..\..\..\..\..\OUTPUT\";
+        public static string DATASTORE = @"..\..\..\..\OUTPUT\";
 
+        /// <summary>
+        /// THE FOLDER IN WHICH THE DATA WILL GO
+        /// </summary>
+        public abstract string PERSIST { get; }
         #endregion
 
         #region Fields
         Thread worker;
-        protected DataSet trainingSet;
-        protected DataSet testingSet;
+        protected CancerData trainingSet;
+        protected CancerData testingSet;
         #endregion Fields
 
         #region CONTROLS

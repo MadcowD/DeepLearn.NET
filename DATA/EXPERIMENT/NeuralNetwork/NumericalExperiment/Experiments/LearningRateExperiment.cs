@@ -14,7 +14,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         /// <param name="training">The set on which the learning rate will train on.</param>
         /// <param name="testing">The set of testing experiment</param>
-        public LearningRateExperiment(DataSet training, DataSet testing) : 
+        public LearningRateExperiment(CancerData training, CancerData testing) : 
             base(training, testing)
         {
         }
@@ -31,18 +31,23 @@ namespace NumericalExperiment.Experiments
             Network nn = new Network(false, NETWORK_SIZE);
             Trainer trainer = new Trainer(nn, this.trainingSet);
 
-            //TRAIN USING DIFFERENT LEARNING RATES
-            for (double lr = 0; lr < 1; lr += 0.05)
-            {
-                trainer.Train(NETWORK_EPOCHS, 10, lr, NETWORK_MOMENTUM, NETWORK_NUDGING);
+            for (int n = 0; n < 10; n++)
+                //TRAIN USING DIFFERENT LEARNING RATES
+                for (double lr = 0; lr < 1; lr += 0.05)
+                {
+                    trainer.Train(NETWORK_EPOCHS, 10, lr, NETWORK_MOMENTUM, NETWORK_NUDGING);
+                    nn.NudgeWeights();
 
-
-            }
+                }
         }
 
         #region Fields
-        string PERSIST = @"LR\";
         List<string> testingError = new List<string>();
         #endregion
+
+        public override string PERSIST
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

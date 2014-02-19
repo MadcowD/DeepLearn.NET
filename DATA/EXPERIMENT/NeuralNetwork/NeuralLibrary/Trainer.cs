@@ -45,13 +45,6 @@ namespace NeuralLibrary
 
                 this.ErrorHistory.Add(error);
 
-                //TODO: REMOVE
-                if (error > 375)
-                {
-                    ErrorHistory.Clear();
-                    network.NudgeWeights();
-                }
-
                 //PERFORM NUDGING
                 if (nudging && epoch % 10 == 0)
                 {

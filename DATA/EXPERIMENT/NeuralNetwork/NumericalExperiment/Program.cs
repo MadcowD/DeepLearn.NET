@@ -11,8 +11,12 @@ namespace NumericalExperiment
     {
         static void Main(string[] args)
         {
-            DataSet ds = new TrainingData();
-            ds.Load();
+            //Test loading
+            CancerData data = new CancerData("training.dat");
+            foreach (DataPoint dp in data)
+                Console.WriteLine(string.Join(",", dp.Input));
+
+            
 
         }
     }
