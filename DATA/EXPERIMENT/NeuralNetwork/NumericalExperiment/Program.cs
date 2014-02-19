@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NeuralLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,9 @@ namespace NumericalExperiment
     {
         static void Main(string[] args)
         {
+            DataSet ds = new TrainingData();
+            ds.Load();
+
         }
     }
 }

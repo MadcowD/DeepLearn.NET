@@ -9,5 +9,9 @@ namespace NumericalExperiment
 {
     class TestingData : DataSet
     {
+        public override void Load()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

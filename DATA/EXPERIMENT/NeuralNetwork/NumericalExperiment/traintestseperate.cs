@@ -1,43 +1,44 @@
-﻿using NeuralLibrary;
+using NeuralLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace NumericalExperiment
 {
-    class TrainingData : DataSet
+    class traintestseperate
     {
-        public override void Load()
+        static void Main(string[] args)
         {
-            using (StreamReader sr = new StreamReader(@"\..\..\..\..\DATASET\training.dat"))
+			using (StreamReader sr = new StreamReader(@"\..\..\..\..\DATASET\original.dat"))
             {
+                int counter = 0;
                 while (true)
                 {
+                    /*
                     String line = sr.ReadLine();
 
                     if (line == null)
                         break;
 
-                    double[] inputs = new double[9];
+                    double[] inputs = new double[30];
                     string[] s = line.Split(',');
 
-                    for (int i = 1; i < 10; i++)
+                    for (int i = 2; i < 32; i++)
                     {
-                        inputs[i - 1] = double.Parse(s[i]);
+                        inputs[i - 2] = double.Parse(s[i]);
                     }
 
                     double[] desired = new double[1] { 0 };
 
                     //Switch inputs
-                    if (double.Parse(s[s.Length - 1]) == 2)
+                    if ((s[1]) == 'B')
                         desired[0] = 0;
                     else
                         desired[0] = 1;
 
-                    this.Add(new DataPoint(inputs, desired));
+                    this.Add(new DataPoint(inputs, desired));*/
                 }
             }
         }

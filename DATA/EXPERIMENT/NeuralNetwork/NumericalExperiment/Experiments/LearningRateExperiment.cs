@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NumericalExperiment.Experiments
 {
-    public class LearningRateExperiment : Experiment
-    {
-        public override string[] Run()
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //public class LearningRateExperiment : Experiment
+    //{
+    //    public override string[] Run()
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 }
