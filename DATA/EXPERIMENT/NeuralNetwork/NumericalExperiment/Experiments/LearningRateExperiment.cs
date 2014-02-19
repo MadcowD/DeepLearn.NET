@@ -14,7 +14,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         /// <param name="training">The set on which the learning rate will train on.</param>
         /// <param name="testing">The set of testing experiment</param>
-        public LearningRateExperiment(DataSet training, DataSet testing) : 
+        public LearningRateExperiment(CancerData training, CancerData testing) : 
             base(training, testing)
         {
         }
@@ -28,21 +28,32 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override void Run()
         {
-            Network nn = new Network(false, NETWORK_SIZE);
-            Trainer trainer = new Trainer(nn, this.trainingSet);
 
-            //TRAIN USING DIFFERENT LEARNING RATES
-            for (double lr = 0; lr < 1; lr += 0.05)
-            {
-                trainer.Train(NETWORK_EPOCHS, 10, lr, NETWORK_MOMENTUM, NETWORK_NUDGING);
+                //TRAIN USING DIFFERENT LEARNING RATES
+                for (double lr = 0; lr < 1; lr += 0.05)
+                {
+                    string subdirectory = lr + @"\";
+                    for(int i = 0; i < 10; i++)
+                    {
+                        Network nn = new Network(false, NETWORK_SIZE);
+                        Trainer trainer = new Trainer(nn, this.trainingSet);
 
-
-            }
+                        trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, lr, NETWORK_MOMENTUM, NETWORK_NUDGING);
+                        this.Analyze(subdirectory + i +"\\", trainer, nn);
+                    }
+                }
         }
 
         #region Fields
-        string PERSIST = @"LR\";
         List<string> testingError = new List<string>();
         #endregion
+
+        /// <summary>
+        /// Essentially the sub-directory in which the persistent store data will be held.
+        /// </summary>
+        public override string PERSIST
+        {
+            get { return @"LR\"; }
+        }
     }
 }

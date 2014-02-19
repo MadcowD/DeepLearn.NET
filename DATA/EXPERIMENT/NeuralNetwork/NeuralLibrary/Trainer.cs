@@ -1,5 +1,7 @@
 ﻿﻿using System;
+using System.Linq;
 using System.Collections.Generic;
+using System.IO;
 
 namespace NeuralLibrary
 {
@@ -45,13 +47,6 @@ namespace NeuralLibrary
 
                 this.ErrorHistory.Add(error);
 
-                //TODO: REMOVE
-                if (error > 375)
-                {
-                    ErrorHistory.Clear();
-                    network.NudgeWeights();
-                }
-
                 //PERFORM NUDGING
                 if (nudging && epoch % 10 == 0)
                 {
@@ -90,5 +85,7 @@ namespace NeuralLibrary
         private DataSet trainingSet;
 
         #endregion Fields
+
+
     }
 }

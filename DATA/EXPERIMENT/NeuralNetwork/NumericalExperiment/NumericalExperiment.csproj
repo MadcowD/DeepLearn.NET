@@ -43,10 +43,10 @@
   <ItemGroup>
     <Compile Include="Experiment.cs" />
     <Compile Include="Experiments\LearningRateExperiment.cs" />
+    <Compile Include="Experiments\ControlExperiment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestingData.cs" />
-    <Compile Include="TrainingData.cs" />
+    <Compile Include="CancerData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
