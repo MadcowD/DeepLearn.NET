@@ -10,7 +10,7 @@ namespace NumericalExperiment
 {
     public abstract class Experiment
     {
-        public Experiment(DataSet trainingSet, DataSet testingSet) 
+        public Experiment(DataSet trainingSet, DataSet testingSet)
         {
             this.trainingSet = trainingSet;
             this.testingSet = testingSet;
@@ -23,7 +23,7 @@ namespace NumericalExperiment
         /// </summary>
         public virtual void Run()
         {
-            this.Data.Clear();
+            this.data.Clear();
         }
 
         /// <summary>
@@ -74,8 +74,17 @@ namespace NumericalExperiment
 
         #region Fields
         Thread worker;
-        DataSet trainingSet;
-        DataSet testingSet;
+        protected DataSet trainingSet;
+        protected DataSet testingSet;
         #endregion Fields
+
+        #region CONTROLS
+        public static int[] NETWORK_SIZE = new int[] { 10, 30, 20, 1 };
+        public static double NETWORK_MOMENTUM = 0.1;
+        public static double NETWORK_LEARNING_RATE = 0.01;
+        public static int NETWORK_EPOCHS = 100000;
+        public static bool NETWORK_NUDGING = false;
+
+        #endregion CONTROLS
     }
 }
