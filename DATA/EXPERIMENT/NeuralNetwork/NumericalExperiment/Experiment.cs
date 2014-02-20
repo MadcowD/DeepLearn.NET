@@ -20,9 +20,7 @@ namespace NumericalExperiment
         /// Runs the experiment
         /// <returns>The results of the experiment.</returns>
         /// </summary>
-        public virtual void Run()
-        {
-        }
+        public abstract void Run();
 
         /// <summary>
         /// Runs the experiment as a thread.
@@ -46,13 +44,34 @@ namespace NumericalExperiment
         }
 
         /// <summary>
+        /// Anylizes the current experiment data and saves an anakysis within a sub directory of (ID)
+        /// </summary>
+        public void Analyze(string id, Trainer trainer, Network nn)
+        {
+            nn.Save(DATASTORE + PERSIST + id + "weights.nn"); //Save weights
+            SaveData(DATASTORE + PERSIST + id + "convergence.dat",
+                trainer.ErrorHistory.Select((x,i) => i.ToString() + x.ToString()).ToArray()); //Save convergence
+
+            //Collect the error for each testing point
+            double[] testingError = testingSet.Select(
+                x =>
+                {
+                    nn.FeedForward(x.Input);
+                    return 0.5*Math.Pow(nn.Output[0] - x.Desired[0],2);
+                }).ToArray();
+            SaveData(DATASTORE + PERSIST + id + "analysis.dat",
+                testingError.Select((x, i) => i.ToString() + " " + x.ToString()).ToArray());
+
+
+        }
+
+        /// <summary>
         /// Writes data to a file and then clears the data.
         /// </summary>
         /// <param name="fileLocation"></param>
-        public void SaveData(string fileLocation, List<string> data)
+        protected void SaveData(string fileLocation, string[] data)
         {
-            System.IO.File.WriteAllLines(DATASTORE + PERSIST + fileLocation, data.ToArray());
-            data.Clear();
+            System.IO.File.WriteAllLines(fileLocation, data);
         }
 
         #region Properties
@@ -76,11 +95,12 @@ namespace NumericalExperiment
         #endregion Fields
 
         #region CONTROLS
-        public static int[] NETWORK_SIZE = new int[] { 10, 30, 20, 1 };
-        public static double NETWORK_MOMENTUM = 0.1;
-        public static double NETWORK_LEARNING_RATE = 0.01;
+        public static int[] NETWORK_SIZE = new int[] { 30, 40, 40, 1 };
+        public static double NETWORK_MOMENTUM = 0;
+        public static double NETWORK_LEARNING_RATE = 0.001;
         public static int NETWORK_EPOCHS = 100000;
         public static bool NETWORK_NUDGING = false;
+        public static double NETWORK_ERROR = 3;
 
         #endregion CONTROLS
     }

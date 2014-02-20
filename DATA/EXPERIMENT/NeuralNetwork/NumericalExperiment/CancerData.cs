@@ -43,12 +43,13 @@ namespace NumericalExperiment
             foreach (string line in data)
             {
                 string[] dp = line.Split(',');
+
                 double[] input = dp
                     .Skip(2)
                     .Select(x => double.Parse(x))
                     .ToArray(); //GOD I LOVE LINQ <--
                 //Output is 0 if malignant and 1 if otherwise
-                double[] desired = new double[1] { dp[0].Equals("M") ? 0 : 1 };
+                double[] desired = new double[1] { dp[1].Equals("M") ? 0 : 1 };
 
                 dataset.Add(new DataPoint(input, desired));
             }
