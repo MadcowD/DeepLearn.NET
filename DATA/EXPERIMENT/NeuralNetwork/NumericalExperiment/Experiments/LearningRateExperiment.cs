@@ -28,16 +28,19 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override void Run()
         {
-            Network nn = new Network(false, NETWORK_SIZE);
-            Trainer trainer = new Trainer(nn, this.trainingSet);
 
-            for (int n = 0; n < 10; n++)
                 //TRAIN USING DIFFERENT LEARNING RATES
                 for (double lr = 0; lr < 1; lr += 0.05)
                 {
-                    trainer.Train(NETWORK_EPOCHS, 10, lr, NETWORK_MOMENTUM, NETWORK_NUDGING);
-                    nn.NudgeWeights();
+                    string subdirectory = lr + @"\";
+                    for(int i = 0; i < 10; i++)
+                    {
+                        Network nn = new Network(false, NETWORK_SIZE);
+                        Trainer trainer = new Trainer(nn, this.trainingSet);
 
+                        trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, lr, NETWORK_MOMENTUM, NETWORK_NUDGING);
+                        this.Analyze(subdirectory + i +"\\", trainer, nn);
+                    }
                 }
         }
 
@@ -45,9 +48,12 @@ namespace NumericalExperiment.Experiments
         List<string> testingError = new List<string>();
         #endregion
 
+        /// <summary>
+        /// Essentially the sub-directory in which the persistent store data will be held.
+        /// </summary>
         public override string PERSIST
         {
-            get { throw new NotImplementedException(); }
+            get { return @"LR\"; }
         }
     }
 }
