@@ -95,8 +95,8 @@ namespace NumericalExperiment
         #endregion Fields
 
         #region CONTROLS
-        public static int[] NETWORK_SIZE = new int[] { 30, 40, 40, 1 };
-        public static double NETWORK_MOMENTUM = 0;
+        public static int[] NETWORK_SIZE = new int[] { 30, 120, 60, 1 };
+        public static double NETWORK_MOMENTUM = .9;
         public static double NETWORK_LEARNING_RATE = 0.001;
         public static int NETWORK_EPOCHS = 100000;
         public static bool NETWORK_NUDGING = false;
