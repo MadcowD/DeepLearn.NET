@@ -32,10 +32,6 @@ namespace NeuralLibrary
             int epoch = 0;
             double error = 0;
 
-            //nudging
-            double error0 = -1;
-            double error1 = -1;
-
             do
             {
                 error = 0;
@@ -50,11 +46,8 @@ namespace NeuralLibrary
                 //PERFORM NUDGING
                 if (nudging && epoch % 10 == 0)
                 {
-                    //push error along the stack
-                    error0 = error1;
-                    error1 = error;
 
-                    if ((Math.Abs(error1 - error0) < 0.0001))
+                    if (ErrorHistory.Skip(Math.Max(0, ErrorHistory.Count - 10)).StdDev() < 0.01) 
                     {
                         ErrorHistory.Clear();
                         network.NudgeWeights();
@@ -86,6 +79,20 @@ namespace NeuralLibrary
 
         #endregion Fields
 
+        #region Helpers
 
+        /// <summary>
+        /// Bounds a double to a range.
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public double Bound(double val, double min, double max)
+        {
+            return val > min && val < max ? val : val < min ? min : max;
+        }
+
+        #endregion
     }
 }
