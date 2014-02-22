@@ -32,13 +32,14 @@ namespace NumericalExperiment.Experiments
                 //TRAIN USING DIFFERENT LEARNING RATES
                 //for (double lr = 0; lr < 1; lr += 0.05)
                 //{
-                    //string subdirectory = lr + @"\";
+                    
                     for(int i = 0; i < 20; i++)
                     {
+                        string subdirectory = i + @"\";
                         Network nn = new Network(false, NETWORK_SIZE);
                         Trainer trainer = new Trainer(nn, this.trainingSet);
 
-                        trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNINGRATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
+                        trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNING_RATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
                         this.Analyze(subdirectory + i +"\\", trainer, nn);
                     }
                 //}
