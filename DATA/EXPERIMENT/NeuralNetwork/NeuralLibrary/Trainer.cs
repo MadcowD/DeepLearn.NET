@@ -44,13 +44,15 @@ namespace NeuralLibrary
                 this.ErrorHistory.Add(error);
 
                 //PERFORM NUDGING
-                if (nudging && epoch % 10 == 0)
+                if (epoch % 20 == 0)
                 {
-
-                    if (ErrorHistory.Skip(Math.Max(0, ErrorHistory.Count - 10)).StdDev() < 0.01) 
+                    //IF NETWORK IS NOT MOVING
+                    if (ErrorHistory.Skip(Math.Max(0, ErrorHistory.Count - 10)).StdDev() < 0.001) 
                     {
-                        ErrorHistory.Clear();
-                        network.NudgeWeights();
+                        if (nudging)
+                            network.NudgeWeights(); //Nudge the weights
+                        else
+                            return error <= minimumError; //Stop the training
                     }
                 }
 

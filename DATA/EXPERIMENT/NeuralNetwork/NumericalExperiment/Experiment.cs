@@ -1,6 +1,7 @@
 ﻿using NeuralLibrary;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -48,9 +49,10 @@ namespace NumericalExperiment
         /// </summary>
         public void Analyze(string id, Trainer trainer, Network nn)
         {
+            (new FileInfo(DATASTORE + PERSIST + id)).Directory.Create();
             nn.Save(DATASTORE + PERSIST + id + "weights.nn"); //Save weights
             SaveData(DATASTORE + PERSIST + id + "convergence.dat",
-                trainer.ErrorHistory.Select((x,i) => i.ToString() + x.ToString()).ToArray()); //Save convergence
+                trainer.ErrorHistory.Select((x,i) => i.ToString() + " " + x.ToString()).ToArray()); //Save convergence
 
             //Collect the error for each testing point
             double[] testingError = testingSet.Select(
@@ -59,9 +61,19 @@ namespace NumericalExperiment
                     nn.FeedForward(x.Input);
                     return 0.5*Math.Pow(nn.Output[0] - x.Desired[0],2);
                 }).ToArray();
-            SaveData(DATASTORE + PERSIST + id + "analysis.dat",
+            SaveData(DATASTORE + PERSIST + id + "testingError.dat",
                 testingError.Select((x, i) => i.ToString() + " " + x.ToString()).ToArray());
 
+
+            List<string> analysis = new List<string>();
+            analysis.Add("Converged: " + (testingError.Sum() < NETWORK_ERROR).ToString());
+            analysis.Add("Error: " + testingError.Sum());
+            analysis.Add("Average Error: " + testingError.Average());
+            analysis.Add("Proportional Error: " + testingError.Sum() / (testingSet.Count()*2));
+            analysis.Add("Error Standard Deviation: " + testingError.StdDev());
+            analysis.Add("Epochs: " + trainer.ErrorHistory.Count());
+
+            SaveData(DATASTORE + PERSIST + id + "analysis.txt", analysis.ToArray());
 
         }
 
