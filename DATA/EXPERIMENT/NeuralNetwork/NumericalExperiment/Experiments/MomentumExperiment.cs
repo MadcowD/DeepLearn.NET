@@ -38,7 +38,7 @@ namespace NumericalExperiment.Experiments
                         Network nn = new Network(false, NETWORK_SIZE);
                         Trainer trainer = new Trainer(nn, this.trainingSet);
 
-                        trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNINGRATE, mm, NETWORK_NUDGING);
+                        trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNING_RATE, mm, NETWORK_NUDGING);
                         this.Analyze(subdirectory + i +"\\", trainer, nn);
                     }
                 }

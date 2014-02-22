@@ -29,22 +29,22 @@ namespace NumericalExperiment.Experiments
         public override void Run()
         {
                 //TRAIN USING DIFFERENT LEARNING RATES
-                for (double hl = 0; hl < 10; hl += 1) 
+                for (int hl = 0; hl < 10; hl += 1) 
                 {
                     string subdirectory = hl + @"\";
                     for(int i = 0; i < 10; i++)
                     {
                         int [] hiddenlayers = new int[hl+2];
                         hiddenlayers[0] = NETWORK_SIZE[0];
-                        hiddenlayers[hiddenlayers.size - 1] = 1;
-                        for(int j = 1; j < hiddenlayers.size-1; j++)
+                        hiddenlayers[hiddenlayers.Length - 1] = 1;
+                        for(int j = 1; j < hiddenlayers.Length-1; j++)
                         {
-                            hiddenlayers[j] = 40;
+                            hiddenlayers[j] = NETWORK_SIZE[1];
                         }
                         Network nn = new Network(false, hiddenlayers);
                         Trainer trainer = new Trainer(nn, this.trainingSet);
 
-                        trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNINGRATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
+                        trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNING_RATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
                         this.Analyze(subdirectory + i +"\\", trainer, nn);
                     }
                 }

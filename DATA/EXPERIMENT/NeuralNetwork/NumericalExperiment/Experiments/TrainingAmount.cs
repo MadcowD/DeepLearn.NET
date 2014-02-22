@@ -30,7 +30,7 @@ namespace NumericalExperiment.Experiments
         {
 
                 //TRAIN USING DIFFERENT LEARNING RATES
-                for (double ta = 0; ta < 500; ta += 50)
+                for (int ta = 0; ta < 500; ta += 50)
                 {
                     string subdirectory = ta + @"\";
                     for(int i = 0; i < 10; i++)
@@ -38,7 +38,7 @@ namespace NumericalExperiment.Experiments
                         Network nn = new Network(false, NETWORK_SIZE);
                         Trainer trainer = new Trainer(nn, this.trainingSet);
 
-                        trainer.Train(ta, NETWORK_ERROR, NETWORK_LEARNINGRATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
+                        trainer.Train(ta, NETWORK_ERROR, NETWORK_LEARNING_RATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
                         this.Analyze(subdirectory + i +"\\", trainer, nn);
                     }
                 }
