@@ -172,31 +172,31 @@ namespace WisconsonCancer
         /// <param name="args"></param>
         private static void MainTrain(string[] args)
         {
+            for (int x = 0; x < 10; x++)
+            {
+                WDBCSet wset = new WDBCSet();
+                wset.Load();
 
 
-            WDBCSet wset = new WDBCSet();
-            wset.Load();
-
-
-            Console.WriteLine("Thread " + " running");
-            Network nn = new Network(new int[] { 10, 15, 6, 1 },
-                new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent, Sigmoid.HyperbolicTangent,
+                Console.WriteLine("Thread " + " running");
+                Network nn = new Network(new int[] { 10, 15, 6, 1 },
+                    new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent, Sigmoid.HyperbolicTangent,
                 Sigmoid.HyperbolicTangent});
 
-            Trainer cancerTrainer = new Trainer(nn, wset);
+                Trainer cancerTrainer = new Trainer(nn, wset);
 
-            string setString = fileTest + "nn9";
-            if ((cancerTrainer.Train(40000000, 6, 0.04, 0.2, false)))
-                nn.Save(setString + "\\network.nn");
+                string setString = fileTest + "\\dataNetworks\\nn"+x;
+                if ((cancerTrainer.Train(40000000, 62, 0.04, 0.2, false)))
+                    nn.Save(setString + "\\network.nn");
 
-            //Save error history
-            string[] filedata = new string[cancerTrainer.ErrorHistory.Count];
-            for (int i = 0; i < filedata.Length; i++)
-                filedata[i] = i.ToString() + "\t" + cancerTrainer.ErrorHistory[i].ToString();
+                //Save error history
+                string[] filedata = new string[cancerTrainer.ErrorHistory.Count];
+                for (int i = 0; i < filedata.Length; i++)
+                    filedata[i] = i.ToString() + "\t" + cancerTrainer.ErrorHistory[i].ToString();
 
-            File.WriteAllLines(setString + "\\convergance.dat", filedata);
-            Console.WriteLine("Thread " + " finished");
-
+                File.WriteAllLines(setString + "\\convergance.dat", filedata);
+                Console.WriteLine("Thread " + " finished");
+            }
 
         }
     }
