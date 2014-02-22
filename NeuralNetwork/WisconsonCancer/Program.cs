@@ -17,15 +17,17 @@ namespace WisconsonCancer
                 return 0;
         }
 
-        public static string fileTest = @"C:\Users\William\Dropbox\ISEF\dataNetworks\";
-
+        public static string fileTest = @"C:\Programming\C#\ISEFNeuralNetwork";
+        ///commentted out to prevent problems from analysis of unconstructed networks
+        
         /// <summary>
         /// Runs the network and outputs a graph of error by weights
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
-            string fileName = fileTest + "nn8\\errorbyweighttraining.dat";
+            MainTrain(args);
+            /*string fileName = fileTest + "nn8\\errorbyweighttraining.dat";
             Network nn = Network.Load(fileTest + "nn8\\network.nn");
             List<string> file = new List<string>();
 
@@ -45,10 +47,11 @@ namespace WisconsonCancer
                     file.Add(x.ToString() + " " + y.ToString() + " " + error.ToString());
 
                 }
-            System.IO.File.WriteAllLines(fileName, file);
+            System.IO.File.WriteAllLines(fileName, file);*/
         }
 
-
+        ///commentted out to prevent problems from analysis of unconstructed networks
+        /*
         /// <summary>
         /// The input output variance with two variables on network 8
         /// </summary>
@@ -161,7 +164,7 @@ namespace WisconsonCancer
 
 
         }
-
+        */
 
         /// <summary>
         /// Trains the neural network given outputs
@@ -171,16 +174,16 @@ namespace WisconsonCancer
         {
 
 
-            CancerSet cset = new CancerSet();
-            cset.Load();
+            WDBCSet wset = new WDBCSet();
+            wset.Load();
 
 
             Console.WriteLine("Thread " + " running");
-            Network nn = new Network(new int[] { 9, 15, 6, 1 },
+            Network nn = new Network(new int[] { 10, 15, 6, 1 },
                 new Sigmoid[] {Sigmoid.None, Sigmoid.HyperbolicTangent, Sigmoid.HyperbolicTangent,
                 Sigmoid.HyperbolicTangent});
 
-            Trainer cancerTrainer = new Trainer(nn, cset);
+            Trainer cancerTrainer = new Trainer(nn, wset);
 
             string setString = fileTest + "nn9";
             if ((cancerTrainer.Train(40000000, 6, 0.04, 0.2, false)))

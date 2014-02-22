@@ -16,7 +16,7 @@ namespace NeuralLibrary
         }
 
         /// <summary>
-        /// Treains the neural network over a given number of epochs using backpropagation.
+        /// Trains the neural network over a given number of epochs using backpropagation.
         /// </summary>
         /// <param name="epochs">THe number of iterations to which the neural network will train before failing.</param>
         /// <param name="minimumError">The minimum error which the network must reach to </param>
