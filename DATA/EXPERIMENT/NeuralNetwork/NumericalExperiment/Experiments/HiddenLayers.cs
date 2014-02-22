@@ -29,13 +29,13 @@ namespace NumericalExperiment.Experiments
         public override void Run()
         {
                 //TRAIN USING DIFFERENT LEARNING RATES
-                for (double hl = 0; hl < 10; hl += 1) //usually set at .9 - found online research
+                for (double hl = 0; hl < 10; hl += 1) 
                 {
                     string subdirectory = hl + @"\";
                     for(int i = 0; i < 10; i++)
                     {
-                        int [] hiddenlayers = new int[i+2];
-                        hiddenlayers[0] = 30;
+                        int [] hiddenlayers = new int[hl+2];
+                        hiddenlayers[0] = NETWORK_SIZE[0];
                         hiddenlayers[hiddenlayers.size - 1] = 1;
                         for(int j = 1; j < hiddenlayers.size-1; j++)
                         {
