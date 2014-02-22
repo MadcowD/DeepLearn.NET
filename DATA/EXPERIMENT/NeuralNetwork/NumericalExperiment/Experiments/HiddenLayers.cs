@@ -39,9 +39,9 @@ namespace NumericalExperiment.Experiments
                         hiddenlayers[hiddenlayers.size - 1] = 1;
                         for(int j = 1; j < hiddenlayers.size-1; j++)
                         {
-                            hiddenlayers[j] = 40;
+                            hiddenlayers[j] = NETWORK_SIZE[1];
                         }
-                        Network nn = new Network(false, hiddenlayers);
+                        Network nn = new Network(false, hiddenlayers);S
                         Trainer trainer = new Trainer(nn, this.trainingSet);
 
                         trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNINGRATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
