@@ -60,9 +60,7 @@ namespace NumericalExperiment
                 {
                     nn.FeedForward(x.Input);
                     return 0.5*Math.Pow(nn.Output[0] - x.Desired[0],2);
-                }
-            ).ToArray();
-
+                }).ToArray();
             SaveData(DATASTORE + PERSIST + id + "testingError.dat",
                 testingError.Select((x, i) => i.ToString() + " " + x.ToString()).ToArray());
 
@@ -109,12 +107,12 @@ namespace NumericalExperiment
         #endregion Fields
 
         #region CONTROLS
-        public static int[] NETWORK_SIZE = new int[] { 30,30, 1 };
-        public static double NETWORK_MOMENTUM = 0.1;
-        public static double NETWORK_LEARNING_RATE = 0.001;
-        public static int NETWORK_EPOCHS = 500;
+        public static int[] NETWORK_SIZE = new int[] { 30, 120,60, 1 };
+        public static double NETWORK_MOMENTUM = 0;
+        public static double NETWORK_LEARNING_RATE = 0.0001;
+        public static int NETWORK_EPOCHS = 100000;
         public static bool NETWORK_NUDGING = false;
-        public static double NETWORK_ERROR = 35;
+        public static double NETWORK_ERROR = 3;
 
         #endregion CONTROLS
     }
