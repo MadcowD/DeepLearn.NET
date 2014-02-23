@@ -28,20 +28,39 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override void Run()
         {
+            double lowestSF = 0;
+            double lowestError = 100000;
 
+            List<string> summary = new List<string>();
             //Train using different step function values
             for (double sf = 0; sf < 1; sf += 0.1)
             {
+                double avgError = 0;
+                Console.WriteLine("SF -- " + sf);
                 string subdirectory = sf + @"\";
                 for (int i = 0; i < 10; i++)
                 {
-                    Network nn = new Network(false, NETWORK_SIZE);
-                    Trainer trainer = new Trainer(nn, this.trainingSet, testingSet);
-                    
-                    trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNING_RATE, NETWORK_MOMENTUM, NETWORK_NUDGING, sf);
-                    this.Analyze(subdirectory + i + "\\", trainer, nn, sf);
+                    Console.WriteLine("\tNETWORK: " + i);
+                    Network nn = Network.Load(DATASTORE + @"CONTROL\" + i + "\\weights.nn");
+                    Trainer trainer = new Trainer(nn, this.trainingSet);
+                    avgError += testingSet.CalculateError(nn, sf);
+                }
+
+                avgError/=10;
+
+                summary.Add(sf.ToString() + " " + avgError);
+                if (avgError< lowestError)
+                {
+                    lowestError = avgError;
+                    lowestSF = sf;
                 }
             }
+
+            //Finish summary
+            summary.Insert(0, "Lowest Error: " + lowestError);
+            summary.Insert(0, "Lowest SF: " + lowestSF);
+
+            SaveData(DATASTORE + PERSIST + "summary.txt", summary.ToArray());
         }
 
         #region Fields
@@ -53,7 +72,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override string PERSIST
         {
-            get { return @"LR\"; }
+            get { return @"STEP\"; }
         }
     }
 }
