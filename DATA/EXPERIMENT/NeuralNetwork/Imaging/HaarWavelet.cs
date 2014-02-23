@@ -12,16 +12,20 @@ namespace Imaging
         {
             double[] temp = new double[data.Length];
 
-            int h = data.Length >> 1;//half of data.Length
-            for (int i = 0; i < h; i++)
+            int h = data.Length;//half of data.Length
+            int i = 0;
+            for (int x = 0; x < h; x+=2)
             {
-                int k = (i << 1);//2i
-                temp[i] = data[k] * s0 + data[k + 1] * s1;//temp[i] =x[2i]*so + x[2i+1]*s1
-                temp[i + h] = data[k] * w0 + data[k + 1] * w1;
+                
+                int k = i << 1;
+                if(x>0)
+                    temp[x-1] = Math.Abs(data[k-1] * w0 - data[k] * w1);
+                temp[x] = Math.Abs(data[k] * s0 - data[k + 1] * s1);
+                i++;
             }
 
-            for (int i = 0; i < data.Length; i++)
-                data[i] = temp[i];
+            for (int j = 0; j < data.Length; j++)
+                data[j] = temp[j];
         } 
         public static void FWT(double[,] data, int iterations)
         {
@@ -29,8 +33,7 @@ namespace Imaging
             int cols = data.GetLength(1);
 
             double[] row = new double[cols];
-            //double[] col = new double[rows];
-            double num = 1000;
+            double num = 2;//standardized all values for easy modification
             s0 = num;
             s1 = num;
             w0 = num;
@@ -49,24 +52,7 @@ namespace Imaging
                 }
             }
         }
-        /*public static double[] discrete(double[] input)
-        {
-            double[] output = new double[input.Length];
-
-            for(int length = input.Length; length>0; length>>=1)
-            {
-                for(int x = 0; x <length; x++)
-                {
-                    double sum = input[x*2] + input[x * 2 + 1];
-                    double difference = input[x * 2] - input[x * 2 + 1];
-                    output[length + x] = difference;
-                    output[x] = sum;                                
-                }
-                if (length == 1)
-                    return output;
-                
-            }
-        }*/
+       
         public static void IWT(double[] data)
         {
             double[] temp = new double[data.Length];
