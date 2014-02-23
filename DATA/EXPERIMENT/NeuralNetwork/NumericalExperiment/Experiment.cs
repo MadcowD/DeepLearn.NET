@@ -47,7 +47,7 @@ namespace NumericalExperiment
         /// <summary>
         /// Anylizes the current experiment data and saves an anakysis within a sub directory of (ID)
         /// </summary>
-        public void Analyze(string id, Trainer trainer, Network nn)
+        public void Analyze(string id, Trainer trainer, Network nn, double step = -1)
         {
             (new FileInfo(DATASTORE + PERSIST + id)).Directory.Create();
             nn.Save(DATASTORE + PERSIST + id + "weights.nn"); //Save weights
@@ -59,7 +59,8 @@ namespace NumericalExperiment
                 x =>
                 {
                     nn.FeedForward(x.Input);
-                    return 0.5*Math.Pow(nn.Output[0] - x.Desired[0],2);
+                    return 0.5*Math.Pow(Gaussian.Step(nn.Output[0], step) - x.Desired[0],2);
+                    //return 0.5 * Math.Pow(nn.Output[0] - x.Desired[0], 2);
                 }).ToArray();
             SaveData(DATASTORE + PERSIST + id + "testingError.dat",
                 testingError.Select((x, i) => i.ToString() + " " + x.ToString()).ToArray());
