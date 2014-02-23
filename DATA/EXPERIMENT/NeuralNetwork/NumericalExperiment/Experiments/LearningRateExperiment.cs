@@ -35,7 +35,7 @@ namespace NumericalExperiment.Experiments
             List<string> summary = new List<string>();
 
                 //TRAIN USING DIFFERENT LEARNING RATES
-                for (double lr = 0.00625*(i-1); lr < 0.00625*i; lr += 0.000625)
+                for (double lr = 0.00015625*(i-1); lr < 0.00015625*i; lr += 0.000015625)
                 {
                     string subdirectory = lr + @"\";
 
@@ -79,7 +79,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override string PERSIST
         {
-            get { return @"LR_SMALL[0-0.025]\"; }
+            get { return @"LR_SMALLEST[0-0.000625]\"; }
         }
     }
 }

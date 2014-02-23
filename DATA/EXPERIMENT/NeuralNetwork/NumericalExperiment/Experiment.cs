@@ -107,7 +107,7 @@ namespace NumericalExperiment
         public static double NETWORK_LEARNING_RATE = 0.001;
         public static int NETWORK_EPOCHS = 1000;
         public static bool NETWORK_NUDGING = false;
-        public static double NETWORK_ERROR = 35;
+        public static double NETWORK_ERROR = 25;
         public static double NETWORK_STEP = 0.9;
 
         #endregion CONTROLS
