@@ -10,39 +10,34 @@ namespace NumericalExperiment.Experiments
     public class NumberNetworks : Experiment
     {
         /// <summary>
-        /// Initializes the learning rate experiment
+        /// Initializes the Number of Networks Experiment
         /// </summary>
-        /// <param name="training">The set on which the learning rate will train on.</param>
-        /// <param name="testing">The set of testing experiment</param>
+        /// <param name="training">The set on which the networks will train on.</param>
+        /// <param name="testing">The set of testing data for experiments</param>
         public NumberNetworks(CancerData training, CancerData testing) : 
             base(training, testing)
         {
         }
 
         /// <summary>
-        /// Runs the learning rate experiment. Erdös Erdös Erdös Erdös Erdös Erdös
+        /// Runs the learning rate experiment. 
         /// The experiment will consist of the following steps.
-        /// 1. Train the network at a given learning rate (0-1) n=0.05 on the traning set until convergence
-        /// 2. Once converged get the net error over the testing set (which is consitent, random) add to a learning rate error dataset.
-        /// 3. Save all converged net errors for a given experiment. 
+        /// 1. Train the given number of networks
+        /// 2. Analyze the error for each network
+        /// 3. Take the error over all the networks and determine inconclusivity
+        ///     and how the number of networks affect the overall diagnosing error
         /// </summary>
         public override void Run()
         {
+            for(int i = 1; i < 21; i++)
+            {
+                string subdirectory = i + @"\";
+                Network nn = new Network(false, NETWORK_SIZE);
+                Trainer trainer = new Trainer(nn, this.trainingSet);
 
-                //TRAIN USING DIFFERENT LEARNING RATES
-                //for (double lr = 0; lr < 1; lr += 0.05)
-                //{
-                    
-                    for(int i = 0; i < 20; i++)
-                    {
-                        string subdirectory = i + @"\";
-                        Network nn = new Network(false, NETWORK_SIZE);
-                        Trainer trainer = new Trainer(nn, this.trainingSet);
-
-                        trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNING_RATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
-                        this.Analyze(subdirectory + i +"\\", trainer, nn);
-                    }
-                //}
+                trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNING_RATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
+                this.Analyze(subdirectory + i +"\\", trainer, nn);
+             }
         }
 
         #region Fields
@@ -54,7 +49,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override string PERSIST
         {
-            get { return @"LR\"; }
+            get { return @"NUMNET"; }
         }
     }
 }
