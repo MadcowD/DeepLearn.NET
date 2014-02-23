@@ -10,25 +10,25 @@ namespace NumericalExperiment.Experiments
     public class HiddenLayers : Experiment
     {
         /// <summary>
-        /// Initializes the learning rate experiment
+        /// Initializes the hidden layers
         /// </summary>
-        /// <param name="training">The set on which the learning rate will train on.</param>
-        /// <param name="testing">The set of testing experiment</param>
+        /// <param name="training">The set of data on which the networks will train on.</param>
+        /// <param name="testing">The set of data for testing experiments</param>
         public HiddenLayers(CancerData training, CancerData testing) : 
             base(training, testing)
         {
         }
 
         /// <summary>
-        /// Runs the learning rate experiment. Erdös Erdös Erdös Erdös Erdös Erdös
+        /// Runs the hidden layers experiment
         /// The experiment will consist of the following steps.
-        /// 1. Train the network at a given learning rate (0-1) n=0.05 on the traning set until convergence
-        /// 2. Once converged get the net error over the testing set (which is consitent, random) add to a learning rate error dataset.
-        /// 3. Save all converged net errors for a given experiment. 
+        /// 1. Train the network at a given number of hidden layers
+        /// 2. Find the error over for a network for a given number of layers
+        /// 3. Find the average error over 10 networks
         /// </summary>
         public override void Run()
         {
-                //TRAIN USING DIFFERENT LEARNING RATES
+                //TRAIN USING DIFFERENT Number of hidden layers
                 for (int hl = 0; hl < 10; hl += 1) 
                 {
                     string subdirectory = hl + @"\";
@@ -59,7 +59,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override string PERSIST
         {
-            get { return @"LR\"; }
+            get { return @"HL\"; }
         }
     }
 }

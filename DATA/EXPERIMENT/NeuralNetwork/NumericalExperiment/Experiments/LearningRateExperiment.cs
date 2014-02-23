@@ -14,9 +14,10 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         /// <param name="training">The set on which the learning rate will train on.</param>
         /// <param name="testing">The set of testing experiment</param>
-        public LearningRateExperiment(CancerData training, CancerData testing) : 
+        public LearningRateExperiment(CancerData training, CancerData testing, int i) : 
             base(training, testing)
         {
+            this.i = i;
         }
 
         /// <summary>
@@ -28,24 +29,49 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override void Run()
         {
+            double lowestLR = 0;
+            double lowestError = 100000;
+
+            List<string> summary = new List<string>();
 
                 //TRAIN USING DIFFERENT LEARNING RATES
-                for (double lr = 0; lr < 1; lr += 0.05)
+                for (double lr = 0.00625*(i-1); lr < 0.00625*i; lr += 0.000625)
                 {
                     string subdirectory = lr + @"\";
-                    for(int i = 0; i < 10; i++)
+
+                    double avgError = 0;
+
+
+                    for(int n = 0; n < 10; n++)
                     {
-                        Network nn = new Network(false, NETWORK_SIZE);
+                        Network nn = Network.Load(DATASTORE + @"CONTROL\" + n + "\\initial.nn");
                         Trainer trainer = new Trainer(nn, this.trainingSet);
 
                         trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, lr, NETWORK_MOMENTUM, NETWORK_NUDGING);
-                        this.Analyze(subdirectory + i +"\\", trainer, nn);
+                        this.Analyze(subdirectory + n +"\\", trainer, nn);
+                        avgError += testingSet.CalculateError(nn);
                     }
+                    avgError /= 10;
+
+                    summary.Add(lr.ToString() + " " + avgError);
+                    if (avgError < lowestError)
+                    {
+                        lowestError = avgError;
+                        lowestLR = lr;
+                    }
+
                 }
+
+                //Finish summary
+                summary.Insert(0, "Lowest Error: " + lowestError);
+                summary.Insert(0, "Lowest LR: " + lowestLR);
+
+                SaveData(DATASTORE + PERSIST + "summary" + i + ".txt", summary.ToArray());
         }
 
         #region Fields
         List<string> testingError = new List<string>();
+        int i;
         #endregion
 
         /// <summary>
@@ -53,7 +79,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override string PERSIST
         {
-            get { return @"LR\"; }
+            get { return @"LR_SMALL[0-0.025]\"; }
         }
     }
 }
