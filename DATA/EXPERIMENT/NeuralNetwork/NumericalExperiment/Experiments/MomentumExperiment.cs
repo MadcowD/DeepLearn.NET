@@ -14,9 +14,10 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         /// <param name="training">The set for training the networks.</param>
         /// <param name="testing">The set of testing data for the experimentation</param>
-        public MomentumExperiment(CancerData training, CancerData testing) : 
+        public MomentumExperiment(CancerData training, CancerData testing, int i ) : 
             base(training, testing)
         {
+            this.i = i;
         }
 
         /// <summary>
@@ -29,23 +30,47 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override void Run()
         {
+
+            double lowestMM = 0;
+            double lowestError = 100000;
+
+            List<string> summary = new List<string>();
+
             //Train while altering momentum
-            for (double mm = 0; mm < 1; mm += 0.05) //usually set at .9 - found online research
+            for (double mm = 0.25*(i-1); mm < 0.25*i; mm += 0.0125) //usually set at .9 - found online research
             {
+                double avgError = 0;
                 string subdirectory = mm + @"\";
-                for(int i = 0; i < 10; i++)
+                for(int n = 0; n < 10; n++)
                 {
-                    Network nn = new Network(false, NETWORK_SIZE);
+                    Network nn = Network.Load(DATASTORE + @"CONTROL\" + n + "\\initial.nn");
                     Trainer trainer = new Trainer(nn, this.trainingSet);
 
                     trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNING_RATE, mm, NETWORK_NUDGING);
-                    this.Analyze(subdirectory + i +"\\", trainer, nn);
+                    this.Analyze(subdirectory + n +"\\", trainer, nn);
+                    avgError += testingSet.CalculateError(nn);
+                }
+
+                avgError /= 10;
+
+                summary.Add(mm.ToString() + " " + avgError);
+                if (avgError < lowestError)
+                {
+                    lowestError = avgError;
+                    lowestMM = mm;
                 }
             }
+
+            //Finish summary
+            summary.Insert(0, "Lowest Error: " + lowestError);
+            summary.Insert(0, "Lowest MM: " + lowestMM);
+
+            SaveData(DATASTORE + PERSIST + "summary" + i + ".txt", summary.ToArray());
         }
 
         #region Fields
         List<string> testingError = new List<string>();
+        int i;
         #endregion
 
         /// <summary>
@@ -55,5 +80,6 @@ namespace NumericalExperiment.Experiments
         {
             get { return @"MM\"; }
         }
+        
     }
 }
