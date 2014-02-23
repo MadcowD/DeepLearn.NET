@@ -10,26 +10,26 @@ namespace NumericalExperiment.Experiments
     public class StepExperiment : Experiment
     {
         /// <summary>
-        /// Initializes the learning rate experiment
+        /// Initializes the step experiment
         /// </summary>
-        /// <param name="training">The set on which the learning rate will train on.</param>
-        /// <param name="testing">The set of testing experiment</param>
+        /// <param name="training">The set on which the neural networks will train on.</param>
+        /// <param name="testing">The set of testing data for experiments</param>
         public StepExperiment(CancerData training, CancerData testing) :
             base(training, testing)
         {
         }
 
         /// <summary>
-        /// Runs the learning rate experiment. Erdös Erdös Erdös Erdös Erdös Erdös
+        /// Runs the step experiment
         /// The experiment will consist of the following steps.
-        /// 1. Train the network at a given learning rate (0-1) n=0.05 on the traning set until convergence
-        /// 2. Once converged get the net error over the testing set (which is consitent, random) add to a learning rate error dataset.
-        /// 3. Save all converged net errors for a given experiment. 
+        /// 1. Train the network using a step function
+        /// 2. Determine the network error while implementing a stepping function for the output
+        /// 3. Determine the error over 10 networks
         /// </summary>
         public override void Run()
         {
 
-            //TRAIN USING DIFFERENT LEARNING RATES
+            //Train using different step function values
             for (double sf = 0; sf < 1; sf += 0.1)
             {
                 string subdirectory = sf + @"\";
