@@ -52,7 +52,6 @@ namespace NeuralLibrary
                         network.FeedForward(x.Input);
 
                         double errorPoint = x.Desired[0] - Gaussian.Step(network.Output[0], stepPoint);
-
                         return 0.5 * Math.Pow(errorPoint, 2);
                     }).Sum();
 

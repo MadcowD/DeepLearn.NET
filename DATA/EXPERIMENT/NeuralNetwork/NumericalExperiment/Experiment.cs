@@ -107,12 +107,13 @@ namespace NumericalExperiment
         #endregion Fields
 
         #region CONTROLS
-        public static int[] NETWORK_SIZE = new int[] { 30, 120,60, 1 };
-        public static double NETWORK_MOMENTUM = 0;
+        public static int[] NETWORK_SIZE = new int[] { 30, 120, 60, 1 };
+        public static double NETWORK_MOMENTUM = 0.0;
         public static double NETWORK_LEARNING_RATE = 0.0001;
         public static int NETWORK_EPOCHS = 100000;
         public static bool NETWORK_NUDGING = false;
-        public static double NETWORK_ERROR = 3;
+        public static double NETWORK_ERROR = 35;
+        public static double NETWORK_STEP = 0.5;
 
         #endregion CONTROLS
     }
