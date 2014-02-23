@@ -14,9 +14,15 @@ namespace NumericalExperiment
         {
             CancerData testing = new CancerData("testing.dat");
             CancerData training = new CancerData("training.dat");
-            ControlExperiment Control = 
-                new ControlExperiment(training, testing);
-            Control.Run();
+
+
+
+
+
+            ControlExperiment ControlD =
+    new ControlExperiment(training, testing, 8);
+   
+            ControlD.RunAsThread();
             Console.ReadKey();
 
             Console.WriteLine(string.Join(", ", testing.Select(x => x.Desired[0])));

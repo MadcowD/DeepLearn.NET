@@ -61,7 +61,7 @@ namespace NeuralLibrary
                 if (epoch % 10 == 0)
                 {
                     //IF NETWORK IS NOT MOVING
-                    if (ErrorHistory.Skip(Math.Max(0, ErrorHistory.Count - 10)).StdDev() < .01) 
+                    if (ErrorHistory.Skip(Math.Max(0, ErrorHistory.Count - 10)).StdDev() < .1) 
                     {
                         if (nudging)
                             network.NudgeWeights(); //Nudge the weights
