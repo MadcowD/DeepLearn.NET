@@ -1,4 +1,5 @@
 ﻿using NeuralLibrary.Neurons;
+using System;
 
 namespace NeuralLibrary
 {
@@ -52,6 +53,8 @@ namespace NeuralLibrary
         /// The last delta weight (used for momentum)
         /// </summary>
         protected double lastDeltaWeight = 0;
+        protected double lastGradient = 0;
+        protected double acceleration = 0;
 
         #endregion Fields
 
@@ -72,9 +75,19 @@ namespace NeuralLibrary
         /// </summary>
         public virtual void UpdateWeight(double learningRate, double momentum)
         {
+
+
+            if (lastGradient * Gradient > 0)
+                acceleration += learningRate;
+            else if (lastGradient * Gradient < 0)
+                acceleration = 0;
+            else
+                acceleration = learningRate;
+
             double deltaWeight = -(Gradient * learningRate) + momentum * lastDeltaWeight;
             Weight += deltaWeight;
             lastDeltaWeight = deltaWeight;
+            lastGradient = Gradient;
         }
 
         /// <summary>

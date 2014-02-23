@@ -1,6 +1,7 @@
 ﻿using NeuralLibrary;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,19 @@ namespace NumericalExperiment.Experiments
 
         public override void Run()
         {
+            (new FileInfo(DATASTORE + PERSIST)).Directory.Create();
             Network nn = new Network(false, NETWORK_SIZE);
             Trainer trainer = new Trainer(nn, trainingSet);
 
-            trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNING_RATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
+            bool success = false;
+            while (!success)
+            {
+
+                nn.NudgeWeights();
+                nn.Save(DATASTORE + PERSIST + "initial.nn"); //Save weights
+                success = trainer.Train(NETWORK_EPOCHS, NETWORK_ERROR, NETWORK_LEARNING_RATE, NETWORK_MOMENTUM, NETWORK_NUDGING);
+            }
+
             double testingError = testingSet.Select<DataPoint, double>(
                 (x) =>
                 {

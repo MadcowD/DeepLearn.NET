@@ -47,6 +47,7 @@
     <Compile Include="Experiments\ControlExperiment.cs" />
     <Compile Include="Experiments\MomentumExperiment.cs" />
     <Compile Include="Experiments\NumberNetworks.cs" />
+    <Compile Include="Experiments\StepExperiment.cs" />
     <Compile Include="Experiments\TrainingAmount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

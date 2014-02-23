@@ -54,12 +54,12 @@ namespace TicTacToe
                 count++;
                 error = 0;
                 for (int i = 0; i < desired.Length; i++)
-                    error += nn.Train(input[i], desired[i], 8.6, 0.3);
+                    error += nn.Train(input[i], desired[i], 0.01, 0);
 
                 {
                     Console.WriteLine("EPOCH {0}: Error {1:0.000}", count, error);
                 }
-            } while (error > 0.001 && count <= maxCount);
+            } while (error > 0.01 && count <= maxCount);
 
             ////Save error history
             //string[] filedata = new string[nn.ErrorHistory.Length];
