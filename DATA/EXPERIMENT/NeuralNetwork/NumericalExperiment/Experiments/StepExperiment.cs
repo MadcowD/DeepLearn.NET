@@ -33,7 +33,7 @@ namespace NumericalExperiment.Experiments
 
             List<string> summary = new List<string>();
             //Train using different step function values
-            for (double sf = 0; sf < 1; sf += 0.01)
+            for (double sf = 0; sf < 1; sf += 0.1)
             {
                 double avgError = 0;
                 Console.WriteLine("SF -- " + sf);
