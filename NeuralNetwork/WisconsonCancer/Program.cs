@@ -172,8 +172,8 @@ namespace WisconsonCancer
         /// <param name="args"></param>
         private static void MainTrain(string[] args)
         {
-            for (int x = 0; x < 10; x++)
-            {
+            //for (int x = 0; x < 10; x++)
+            //{
                 WDBCSet wset = new WDBCSet();
                 wset.Load();
 
@@ -185,9 +185,8 @@ namespace WisconsonCancer
 
                 Trainer cancerTrainer = new Trainer(nn, wset);
 
-                string setString = fileTest + "\\dataNetworks\\nn"+x;
-                if ((cancerTrainer.Train(40000000, 62, 0.04, 0.2, false)))
-                    nn.Save(setString + "\\network.nn");
+                string setString = fileTest + "\\dataNetworks\\nn";
+                cancerTrainer.Train(2000, 6, 0.04, 0.2, false);
 
                 //Save error history
                 string[] filedata = new string[cancerTrainer.ErrorHistory.Count];
@@ -196,7 +195,7 @@ namespace WisconsonCancer
 
                 File.WriteAllLines(setString + "\\convergance.dat", filedata);
                 Console.WriteLine("Thread " + " finished");
-            }
+            //}
 
         }
     }
