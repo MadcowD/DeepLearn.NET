@@ -10,11 +10,18 @@ namespace NeuralLibrary
     /// </summary>
     public class Trainer
     {
-        public Trainer(Network network, DataSet trainingSet)
+
+        public Trainer(Network network, DataSet trainingSet) :
+            this(network, trainingSet, trainingSet)
+        {
+        }
+
+        public Trainer(Network network, DataSet trainingSet, DataSet testingSet)
         {
             this.trainingSet = trainingSet;
             this.network = network;
             this.ErrorHistory = new List<double>();
+            this.testingSet = testingSet;
         }
 
         /// <summary>
@@ -26,7 +33,7 @@ namespace NeuralLibrary
         /// <param name="momentum">The momentum at which the network will begin to learn.</param>
         /// <param name="nudging">Enables nudging of the neural network during training.</param>
         /// <returns>Whether or not the network was sucessful in learning.</returns>
-        public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool nudging = true)
+        public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool nudging = true, double stepPoint = -1)
         {
             ErrorHistory.Clear();
             int epoch = 0;
@@ -34,20 +41,27 @@ namespace NeuralLibrary
 
             do
             {
-                error = 0;
                 epoch++;
+                trainingSet.ForEach(
+                    dp => network.Train(dp.Input, dp.Desired, learningRate, momentum));
 
-                //trainingSet.Shuffle();
-                foreach (DataPoint dp in trainingSet)
-                    error += network.Train(dp.Input, dp.Desired, learningRate, momentum);
+
+                error = testingSet.Select((x)
+                    =>
+                    {
+                        network.FeedForward(x.Input);
+
+                        double errorPoint = x.Desired[0] - Gaussian.Step(network.Output[0], stepPoint);
+                        return 0.5 * Math.Pow(errorPoint, 2);
+                    }).Sum();
 
                 this.ErrorHistory.Add(error);
 
                 //PERFORM NUDGING
-                if (epoch % 20 == 0)
+                if (epoch % 10 == 0)
                 {
                     //IF NETWORK IS NOT MOVING
-                    if (ErrorHistory.Skip(Math.Max(0, ErrorHistory.Count - 10)).StdDev() < 0.001) 
+                    if (ErrorHistory.Skip(Math.Max(0, ErrorHistory.Count - 10)).StdDev() < .1) 
                     {
                         if (nudging)
                             network.NudgeWeights(); //Nudge the weights
@@ -78,6 +92,7 @@ namespace NeuralLibrary
 
         private Network network;
         private DataSet trainingSet;
+        private DataSet testingSet;
 
         #endregion Fields
 

@@ -47,5 +47,15 @@ namespace NeuralLibrary
             }
             return ret;
         }
+
+        public static double Step(double p, double stepPoint)
+        {
+            if (stepPoint == -1)
+                return p;
+            if (p <= stepPoint)
+                return 0;
+            else
+                return 1;
+        }
     }
 }

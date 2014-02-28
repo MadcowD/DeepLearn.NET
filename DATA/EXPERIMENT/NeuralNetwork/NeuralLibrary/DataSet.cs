@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NeuralLibrary
 {
@@ -37,5 +38,27 @@ namespace NeuralLibrary
 
             return this;
         }
+
+        /// <summary>
+        /// Calculates the errors based on the datapoints in a given dataset.
+        /// </summary>
+        /// <param name="nn">The network from which to calculate the errors</param>
+        /// <param name="step">The step size.</param>
+        /// <returns></returns>
+        public double[] CalculateErrors(Network nn, double step = -1)
+        {
+            return this.Select((d) =>
+                {
+                    nn.FeedForward(d.Input);
+                    return 0.5 * d.Desired.Select(
+                        (x, i) => Math.Pow(Gaussian.Step(nn.Output[i], step) - x, 2)).Sum();
+                }).ToArray();
+        }
+
+        public double CalculateError(Network nn, double step = -1)
+        {
+            return CalculateErrors(nn, step).Sum();
+        }
+
     }
 }

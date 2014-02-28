@@ -47,7 +47,7 @@ namespace NumericalExperiment
         /// <summary>
         /// Anylizes the current experiment data and saves an anakysis within a sub directory of (ID)
         /// </summary>
-        public void Analyze(string id, Trainer trainer, Network nn)
+        public void Analyze(string id, Trainer trainer, Network nn, double step = -1)
         {
             (new FileInfo(DATASTORE + PERSIST + id)).Directory.Create();
             nn.Save(DATASTORE + PERSIST + id + "weights.nn"); //Save weights
@@ -55,18 +55,13 @@ namespace NumericalExperiment
                 trainer.ErrorHistory.Select((x,i) => i.ToString() + " " + x.ToString()).ToArray()); //Save convergence
 
             //Collect the error for each testing point
-            double[] testingError = testingSet.Select(
-                x =>
-                {
-                    nn.FeedForward(x.Input);
-                    return 0.5*Math.Pow(nn.Output[0] - x.Desired[0],2);
-                }).ToArray();
+            double[] testingError = testingSet.CalculateErrors(nn, step);
             SaveData(DATASTORE + PERSIST + id + "testingError.dat",
                 testingError.Select((x, i) => i.ToString() + " " + x.ToString()).ToArray());
 
 
             List<string> analysis = new List<string>();
-            analysis.Add("Converged: " + (testingError.Sum() < NETWORK_ERROR).ToString());
+            analysis.Add("Converged: " + (testingError.Sum()/(testingSet.Count()*2) < NETWORK_ERROR/(trainingSet.Count()*2)).ToString());
             analysis.Add("Error: " + testingError.Sum());
             analysis.Add("Average Error: " + testingError.Average());
             analysis.Add("Proportional Error: " + testingError.Sum() / (testingSet.Count()*2));
@@ -107,12 +102,13 @@ namespace NumericalExperiment
         #endregion Fields
 
         #region CONTROLS
-        public static int[] NETWORK_SIZE = new int[] { 30, 40, 40, 1 };
-        public static double NETWORK_MOMENTUM = 0;
+        public static int[] NETWORK_SIZE = new int[] { 30, 16, 11, 1 };
+        public static double NETWORK_MOMENTUM = 0.2;
         public static double NETWORK_LEARNING_RATE = 0.001;
-        public static int NETWORK_EPOCHS = 100000;
+        public static int NETWORK_EPOCHS = 1000;
         public static bool NETWORK_NUDGING = false;
-        public static double NETWORK_ERROR = 3;
+        public static double NETWORK_ERROR = 35;
+        public static double NETWORK_STEP = 0.9;
 
         #endregion CONTROLS
     }

@@ -10,26 +10,27 @@ namespace NumericalExperiment.Experiments
     public class TrainingAmount : Experiment
     {
         /// <summary>
-        /// Initializes the learning rate experiment
+        /// Initializes the training amount experiment
         /// </summary>
-        /// <param name="training">The set on which the learning rate will train on.</param>
-        /// <param name="testing">The set of testing experiment</param>
+        /// <param name="training">The set on which the network will train on.</param>
+        /// <param name="testing">The set for the testing experiment</param>
         public TrainingAmount(CancerData training, CancerData testing) : 
             base(training, testing)
         {
         }
 
         /// <summary>
-        /// Runs the learning rate experiment. Erdös Erdös Erdös Erdös Erdös Erdös
+        /// Runs the training amount experiment
         /// The experiment will consist of the following steps.
-        /// 1. Train the network at a given learning rate (0-1) n=0.05 on the traning set until convergence
-        /// 2. Once converged get the net error over the testing set (which is consitent, random) add to a learning rate error dataset.
-        /// 3. Save all converged net errors for a given experiment. 
+        /// 1. Train the network at over a given number of epochs
+        /// 2. Repeat 10 Times
+        /// 3. Test the testing data 
+        /// 4. Analyze the error produced over all 10 networks for a given training amount
         /// </summary>
         public override void Run()
         {
 
-                //TRAIN USING DIFFERENT LEARNING RATES
+                //TRAIN USING DIFFERENT AMOUNT OF EPOCHS
                 for (int ta = 0; ta < 500; ta += 50)
                 {
                     string subdirectory = ta + @"\";
@@ -53,7 +54,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override string PERSIST
         {
-            get { return @"LR\"; }
+            get { return @"TA\"; }
         }
     }
 }
