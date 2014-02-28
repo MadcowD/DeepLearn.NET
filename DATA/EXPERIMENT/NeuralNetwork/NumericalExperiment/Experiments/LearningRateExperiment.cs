@@ -24,10 +24,11 @@ namespace NumericalExperiment.Experiments
         /// The experiment will consist of the following steps.
         /// 1. Train the network at a given learning rate (0-1) n=0.05 on the traning set until convergence
         /// 2. Once converged get the net error over the testing set (which is consitent, random) add to a learning rate error dataset.
-        /// 3. Save all converged net errors for a given experiment. 
+        /// 3. Save all converged net errors for a given experiment.
         /// </summary>
         public override void Run()
         {
+
 
                 //TRAIN USING DIFFERENT LEARNING RATES
                 for (double lr = 0; lr < 1; lr += 0.05)
