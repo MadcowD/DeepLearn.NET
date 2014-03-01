@@ -33,12 +33,15 @@ namespace NeuralLibrary
         /// <param name="momentum">The momentum at which the network will begin to learn.</param>
         /// <param name="nudging">Enables nudging of the neural network during training.</param>
         /// <returns>Whether or not the network was sucessful in learning.</returns>
-        public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool nudging = true, double stepPoint = -1)
+        public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool nudging = true, double stepPoint = -1,
+            Func<bool> errorCheck = null)
         {
             ErrorHistory.Clear();
             int epoch = 0;
             double error = 0;
 
+            if (errorCheck == null)
+                errorCheck = () => error <= minimumError;
             do
             {
                 epoch++;
@@ -66,17 +69,18 @@ namespace NeuralLibrary
                         if (nudging)
                             network.NudgeWeights(); //Nudge the weights
                         else
-                            return error <= minimumError; //Stop the training
+                            return !errorCheck(); //Stop the training
                     }
                 }
 
 #if DEBUG
-                Console.WriteLine("Epoch {0}: Error = {1}", epoch, error);
+                Console.WriteLine("Epoch {0}: Error = {1};", epoch, error);
 #endif
+                Console.WriteLine(epoch < epochs && !errorCheck());
             }
-            while (epoch < epochs && error > minimumError);
+            while (epoch < epochs && !errorCheck());
 
-            return (error <= minimumError);
+            return (errorCheck());
         }
 
         #region Properties
