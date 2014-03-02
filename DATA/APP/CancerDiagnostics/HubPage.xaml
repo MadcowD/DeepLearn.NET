@@ -1,0 +1,138 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CancerDiagnostics.HubPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CancerDiagnostics"
+    xmlns:data="using:CancerDiagnostics.Data"
+    xmlns:common="using:CancerDiagnostics.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- Grid-appropriate 310 by 260 pixel item template as seen in section 4 -->
+        <DataTemplate x:Key="Standard310x260ItemTemplate">
+            <Grid Height="250" Width="310" Margin="5,10,5,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Height="150">
+                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                </Border>
+                <StackPanel Grid.Row="1" Margin="0,10,0,0">
+                    <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap"/>
+                    <TextBlock Text="{Binding Description}" Style="{StaticResource BodyTextBlockStyle}" MaxHeight="60" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <!--
+    This grid acts as a root panel for the page.
+  -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Hub SectionHeaderClick="Hub_SectionHeaderClick">
+            <Hub.Header>
+                <!-- Back button and page title -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button  x:Name="backButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        Margin="-1,-1,39,0" 
+                        VerticalAlignment="Top"
+                        Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                        AutomationProperties.Name="Back"
+                        AutomationProperties.AutomationId="BackButton"
+                        AutomationProperties.ItemType="Navigation Button"/>
+                    <TextBlock x:Name="pageTitle" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" Text="Breast Cancer Diagnostics" />
+                </Grid>
+            </Hub.Header>
+            <HubSection Width="780" Margin="0,0,80,0">
+                <HubSection.Background>
+                    <ImageBrush ImageSource="Assets/breast-cancer-cells-data.jpg" Stretch="UniformToFill" />
+                </HubSection.Background>
+            </HubSection>
+            <HubSection Width="500" x:Uid="Section1Header" Header="Malignancy Test">
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Image Source="Assets/network.png" Stretch="Fill" Width="420" Height="280" Tapped="onTap"/>
+                        <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap"  
+                                   x:Uid="Section1Subtitle" Text="Test a cell clump samle for malignancy using neural networks." FontFamily="Global User Interface"/>
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Grid.Row="2" Margin="0,10,0,0" 
+                                   x:Uid="DescriptionHeader" Text="About the test:"/>
+                        <TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="3"
+                                   x:Uid="Section1DescriptionText" Text="Ten unique neural networks with different sets of weights yet trained on the same data set are created for the malignancy test. The input data entered by the user of the application is then tested on all ten networks. A step wise function is implemented at a five percent chance of malignancy for all the networks. Nine of the ten networks need to agree on their conclusion in order to say with any degree of certainty that the input data represents a benign or malignant state."/>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection Width="520" x:Uid="Section2Header" Header="Background">
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="0"
+                                   x:Uid="Section2UnderTitle" Text="Automated Diagnosis of Breast Cancer Using Artificial intelligence" FontFamily="Global User Interface"/>
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0,6,0,4" Grid.Row="1"
+                                   x:Uid="ItemTitle" Text="Through The Implementation of Artificial Neural Networks" FontSize="14" />
+                        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Grid.Row="2" Margin="0,20,0,0"
+                                   x:Uid="ItemSubTitle" Text="Abstract"/>
+                        <TextBlock x:Name="_abstract" Style="{StaticResource BodyTextBlockStyle}" Grid.Row="3" 
+                        	x:Uid="LongText" FontFamily="Global User Interface"/>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+            <HubSection x:Uid="Section4Header" Header="Conclusion">
+                <DataTemplate>
+                    <!-- width of 400 -->
+                    <StackPanel Orientation="Vertical">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="270"/>
+                                <RowDefinition Height="95"/>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Image Source="Assets/weightsbynetwork.png" Grid.ColumnSpan="5" Margin="0,0,0,10" Stretch="Fill" />
+                            <Image Source="Assets/inout1.png" Grid.Row="1" Stretch="Fill"/>
+                            <Image Source="Assets/inout2.png" Grid.Row="1" Grid.Column="2" Stretch="Fill"/>
+                            <Image Source="Assets/inout3.png" Grid.Row="1" Grid.Column="4" Stretch="Fill"/>
+                            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Grid.Row="2" Grid.ColumnSpan="5"  Margin="0,15,0,0"
+                                        Text="Summary and Potential Impact:"/>
+                            <TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="3" Grid.ColumnSpan="5"
+                                        Text="The total error calculated for the network is 3.2%. Despite the imprecision of the network, an algorithmic model would be near impossible to create, thus the network allows for an efficient solution. However, it is not only applicable to breast cancer but to any dataset can't be modeled by conventional methods. The project also creates an application to utilize the network to accurately diagnose cases of potential breast cancer."/>
+                        </Grid>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+    </Grid>
+</Page>
