@@ -1,0 +1,98 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="CancerDiagnostics.DiagnosisPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CancerDiagnostics"
+    xmlns:common="using:CancerDiagnostics.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">My Application</x:String>
+    </Page.Resources>
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        VerticalAlignment="Top"
+                        AutomationProperties.Name="Back"
+                        AutomationProperties.AutomationId="BackButton"
+                        AutomationProperties.ItemType="Navigation Button"/>
+            <TextBlock x:Name="pageTitle" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" Text="Diagnosis"/>
+        </Grid>
+        <Canvas Height="100" Margin="427,241,0,0" Grid.Row="1" Width="102" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Margin="85,76,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Clump Thickness (% multi-layered) " FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
+        <TextBlock Margin="520,11,496,0" TextWrapping="Wrap" Text="Cell Sample Properties" VerticalAlignment="Top" Style="{StaticResource HeaderTextBlockStyle}" SelectionChanged="TextBlock_SelectionChanged" FontSize="36" FontFamily="Global User Interface" Grid.Row="1" HorizontalAlignment="Center" TextAlignment="Center"/>
+        <Slider x:Name="c1" Margin="85,101,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+        <TextBlock Margin="85,146,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Cell Size Uniformity (%)" FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Slider x:Name="c2" Margin="85,171,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+        <TextBlock Margin="85,216,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Cell Shape Uniformity (%)" FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Slider x:Name="c3" Margin="85,241,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+        <TextBlock Margin="85,286,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Marginal Adhesiveness (%)&#x9; " FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Slider x:Name="c4" Margin="85,311,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+        <Canvas Height="100" Margin="1032,239,0,0" Grid.Row="1" Width="102" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Margin="691,75,0,0" Grid.Row="1" TextWrapping="Wrap" FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" SelectionChanged="TextBlock_SelectionChanged_1" Text="Single Epithelial Cell Size (% larger)"/>
+        <Slider x:Name="c5" Margin="695,101,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+        <TextBlock Margin="690,144,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Bare Nuclei (% without cytoplasm)" FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Slider x:Name="c6" Margin="690,169,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+        <TextBlock Margin="690,210,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Bland Cromatin (% course textured)" FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Slider x:Name="c7" Margin="690,239,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+        <TextBlock Margin="690,284,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Normal Nucleoli (%)" FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Slider x:Name="c8" Margin="690,309,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+        <TextBlock Margin="415,361,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Mitosis (% normal activity)" FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Slider x:Name="c9" Margin="409,386,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
+        <Rectangle x:Name="resultBox" Height="115" Margin="511,460,510,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="10"/>
+        <TextBlock x:Name="diagnosis" Margin="584.006,494.62,583.523,90.18" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="36" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Width="198.471" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform SkewY="1.79" TranslateY="0.469" Rotation="-2.012"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Rectangle x:Name="b1" Height="32.566" Margin="74,400,1194,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto"/>
+        <TextBlock x:Name="n1" HorizontalAlignment="Left" Height="15" Margin="80,409,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+        <Rectangle x:Name="b2" Height="32.566" Margin="74,440,1194,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto"/>
+        <TextBlock x:Name="n2" HorizontalAlignment="Left" Height="15" Margin="80,449,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+        <Rectangle x:Name="b3" Height="32.566" Margin="74,480,1194,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto"/>
+        <TextBlock x:Name="n3" HorizontalAlignment="Left" Height="15" Margin="80,489,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+        <Rectangle x:Name="b4" Height="32.566" Margin="74,520,1194,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto"/>
+        <TextBlock x:Name="n4" HorizontalAlignment="Left" Height="15" Margin="80,529,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+        <Rectangle x:Name="b5" Height="32.566" Margin="74,560,1194,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto"/>
+        <TextBlock x:Name="n5" HorizontalAlignment="Left" Height="15" Margin="80,569,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+        <Rectangle x:Name="b6" Height="32.566" Margin="174,400,1094,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto"/>
+        <TextBlock x:Name="n6" HorizontalAlignment="Left" Height="15" Margin="180,409,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+        <Rectangle x:Name="b7" Height="32.566" Margin="174,440,1094,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto"/>
+        <TextBlock x:Name="n7" HorizontalAlignment="Left" Height="15" Margin="180,449,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+        <Rectangle x:Name="b8" Height="32.566" Margin="174,480,1094,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto"/>
+        <TextBlock x:Name="n8" HorizontalAlignment="Left" Height="15" Margin="180,489,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+        <Rectangle x:Name="b9" Height="32.566" Margin="174,520,1094,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto"/>
+        <TextBlock x:Name="n9" HorizontalAlignment="Left" Height="15" Margin="180,529,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+        <Rectangle x:Name="b10" Height="32.566" Margin="174,560,1094,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="7" RenderTransformOrigin="0.5,0.5"/>
+        <TextBlock x:Name="n10" HorizontalAlignment="Left" Height="15" Margin="180,569,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextAlignment="Center" Text= ""/>
+
+    </Grid>
+</Page>
