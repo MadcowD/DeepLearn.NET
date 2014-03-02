@@ -14,7 +14,31 @@ namespace Imaging
     {
         static void Main(string[] args)
         {
-            Bitmap bmp = new Bitmap(Image.FromFile(@"C:\temp\cancer.png"));
+            Bitmap bmp = new Bitmap(Image.FromFile(@"..\..\..\..\DATASET\image1.png"));
+            int[,] imageC = new int[bmp.Width, bmp.Height];
+            int[,] imageProcess = new int[bmp.Width, bmp.Height];
+            for (int x = 0; x < bmp.Width; x++)
+                for (int y = 0; y < bmp.Height; y++)
+                    imageC[x,y] = (int)(bmp.GetPixel(x,y).GetBrightness()*255);
+            
+            DWT2D d = new DWT2D(imageC);
+            imageProcess = d.Transform(imageC);
+            
+           
+
+            for (int x = 0; x < bmp.Width; x++)
+                for (int y = 0; y < bmp.Height; y++)
+                    bmp.SetPixel(x, y, Color.FromArgb(imageProcess[x, y], imageProcess[x, y], imageProcess[x, y]));
+
+            bmp.Save(@"..\..\..\..\DATASET\output.png");
+            Console.WriteLine("done");
+            Console.ReadKey();
+        }
+    }
+}
+
+/*
+ * Bitmap bmp = new Bitmap(Image.FromFile(@"..\..\..\..\DATASET\image.png"));
             int[] dimension = adjustSize(bmp.Width, bmp.Height);
             
             Bitmap oot = new Bitmap(dimension[0], dimension[1]);
@@ -51,7 +75,7 @@ namespace Imaging
                     //temp[x + y] = "(" + x + "," + y + "): " + map[x, y];
                 }
             }
-            oot.Save(@"C:\temp\ot.png");
+            oot.Save(@"..\..\..\DATASET\ot.png");
         }
         //adjusts dimensions to be powers of 2 so Haar algorithm can process
         static int[] adjustSize(int width, int height)
@@ -66,6 +90,4 @@ namespace Imaging
                 cur <<= 1;
             newDim[1] = cur;
             return newDim;
-        }
-    }
-}
+ */

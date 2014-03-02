@@ -13,11 +13,8 @@ namespace NucleiDetection
         static void Main(string[] args)
         {
             Console.WriteLine("Load");
-            Bitmap i = new Bitmap(Image.FromFile(@"C:\temp\image.png"));
-            Color[][] imageC = new Color[i.Width][];
-            for(int j = 0; j < imageC.Length; j++)
-                imageC[j] = new Color[i.Height];
 
+            
             //Load imag
             for(int x = 0; x < i.Width; x++)
                 for(int y = 0; y < i.Height; y++)
@@ -80,7 +77,7 @@ namespace NucleiDetection
                     int val = 255 - (int)(pixelenergy[x][y] * 255 / (max));
                     b.SetPixel(x, y, Color.FromArgb(val,val,val));
                 }
-            b.Save(@"C:\temp\out.png");
+            b.Save(@"..\..\..\DATASET\out.png");
         }
     }
 }
