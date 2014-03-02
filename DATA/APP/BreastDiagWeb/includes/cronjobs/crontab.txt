@@ -1,2 +1,0 @@
-#mi  h    d    m    dow      job                       comment
-*/5  *    *    *    *        cronjobs/refr_blg.inc.php # refresh blog

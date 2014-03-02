@@ -55,7 +55,8 @@ h2 {
 
 /*article title*/
 h3 {
-	font: 28px'Oleo Script';
+	font: 28px'Times New Roman';
+    font-weight:bolder;
 	color: #66D2FF;
 	margin-bottom: 1px;
 	padding-bottom: 0px;
