@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BreastDiagWeb.Default" %>
+<%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -6,6 +7,11 @@
 	<link href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href="media/styles/index.css" rel="stylesheet" type="text/css" />
 	<title>Cancer</title>
+    <style type="text/css">
+        .auto-style4 {
+            width: 269px;
+        }
+    </style>
 </head>
 <body>
 	<form id="form1" runat="server">
@@ -33,7 +39,69 @@
             <div class='article'>
 				<div class='post'>
 					<h3>Proportional FNA Test</h3>
-					<p>Here is test1: </p>
+                    <p> BLAHBLAH BLAH this is atest blah blah blah use this text becasue this a test adn we need need to convey that to the people who we are wrotomg tje trest fpre/ Tjos osss sp,e stipdiudi. DOD YOU SEE MY MEANING</p>
+                    <div class="tests">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td class="auto-style4">Clump Thickness (% multi-layered)</td>
+                                <td>
+                                    <asp:TextBox ID="proportion1" runat="server" BorderColor="#F4F4F4" BorderStyle="None" MaxLength="3" Width="30px" OnTextChanged="proportionalFeedForward">0</asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style4">Cell Size Uniformity (%) </td>
+                                <td>
+                                    <asp:TextBox ID="proportion2" runat="server" BorderColor="#F4F4F4" BorderStyle="None" MaxLength="3" Width="30px" OnTextChanged="proportionalFeedForward">0</asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style4">Cell Shape Uniformity (%)</td>
+                                <td>
+                                    <asp:TextBox ID="proportion3" runat="server" BorderColor="#F4F4F4" BorderStyle="None" MaxLength="3" Width="30px" OnTextChanged="proportionalFeedForward">0</asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style4">Marginal Adhesiveness (%)</td>
+                                <td>
+                                    <asp:TextBox ID="proportion4" runat="server" BorderColor="#F4F4F4" BorderStyle="None" MaxLength="3" Width="30px" OnTextChanged="proportionalFeedForward">0</asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style4">Single Epithelial Cell Size (% larger)</td>
+                                <td>
+                                    <asp:TextBox ID="proportion5" runat="server" BorderColor="#F4F4F4" BorderStyle="None" MaxLength="3" Width="30px" OnTextChanged="proportionalFeedForward">0</asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style4">Bare Nuclei (% without cytoplasm)</td>
+                                <td>
+                                    <asp:TextBox ID="proportion6" runat="server" BorderColor="#F4F4F4" BorderStyle="None" MaxLength="3" Width="30px" OnTextChanged="proportionalFeedForward">0</asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style4">Bland Chromatin (% course textured)</td>
+                                <td>
+                                    <asp:TextBox ID="proportion7" runat="server" BorderColor="#F4F4F4" BorderStyle="None" MaxLength="3" Width="30px" OnTextChanged="proportionalFeedForward">0</asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style4">Normal Nucleoli (%)</td>
+                                <td>
+                                    <asp:TextBox ID="proportion8" runat="server" BorderColor="#F4F4F4" BorderStyle="None" MaxLength="3" Width="30px" OnTextChanged="proportionalFeedForward">0</asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style4">Mitosis (% normal activity)</td>
+                                <td>
+                                    <asp:TextBox ID="proportion9" runat="server" BorderColor="#F4F4F4" BorderStyle="None" MaxLength="3" Width="30px" OnTextChanged="proportionalFeedForward">0</asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                        </div>
+                        <p>
+                            Diagnosis: <strong><asp:Label ID="proportionDiagnosis" runat="server" Text="Malignant"></asp:Label></strong>
+                        </p>
+                    </div>
                 </div>
 			</div>
 

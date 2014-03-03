@@ -23,12 +23,23 @@ body {
 	line-height: 1.6em;
 	margin: 0;
 	padding: 0;
+
     
   
   /* Background stuff */
   background-attachment: fixed;
   background-image:url(../img/back.jpg)
   
+}
+
+.centerz{
+    margin-left: 20px;
+}
+
+
+.tests{
+    padding-left: 20px;
+        color: #dfdfdf;
 }
 
 /*title*/

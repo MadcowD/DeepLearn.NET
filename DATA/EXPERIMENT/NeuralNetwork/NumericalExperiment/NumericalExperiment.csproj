@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Experiment.cs" />
     <Compile Include="Experiments\ConclusionExperiment.cs" />
+    <Compile Include="Experiments\CovarianceExperiment.cs" />
     <Compile Include="Experiments\HiddenLayers.cs" />
     <Compile Include="Experiments\LearningRateExperiment.cs" />
     <Compile Include="Experiments\ControlExperiment.cs" />

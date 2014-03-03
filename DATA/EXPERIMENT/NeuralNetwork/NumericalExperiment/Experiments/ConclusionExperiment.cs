@@ -20,21 +20,21 @@ namespace NumericalExperiment.Experiments
         {
 
             //Create 10 pretty awesome nets with low error
-            for (int i = 0; i < 10; i++)
+            for (int i = 1; i < 10; i++)
             {
-                Network nn = Network.Load(DATASTORE + "CONTROL\\0\\weights.nn", false);
+                Network nn = new Network(false, 30, 25, 16, 1);
                 Trainer trainer = new Trainer(nn, trainingSet);
 
                 do
                 {
-                    //nn.NudgeWeights();
+                    nn.NudgeWeights();
                     //nn.Save(DATASTORE + PERSIST + i + "\\initial.nn");
-                    trainer.Train(NETWORK_EPOCHS, 2, 0.0001, 0.15, false, -1, 
-                        () => { Console.WriteLine(testingSet.CalculateError(nn, -1)); return testingSet.CalculateError(nn, -1) <= 3.1;});
+                    trainer.Train(NETWORK_EPOCHS, 2, 0.000171875, 0.25, false, -1, 
+                        () => { return testingSet.CalculateError(nn, -1) <= 2.5;});
                 }
-                while (testingSet.CalculateError(nn, -1) < 3.1);
+                while (testingSet.CalculateError(nn, -1) > 3.1);
 
-                Analyze(i.ToString(), trainer, nn);
+                Analyze(i.ToString() + "\\", trainer, nn);
                 nn.Save(DATASTORE + PERSIST + i + "\\weights.nn");
                 
             }
