@@ -14,7 +14,7 @@ namespace Imaging
     {
         static void Main(string[] args)
         {
-            Bitmap bmp = new Bitmap(Image.FromFile(@"..\..\..\..\DATASET\image1.png"));
+            Bitmap bmp = new Bitmap(Image.FromFile(@"..\..\..\..\DATASET\image2.png"));
             int[,] imageC = new int[bmp.Width, bmp.Height];
             int[,] imageProcess = new int[bmp.Width, bmp.Height];
             for (int x = 0; x < bmp.Width; x++)
@@ -36,58 +36,3 @@ namespace Imaging
         }
     }
 }
-
-/*
- * Bitmap bmp = new Bitmap(Image.FromFile(@"..\..\..\..\DATASET\image.png"));
-            int[] dimension = adjustSize(bmp.Width, bmp.Height);
-            
-            Bitmap oot = new Bitmap(dimension[0], dimension[1]);
-            //Otsu os = new Otsu("C:\\temp\\cancer.png");
-            double[,] map = new double[dimension[0], dimension[1]];
-            for (int x = 0; x < dimension[0]; x++)
-                for (int y = 0; y < dimension[1]; y++)
-                    map[x, y] = 0;
-            Console.Write(bmp.GetPixel(0,0));
-            String[] temp = new String[map.Length+1];
-            for(int x = 0; x < bmp.Width; x++)
-            {
-                for (int y = 0; y < bmp.Height; y++)
-                {
-                    double d = System.Convert.ToDouble(bmp.GetPixel(x, y).GetBrightness());
-                    map[x, y] = d;
-                }
-            }
-           
-            //for (int x = 0; x < bmp.Width; x++)
-            //{
-            //    for (int y = 0; y < bmp.Height; y++)
-            //    {
-            //        temp[x + y] = "(" + x + "," + y + "): " + map[x, y];
-            //    }
-            //}
-            HaarWavelet.FWT(map,2);
-            for(int x = 0; x < bmp.Width; x++)
-            {
-                for(int y = 0; y < bmp.Height; y++)
-                {
-                    int val =255 -((int)(map[x, y] * 255)) % 256;
-                    oot.SetPixel(x, y, Color.FromArgb(val,val,val));
-                    //temp[x + y] = "(" + x + "," + y + "): " + map[x, y];
-                }
-            }
-            oot.Save(@"..\..\..\DATASET\ot.png");
-        }
-        //adjusts dimensions to be powers of 2 so Haar algorithm can process
-        static int[] adjustSize(int width, int height)
-        {
-            int[] newDim = new int[2];
-            int cur = 1;
-            while (cur < width)
-                cur <<= 1;
-            newDim[0] = cur;
-            cur = 1;
-            while (cur < height)
-                cur <<= 1;
-            newDim[1] = cur;
-            return newDim;
- */

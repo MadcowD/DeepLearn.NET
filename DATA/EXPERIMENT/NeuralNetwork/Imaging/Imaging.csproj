@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DWT1D.cs" />
     <Compile Include="DWT2D.cs" />
+    <Compile Include="GaborTransform.cs" />
     <Compile Include="HaarWavelet.cs" />
     <Compile Include="MiasSet.cs" />
     <Compile Include="Otsu.cs" />
