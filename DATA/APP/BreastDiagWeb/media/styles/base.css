@@ -1,0 +1,104 @@
+/* Total Website Style */
+a:link {
+	COLOR: #FA6B79;
+}
+a:visited {
+	COLOR: #FA6B79;
+}
+a:hover {
+	COLOR: #F95162;
+}
+a:active {
+COLOR: #575757;
+}
+
+p{
+    color: #dfdfdf;
+    font: 'Times New Roman'
+}
+
+body {
+	background-color: #787878;
+	font: 1em 'Times New Roman', serif;
+	line-height: 1.6em;
+	margin: 0;
+	padding: 0;
+    
+  
+  /* Background stuff */
+  background-attachment: fixed;
+  background-image:url(../img/back.jpg)
+  
+}
+
+/*title*/
+h1 {
+	font-weight: bolder;
+	font: 4em 'Times New Roman';
+	margin: .3em 0 0 0;
+	padding-right:0;
+	padding-top:0.1em;
+	padding-bottom: 0.2em;
+	margin-right: 0;
+		color: #dfdfdf;
+}
+
+/*subtitle*/
+h2 {
+
+	margin: -0.2em -0.2em 0;
+	margin-right: 0;
+	padding-right: 0;
+	font: 1em 'Courier New', serif;
+	color: #66D2FF;
+}
+
+/*article title*/
+h3 {
+	font: 28px'Times New Roman';
+    font-weight:bolder;
+	color: #66D2FF;
+	margin-bottom: 1px;
+	padding-bottom: 0px;
+}
+
+.header{
+	background-color: rgba(0, 0, 0, 0.67);
+	margin-top: -1em;
+	padding-bottom: 0em;
+	margin-bottom: 0;
+	width: 100%;
+	text-align:center;
+}
+
+.navbar {
+	text-align: center;
+	width: 100%;
+	color: #FA6B79;
+	padding: 0;
+	margin-right: 0;
+	margin-bottom: 0px;
+	font: 22px'Oleo Script';
+	background-color: rgba(0,0,0,0.9);
+}
+
+.content {
+
+}
+/*#66D2FF;*/
+.article {
+	margin-top: 2em;
+	margin-left: 2em;
+	margin-right: 2em;
+	padding: 4px;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #1f2972;
+	width: 800px;
+	-moz-box-shadow: 0 0 20px;
+	-webkit-box-shadow: 0 0 20px;
+	box-shadow: 0 0 20px;
+    
+}

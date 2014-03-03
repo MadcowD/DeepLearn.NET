@@ -84,7 +84,7 @@ namespace NeuralLibrary
             else
                 acceleration = learningRate;
 
-            double deltaWeight = -(Gradient * acceleration) + momentum * lastDeltaWeight;
+            double deltaWeight = -(Gradient*learningRate) + momentum * lastDeltaWeight;
             Weight += deltaWeight;
             lastDeltaWeight = deltaWeight;
             lastGradient = Gradient;
