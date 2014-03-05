@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -57,7 +58,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="includes\cronjobs\pseudo-cron.log" />
+    <Content Include="data\proportional\nn0.nn" />
+    <Content Include="data\proportional\nn1.nn" />
+    <Content Include="data\proportional\nn2.nn" />
+    <Content Include="data\proportional\nn3.nn" />
+    <Content Include="data\proportional\nn4.nn" />
+    <Content Include="data\proportional\nn5.nn" />
+    <Content Include="data\proportional\nn6.nn" />
+    <Content Include="data\proportional\nn7.nn" />
+    <Content Include="data\proportional\nn8.nn" />
+    <Content Include="data\proportional\nn9.nn" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -67,38 +77,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="favicon.ico" />
-    <Content Include="includes\cronjobs\crontab.txt" />
-    <Content Include="includes\cronjobs\refr_blg.inc.php" />
-    <Content Include="includes\cronjobs\_notes\dwsync.xml" />
-    <Content Include="includes\gist.php" />
-    <Content Include="includes\HTTPHelper.php" />
-    <Content Include="includes\includes.php" />
-    <Content Include="includes\pseudo-cron-image.php" />
-    <Content Include="includes\pseudo-cron.inc.php" />
-    <Content Include="includes\SQLHelper.php" />
-    <Content Include="includes\_notes\dwsync.xml" />
     <Content Include="index.php" />
-    <Content Include="media\com.github.eclipsecolortheme.themes_1.0.0.201207121019.jar" />
     <Content Include="media\img\back.jpg" />
-    <Content Include="media\img\bg %281%29.jpg" />
-    <Content Include="media\img\bg %282%29.jpg" />
-    <Content Include="media\img\bg %283%29.jpg" />
-    <Content Include="media\img\bg %284%29.jpg" />
-    <Content Include="media\img\bg %285%29.jpg" />
-    <Content Include="media\img\bg %286%29.jpg" />
-    <Content Include="media\img\bg %287%29.jpg" />
-    <Content Include="media\img\bg %288%29.jpg" />
-    <Content Include="media\img\bg.jpg" />
-    <Content Include="media\img\favicon.png" />
-    <Content Include="media\img\senior.JPG" />
-    <Content Include="media\img\_notes\dwsync.xml" />
-    <Content Include="media\MicroSpace-Release.jar" />
-    <Content Include="media\Minecraft.exe" />
     <Content Include="media\styles\base.css" />
     <Content Include="media\styles\index.css" />
-    <Content Include="media\styles\_notes\dwsync.xml" />
-    <Content Include="media\_notes\dwsync.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,8 +93,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="resume\" />
+    <ProjectReference Include="..\NeuralLibrary\NeuralLibrary.csproj">
+      <Project>{cca9a4f2-2092-4fa2-aa77-740e81f787db}</Project>
+      <Name>NeuralLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

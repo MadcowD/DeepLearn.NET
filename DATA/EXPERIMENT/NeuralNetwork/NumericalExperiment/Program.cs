@@ -16,7 +16,6 @@ namespace NumericalExperiment
             CancerData training = new CancerData("training.dat");
 
             var e1 = new ConclusionExperiment(training, testing);
-
             e1.Run();
          
 

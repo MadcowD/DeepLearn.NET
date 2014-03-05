@@ -64,7 +64,7 @@ namespace NeuralLibrary
                 if (epoch % 10 == 0)
                 {
                     //IF NETWORK IS NOT MOVING
-                    if (ErrorHistory.Skip(Math.Max(0, ErrorHistory.Count - 10)).StdDev() < .1) 
+                    if (ErrorHistory.Skip(Math.Max(0, ErrorHistory.Count - 10)).StdDev() < .0075) 
                     {
                         if (nudging)
                             network.NudgeWeights(); //Nudge the weights
@@ -76,7 +76,6 @@ namespace NeuralLibrary
 #if DEBUG
                 Console.WriteLine("Epoch {0}: Error = {1};", epoch, error);
 #endif
-                Console.WriteLine(epoch < epochs && !errorCheck());
             }
             while (epoch < epochs && !errorCheck());
 
