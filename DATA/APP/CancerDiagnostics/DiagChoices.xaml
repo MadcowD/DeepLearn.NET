@@ -54,21 +54,12 @@
         <Border BorderBrush="Black" BorderThickness="1" Height="540" Margin="892,37,0,0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="398"/>
         <Rectangle x:Name="resultBox_Copy2" Height="115" Margin="84,59,937,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="#FF301D87" StrokeThickness="10" Tapped="toPFNA"/>
         <TextBlock x:Name="diagnosis_Copy2" Margin="156.506,93.12,1011.023,491.68" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="36" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Width="198.471" d:LayoutRounding="Auto" Text="P-FNA" Tapped="toPFNA">
-            <TextBlock.RenderTransform>
-                <CompositeTransform SkewY="1.79" TranslateY="0.469" Rotation="-2.012"/>
-            </TextBlock.RenderTransform>
         </TextBlock>
-        <Rectangle x:Name="resultBox_Copy1" Height="115" Margin="503,59,518,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="#FF508225" StrokeThickness="10"/>
-        <TextBlock x:Name="diagnosis_Copy1" Margin="575.506,93.12,592.023,491.68" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="36" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Width="198.471" d:LayoutRounding="Auto" Text="D-FNA">
-            <TextBlock.RenderTransform>
-                <CompositeTransform SkewY="1.79" TranslateY="0.469" Rotation="-2.012"/>
-            </TextBlock.RenderTransform>
+        <Rectangle x:Name="resultBox_Copy1" Height="115" Margin="503,59,518,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="#FF508225" StrokeThickness="10" Tapped="toDFNA"/>
+        <TextBlock x:Name="diagnosis_Copy1" Margin="575.506,93.12,592.023,491.68" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="36" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Width="198.471" d:LayoutRounding="Auto" Text="D-FNA" Tapped="toDFNA">
         </TextBlock>
         <Rectangle x:Name="resultBox_Copy" Height="115" Margin="916,59,105,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="#FF8E1C1C" StrokeThickness="10"/>
         <TextBlock x:Name="diagnosis_Copy" Margin="988.506,93.12,179.023,491.68" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="36" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Width="198.471" d:LayoutRounding="Auto" Text="MID">
-            <TextBlock.RenderTransform>
-                <CompositeTransform SkewY="1.79" TranslateY="0.469" Rotation="-2.012"/>
-            </TextBlock.RenderTransform>
         </TextBlock>
         
         <TextBlock HorizontalAlignment="Left" Margin="84,182,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="371" Width="345"/>

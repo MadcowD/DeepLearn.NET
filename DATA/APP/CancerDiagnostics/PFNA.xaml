@@ -44,11 +44,11 @@
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button"/>
             <TextBlock x:Name="pageTitle" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" Text="Diagnosis"/>
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" Text="P-FNA"/>
         </Grid>
         <Canvas Height="100" Margin="427,241,0,0" Grid.Row="1" Width="102" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBlock Margin="85,76,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Clump Thickness (% multi-layered) " FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
-        <TextBlock Margin="520,11,496,0" TextWrapping="Wrap" Text="Cell Sample Properties" VerticalAlignment="Top" Style="{StaticResource HeaderTextBlockStyle}" SelectionChanged="TextBlock_SelectionChanged" FontSize="36" FontFamily="Global User Interface" Grid.Row="1" HorizontalAlignment="Center" TextAlignment="Center"/>
+        <TextBlock Margin="520,11,496,0" TextWrapping="Wrap" Text="FNA Proportions" VerticalAlignment="Top" Style="{StaticResource HeaderTextBlockStyle}" SelectionChanged="TextBlock_SelectionChanged" FontSize="36" FontFamily="Global User Interface" Grid.Row="1" HorizontalAlignment="Center" TextAlignment="Center"/>
         <Slider x:Name="c1" Margin="85,101,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
         <TextBlock Margin="85,146,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Cell Size Uniformity (%)" FontSize="22" Width="559" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center"/>
         <Slider x:Name="c2" Margin="85,171,0,0" Grid.Row="1" Width="590" TickPlacement="Outside" TickFrequency="10" StepFrequency="10" Value="10" SmallChange="10" Maximum="100" LargeChange="10" FontFamily="Global User Interface" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" ValueChanged="Slider_ValueChanged"/>
