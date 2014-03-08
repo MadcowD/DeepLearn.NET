@@ -24,7 +24,7 @@ namespace CancerDiagnostics
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class DiagnosisPage : Page
+    public sealed partial class PFNA : Page
     {
 
         private NavigationHelper navigationHelper;
@@ -48,7 +48,7 @@ namespace CancerDiagnostics
         }
 
 
-        public DiagnosisPage()
+        public PFNA()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
