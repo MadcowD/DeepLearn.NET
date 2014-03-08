@@ -79,7 +79,6 @@ namespace CancerDiagnostics
         {
             HubSection section = e.Section;
             var group = section.DataContext;
-            this.Frame.Navigate(typeof(SectionPage), ((SampleDataGroup)group).UniqueId);
         }
 
         /// <summary>
@@ -93,7 +92,6 @@ namespace CancerDiagnostics
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
             var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(ItemPage), itemId);
         }
         #region NavigationHelper registration
 
@@ -120,7 +118,7 @@ namespace CancerDiagnostics
 
         private void onTap(object sender, TappedRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(DiagnosisPage));
+            this.Frame.Navigate(typeof(DiagChoices));
         }
     }
 }

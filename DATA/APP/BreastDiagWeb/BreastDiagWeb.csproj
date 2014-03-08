@@ -58,6 +58,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\detail\0\analysis.txt" />
+    <Content Include="data\detail\1\analysis.txt" />
+    <Content Include="data\detail\2\analysis.txt" />
+    <Content Include="data\detail\3\analysis.txt" />
+    <Content Include="data\detail\4\analysis.txt" />
+    <Content Include="data\detail\5\analysis.txt" />
+    <Content Include="data\detail\6\analysis.txt" />
+    <Content Include="data\detail\7\analysis.txt" />
+    <Content Include="data\detail\8\analysis.txt" />
+    <Content Include="data\detail\9\analysis.txt" />
     <Content Include="data\proportional\nn0.nn" />
     <Content Include="data\proportional\nn1.nn" />
     <Content Include="data\proportional\nn2.nn" />
@@ -68,6 +78,46 @@
     <Content Include="data\proportional\nn7.nn" />
     <Content Include="data\proportional\nn8.nn" />
     <Content Include="data\proportional\nn9.nn" />
+    <Content Include="data\detail\0\convergence.dat" />
+    <Content Include="data\detail\0\initial.nn" />
+    <Content Include="data\detail\0\testingError.dat" />
+    <Content Include="data\detail\0\weights.nn" />
+    <Content Include="data\detail\1\convergence.dat" />
+    <Content Include="data\detail\1\initial.nn" />
+    <Content Include="data\detail\1\testingError.dat" />
+    <Content Include="data\detail\1\weights.nn" />
+    <Content Include="data\detail\2\convergence.dat" />
+    <Content Include="data\detail\2\initial.nn" />
+    <Content Include="data\detail\2\testingError.dat" />
+    <Content Include="data\detail\2\weights.nn" />
+    <Content Include="data\detail\3\convergence.dat" />
+    <Content Include="data\detail\3\initial.nn" />
+    <Content Include="data\detail\3\testingError.dat" />
+    <Content Include="data\detail\3\weights.nn" />
+    <Content Include="data\detail\4\convergence.dat" />
+    <Content Include="data\detail\4\initial.nn" />
+    <Content Include="data\detail\4\testingError.dat" />
+    <Content Include="data\detail\4\weights.nn" />
+    <Content Include="data\detail\5\convergence.dat" />
+    <Content Include="data\detail\5\initial.nn" />
+    <Content Include="data\detail\5\testingError.dat" />
+    <Content Include="data\detail\5\weights.nn" />
+    <Content Include="data\detail\6\convergence.dat" />
+    <Content Include="data\detail\6\initial.nn" />
+    <Content Include="data\detail\6\testingError.dat" />
+    <Content Include="data\detail\6\weights.nn" />
+    <Content Include="data\detail\7\convergence.dat" />
+    <Content Include="data\detail\7\initial.nn" />
+    <Content Include="data\detail\7\testingError.dat" />
+    <Content Include="data\detail\7\weights.nn" />
+    <Content Include="data\detail\8\convergence.dat" />
+    <Content Include="data\detail\8\initial.nn" />
+    <Content Include="data\detail\8\testingError.dat" />
+    <Content Include="data\detail\8\weights.nn" />
+    <Content Include="data\detail\9\convergence.dat" />
+    <Content Include="data\detail\9\initial.nn" />
+    <Content Include="data\detail\9\testingError.dat" />
+    <Content Include="data\detail\9\weights.nn" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -77,7 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="index.php" />
     <Content Include="media\img\back.jpg" />
     <Content Include="media\styles\base.css" />
     <Content Include="media\styles\index.css" />

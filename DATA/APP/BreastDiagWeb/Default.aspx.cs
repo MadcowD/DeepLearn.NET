@@ -12,6 +12,9 @@ namespace BreastDiagWeb
     {
         Network[] proportional = new Network[10];
         TextBox[] proportionInputs = new TextBox[9];
+
+        Network[] detail = new Network[10];
+        TextBox[] detailInputs;
         protected void Page_Load(object sender, EventArgs e)
         {
             #region Proportional
@@ -29,15 +32,23 @@ namespace BreastDiagWeb
             proportionInputs[7] = proportion8;
             proportionInputs[8] = proportion9;
 
+            #endregion
 
-            
-            for(int i = 0; i < 9; i++)
-            {
-                string query = Request.QueryString["proportion" + i.ToString()];
-                proportionInputs[i].Text = string.IsNullOrWhiteSpace(query) ? "0" : query;
-            }
+            #region Detail
+            //LOAD THE PROPORTIONAL NETWORKS
+            for (int i = 0; i < 10; i++)
+                detail[i] = Network.Load(Server.MapPath(@"data\detail\" + i +@"\weights.nn"));
 
-            proportionalFeedForward();
+            //Worse code ever.
+            detailInputs = new TextBox[] {
+            TextBox1, TextBox2, TextBox3, TextBox4,
+            TextBox5, TextBox6, TextBox7, TextBox8,
+            TextBox9, TextBox10, TextBox11, TextBox12,
+            TextBox13, TextBox14, TextBox15, TextBox16,
+            TextBox17, TextBox18, TextBox19, TextBox20,
+            TextBox21, TextBox22, TextBox23, TextBox24,
+            TextBox25, TextBox26, TextBox27, TextBox28,
+            TextBox29, TextBox30 };
             #endregion
         }
 
@@ -75,11 +86,48 @@ namespace BreastDiagWeb
             }
 
             if (conclusive > 8)
-                proportionDiagnosis.Text = "Malignant" + conclusive.ToString();
+                proportionDiagnosis.Text = "Malignant";
             else if (conclusive < 2)
-                proportionDiagnosis.Text = "Benign" + conclusive.ToString();
+                proportionDiagnosis.Text = "Benign";
             else
-                proportionDiagnosis.Text = "Inconclusive" + conclusive.ToString();
+                proportionDiagnosis.Text = "Inconclusive";
+        }
+
+        protected void detailFeedForward()
+        {
+            double tryparse = 0;
+            double[] input = detailInputs.Select((x) =>
+            {
+                if (double.TryParse(x.Text, out tryparse))
+                    return (tryparse); //Conversion expression
+                else
+                    return 0;
+            }).ToArray();
+
+            int conclusive = 0;
+            foreach (Network nn in detail)
+            {
+                nn.FeedForward(input);
+                if (Gaussian.Step(nn.Output[0], 0.86) == 1)
+                    conclusive++;
+            }
+
+            if (conclusive > 8)
+                detailDiagnosis.Text = "Malignant";
+            else if (conclusive < 2)
+                detailDiagnosis.Text = "Benign";
+            else
+                detailDiagnosis.Text = "Inconclusive";
+        }
+       
+        protected void proportionSubmit_Click(object sender, EventArgs e)
+        {
+            proportionalFeedForward();
+        }
+
+        protected void detailSubmit_Click(object sender, EventArgs e)
+        {
+            detailFeedForward();
         }
     }
 }
