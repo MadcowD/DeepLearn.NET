@@ -116,13 +116,44 @@ h3 {
 
 
 .diagnosis {
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left:auto;
     margin-right:auto;
-    width: 130px;
+    margin-bottom:30px;
+    width: 260px;
     margin-bottom: 10px;
     color: #dfdfdf;
-    font-size:large;
+    font-size: 24pt;
     text-transform: uppercase;
+    text-align:center;
 
+}
+
+.tooltip{
+    display: inline;
+    position: relative;
+}
+.tooltip:hover:after{
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 26px;
+    color: #fff;
+    content: attr(detail);
+    left: 20%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 220px;
+}
+
+.tooltip:hover:before{
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
 }

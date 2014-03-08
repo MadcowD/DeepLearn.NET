@@ -9,7 +9,7 @@
 	<title>Cancer</title>
 	<style type="text/css">
 		.auto-style4 {
-			width: 269px;
+			width: 50%;
 		}
 	</style>
 </head>
@@ -42,6 +42,11 @@
 					<p> BLAHBLAH BLAH this is atest blah blah blah use this text becasue this a test adn we need need to convey that to the people who we are wrotomg tje trest fpre/ Tjos osss sp,e stipdiudi. DOD YOU SEE MY MEANING</p>
 					<div class="tests">
 						<table style="width: 100%;">
+                            <tr>
+                                <td class ="auto-style4"><strong><u>Proportional Attribute</u></strong></td>
+                                <td><strong><u>Value</u></strong></td>
+                            </tr>
+
 							<tr>
 								<td class="auto-style4">Clump Thickness (% multi-layered)</td>
 								<td>
@@ -116,7 +121,153 @@
 			<div class='article'>
 				<div class='post'>
 					<h3>Detailed FNA Test</h3>
-					<p>Here is test2: </p>
+					<p> BLAHBLAH BLAH this is atest blah blah blah use this text becasue this a test adn we need need to convey that to the people who we are wrotomg tje trest fpre/ Tjos osss sp,e stipdiudi. DOD YOU SEE MY MEANING</p>
+					<div class="tests">
+						<table style="width: 100%;">
+							<tr>
+								<td class="auto-style4"><strong><u>Nucleic Attribute</u></strong></td>
+								<td>
+									<strong><u>Mean</u></strong> </td> <td> <strong><u>SE</u></strong> </td> <td> <strong><u>Largest</u></strong></td>
+							</tr>
+							<tr>
+								<td class="auto-style4 tooltip" 
+                                    detail="The mean of the distances from the center of the nucleus to points on the perimeter.">Radius</td>
+								<td>
+
+									<asp:TextBox ID="TextBox1" runat="server" Width="50px"></asp:TextBox>
+
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox2" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox3" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+							</tr>
+							<tr>
+								<td class="auto-style4 tooltip"
+                                    detail="The standard deviation of grey-scale values of the FNA.">Texture</td>
+								<td>
+									<asp:TextBox ID="TextBox4" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox5" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox6" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+							</tr>
+							<tr>
+								<td class="auto-style4 tooltip"
+                                    detail="The perimeter of the nucleus.">Perimeter</td>
+								<td>
+									<asp:TextBox ID="TextBox7" runat="server" Width="50px"></asp:TextBox>
+                                </td>                 <td>
+                                    <asp:TextBox ID="TextBox8" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox9" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+							</tr>
+                            						<tr>
+								<td class="auto-style4 tooltip"
+                                    detail="The area of the nucleus.">
+									Area</td>
+								<td>
+									<asp:TextBox ID="TextBox10" runat="server" Width="50px"></asp:TextBox>
+                                                        </td>                 <td>
+                                                            <asp:TextBox ID="TextBox11" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox12" runat="server" Width="50px"></asp:TextBox>
+                                                        </td>
+							</tr>
+							<tr>
+								<td class="auto-style4 tooltip"
+                                    detail="The local variation in radius lengths.">Smoothness</td>
+								<td>
+									<asp:TextBox ID="TextBox13" runat="server" Width="50px"></asp:TextBox>
+                                </td>                 <td>
+                                    <asp:TextBox ID="TextBox14" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox15" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+							</tr>
+							<tr>
+								<td class="auto-style4 tooltip"
+                                    detail="The squared perimeter over the area less one.">Compactness</td>
+								<td>
+									<asp:TextBox ID="TextBox16" runat="server" Width="50px"></asp:TextBox>
+                                </td>                 <td>
+                                    <asp:TextBox ID="TextBox17" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox18" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+							</tr>
+							<tr>
+								<td class="auto-style4 tooltip"
+                                    detail="The severity of concave portions on the countour of the nucleus.">Concavity</td>
+								<td>
+									<asp:TextBox ID="TextBox19" runat="server" Width="50px"></asp:TextBox>
+                                </td>                 <td>
+                                    <asp:TextBox ID="TextBox20" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox21" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+							</tr>
+							<tr>
+								<td class="auto-style4 tooltip"
+                                    detail="The number of concave points on the contour.">Concave Points</td>
+								<td>
+									<asp:TextBox ID="TextBox22" runat="server" Width="50px"></asp:TextBox>
+                                </td>                 <td>
+                                    <asp:TextBox ID="TextBox23" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox24" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+							</tr>
+							<tr>
+								<td class="auto-style4 tooltip"
+                                    detail="An average measure of symmetry across the nucleus.">Symmetry</td>
+								<td>
+									<asp:TextBox ID="TextBox25" runat="server" Width="50px"></asp:TextBox>
+                                </td>                 <td>
+                                    <asp:TextBox ID="TextBox26" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox27" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+							</tr>
+							<tr>
+								<td class="auto-style4 tooltip"
+                                    detail="The coastline approximation less one is the fractal dimension, which is also noted to be an objective and reproducible measure of the complexity of the tissue architecture of the biopsy specimen.">
+									Fractal Dimension</td>
+								<td>
+									<asp:TextBox ID="TextBox28" runat="server" Width="50px"></asp:TextBox>
+                                </td>                 <td>
+                                    <asp:TextBox ID="TextBox29" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox30" runat="server" Width="50px"></asp:TextBox>
+                                </td>
+							</tr>
+	
+							<tr>
+								<td class="auto-style4">
+									<asp:Button ID="detailSubmit" runat="server" OnClick="detailSubmit_Click" Text="Submit" />
+                                </td>
+								<td>
+									&nbsp;</td>
+							</tr>
+						</table>
+						</div>
+                    <div class="diagnosis">
+							&nbsp;<strong><asp:Label ID="detailDiagnosis" runat="server" Text="Malignant"></asp:Label></strong>
+                        </div>
 				</div>
 			</div>
 		</div>
