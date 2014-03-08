@@ -41,8 +41,7 @@ namespace NumericalExperiment.Experiments
                 for (int i = 0; i < 10; i++)
                 {
                     Console.WriteLine("\tNETWORK: " + i);
-                    Network nn = Network.Load(DATASTORE + @"CONTROL\" + i + "\\weights.nn");
-                    Trainer trainer = new Trainer(nn, this.trainingSet);
+                    Network nn = Network.Load(DATASTORE + @"CONCLUSION\" + i + "\\weights.nn");
                     avgError += testingSet.CalculateError(nn, sf);
                 }
 
@@ -72,7 +71,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override string PERSIST
         {
-            get { return @"STEP\"; }
+            get { return @"STEP_CONCLUSION\"; }
         }
     }
 }
