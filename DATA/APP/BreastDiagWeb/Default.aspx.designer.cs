@@ -103,6 +103,15 @@ namespace BreastDiagWeb {
         protected global::System.Web.UI.WebControls.TextBox proportion9;
         
         /// <summary>
+        /// proportionSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button proportionSubmit;
+        
+        /// <summary>
         /// proportionDiagnosis control.
         /// </summary>
         /// <remarks>

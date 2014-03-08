@@ -31,11 +31,11 @@ namespace BreastDiagWeb
 
 
             
-            for(int i = 0; i < 9; i++)
-            {
-                string query = Request.QueryString["proportion" + i.ToString()];
-                proportionInputs[i].Text = string.IsNullOrWhiteSpace(query) ? "0" : query;
-            }
+            //for(int i = 0; i < 9; i++)
+            //{
+            //    string query = Request.QueryString["proportion" + i.ToString()];
+            //    proportionInputs[i].Text = string.IsNullOrWhiteSpace(query) ? "0" : query;
+            //}
 
             proportionalFeedForward();
             #endregion
@@ -80,6 +80,11 @@ namespace BreastDiagWeb
                 proportionDiagnosis.Text = "Benign" + conclusive.ToString();
             else
                 proportionDiagnosis.Text = "Inconclusive" + conclusive.ToString();
+        }
+
+        protected void proportionSubmit_Click(object sender, EventArgs e)
+        {
+            //proportionalFeedForward();
         }
     }
 }
