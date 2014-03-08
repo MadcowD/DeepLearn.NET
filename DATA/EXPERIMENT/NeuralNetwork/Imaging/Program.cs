@@ -14,7 +14,7 @@ namespace Imaging
     {
         static void Main(string[] args)
         {
-            Bitmap bmp = new Bitmap(Image.FromFile(@"..\..\..\..\DATASET\Pictures\Normal\mdb140.png"));
+            Bitmap bmp = new Bitmap(Image.FromFile(@"..\..\..\..\DATASET\Pictures\Not Normal\mdb274.png"));
             int[,] imageC = new int[bmp.Width, bmp.Height];
             int[,] imageProcess = new int[bmp.Width, bmp.Height];
             for (int x = 0; x < bmp.Width; x++)
@@ -27,7 +27,7 @@ namespace Imaging
             for (int x = 0; x < bmp.Width; x++)
                 for (int y = 0; y < bmp.Height; y++)
                     bmp.SetPixel(x, y, Color.FromArgb(imageProcess[x, y], imageProcess[x, y], imageProcess[x, y]));
-            bmp.Save(@"..\..\..\..\DATASET\Pictures\Normal\OUTmdb140.png");
+            //bmp.Save(@"..\..\..\..\DATASET\Pictures\Normal\OUTmdb140.png");
 
             Bitmap sbmp = new Bitmap(8, 8);
             string[] numout = new string[8 * 8];
@@ -39,8 +39,8 @@ namespace Imaging
                     numout[8 * (x - 7) + y-8] = imageProcess[x, y].ToString();
                 }
             }
-            sbmp.Save(@"..\..\..\..\DATASET\Pictures\Normal\OUTSMALLmdb140.png");
-            System.IO.File.WriteAllLines(@"..\..\..\..\DATASET\Pictures\Normal\OUTSMALLNUMmdb140.txt", numout);
+            //sbmp.Save(@"..\..\..\..\DATASET\Pictures\Normal\OUTSMALLmdb140.png");
+            System.IO.File.WriteAllText(@"..\..\..\..\DATASET\Pictures\Not Normal\OUTSMALLNUMmdb274.txt", string.Join(",", numout), ASCIIEncoding.ASCII);
 
         }
     }
