@@ -153,12 +153,12 @@ namespace CancerDiagnostics
             }
 
             //Check for conclusivity
-            if (benign >= 9)
+            if (benign >= 8)
             {
                 diagnosis.Text = "benign";
                 resultBox.Fill = new SolidColorBrush(Color.FromArgb(255, 16, 145, 16));
             }
-            else if (malignant >= 9)
+            else if (malignant >= 8)
             {
                 diagnosis.Text = "malignant";
                 resultBox.Fill = new SolidColorBrush(Color.FromArgb(255, 186, 21, 21));
