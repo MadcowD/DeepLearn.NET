@@ -34,7 +34,7 @@ namespace NumericalExperiment.Experiments
             for (double mm = 0.25 * (i - 1); mm < 0.25 * i; mm += 0.0125)
             {
                 //TRAIN USING DIFFERENT LEARNING RATES
-                for (double lr = 0.00015625 * (i - 1); lr < 0.00015625 * i; lr += 0.000015625)
+                for (double lr = 0; lr < 0.000625 * i; lr += 0.000015625)
                 {
                     string subdirectory = mm + "_" + lr + @"\";
 
@@ -64,10 +64,6 @@ namespace NumericalExperiment.Experiments
 
             }
 
-            //Finish summary
-            summary.Insert(0, "Lowest Error: " + lowestError);
-            summary.Insert(0, "Lowest LR, MM: " + lowestLR + ", " + lowestMM);
-
             SaveData(DATASTORE + PERSIST + "summary" + i + ".txt", summary.ToArray());
         }
 
@@ -79,7 +75,7 @@ namespace NumericalExperiment.Experiments
 
         public override string PERSIST
         {
-            get { return @"COVARIANCE_NO_BOTTOM\"; }
+            get { return @"COVARIANCE\"; }
         }
     }
 }

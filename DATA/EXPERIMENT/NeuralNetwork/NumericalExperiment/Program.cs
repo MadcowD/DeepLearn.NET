@@ -12,11 +12,13 @@ namespace NumericalExperiment
     {
         static void Main(string[] args)
         {
-            CancerData testing = new CancerData("testingImages.dat");
-            CancerData training = new CancerData("trainingImages.dat");
+            CancerData testing = new CancerData("testing.dat");
+            CancerData training = new CancerData("training.dat");
 
-            var e1 = new ImageExperiment(training, testing);
-            e1.Run();
+            new CovarianceExperiment(training, testing, 1).RunAsThread();
+           new CovarianceExperiment(training, testing, 2).RunAsThread();
+           new CovarianceExperiment(training, testing, 3).RunAsThread();
+            new CovarianceExperiment(training, testing, 4).RunAsThread();
          
 
 
