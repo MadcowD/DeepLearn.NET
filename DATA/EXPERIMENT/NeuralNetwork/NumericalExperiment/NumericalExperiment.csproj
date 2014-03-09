@@ -45,6 +45,7 @@
     <Compile Include="Experiments\ConclusionExperiment.cs" />
     <Compile Include="Experiments\CovarianceExperiment.cs" />
     <Compile Include="Experiments\HiddenLayers.cs" />
+    <Compile Include="Experiments\ImageExperiment.cs" />
     <Compile Include="Experiments\LearningRateExperiment.cs" />
     <Compile Include="Experiments\ControlExperiment.cs" />
     <Compile Include="Experiments\MomentumExperiment.cs" />

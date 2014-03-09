@@ -12,10 +12,10 @@ namespace NumericalExperiment
     {
         static void Main(string[] args)
         {
-            CancerData testing = new CancerData("testing.dat");
-            CancerData training = new CancerData("training.dat");
+            CancerData testing = new CancerData("testingImages.dat");
+            CancerData training = new CancerData("trainingImages.dat");
 
-            var e1 = new StepExperiment(training, testing);
+            var e1 = new ImageExperiment(training, testing);
             e1.Run();
          
 
