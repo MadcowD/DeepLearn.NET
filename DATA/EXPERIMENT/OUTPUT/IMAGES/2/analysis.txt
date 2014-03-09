@@ -1,0 +1,6 @@
+Converged: True
+Error: 0.500534975383452
+Average Error: 0.125133743845863
+Proportional Error: 0.0625668719229315
+Error Standard Deviation: 0.00817752547727264
+Epochs: 480
