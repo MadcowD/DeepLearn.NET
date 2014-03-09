@@ -28,6 +28,7 @@ namespace CancerDiagnostics
     sealed partial class App : Application
     {
         public static Network[] Networks = new Network[10];
+        public static Network[] Details = new Network[10];
         /// <summary>
         /// Initializes the singleton Application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -102,11 +103,19 @@ namespace CancerDiagnostics
             for (int i = 0; i < 10; i++)
             {
                 IReadOnlyList<StorageFile> x = await root.GetFilesAsync();
-                var y = 1;
                 //load networks
                 StorageFile sfile = await root.GetFileAsync("nn" + i.ToString() + ".nn");
                 IList<string> file = await FileIO.ReadLinesAsync(sfile);
                 Networks[i] = Network.Load(file.ToArray());
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                IReadOnlyList<StorageFile> x = await root.GetFilesAsync();
+                //load networks
+                StorageFile sfile = await root.GetFileAsync("dd" + i.ToString() + ".nn");
+                IList<string> file = await FileIO.ReadLinesAsync(sfile);
+                Details[i] = Network.Load(file.ToArray());
             }
         }
 
