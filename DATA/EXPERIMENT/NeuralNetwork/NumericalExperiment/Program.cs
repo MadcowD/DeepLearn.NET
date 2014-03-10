@@ -15,10 +15,8 @@ namespace NumericalExperiment
             CancerData testing = new CancerData("testing.dat");
             CancerData training = new CancerData("training.dat");
 
-            new CovarianceExperiment(training, testing, 1).RunAsThread();
-           new CovarianceExperiment(training, testing, 2).RunAsThread();
-           new CovarianceExperiment(training, testing, 3).RunAsThread();
-            new CovarianceExperiment(training, testing, 4).RunAsThread();
+            new StepExperiment(training, testing).Run();
+
          
 
 
