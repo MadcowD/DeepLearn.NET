@@ -129,5 +129,9 @@ namespace BreastDiagWeb
         {
             detailFeedForward();
         }
+
+        protected void midSubmit_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

@@ -128,7 +128,7 @@
                             <TextBlock Style="{StaticResource TitleTextBlockStyle}" Grid.Row="2" Grid.ColumnSpan="5"  Margin="0,15,0,0"
                                         Text="Summary and Potential Impact:"/>
                             <TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="3" Grid.ColumnSpan="5"
-                                        Text="The total error calculated for the network is 3.2%. Despite the imprecision of the network, an algorithmic model would be near impossible to create, thus the network allows for an efficient solution. However, it is not only applicable to breast cancer but to any dataset can't be modeled by conventional methods. The project also creates an application to utilize the network to accurately diagnose cases of potential breast cancer."/>
+                                        Text="The total error calculated for the network is 2%. Despite the imprecision of the network, an algorithmic model would be near impossible to create, thus the network allows for an efficient solution. However, it is not only applicable to breast cancer but to any dataset can't be modeled by conventional methods. The project also creates an application to utilize the network to accurately diagnose cases of potential breast cancer."/>
                         </Grid>
                     </StackPanel>
                 </DataTemplate>

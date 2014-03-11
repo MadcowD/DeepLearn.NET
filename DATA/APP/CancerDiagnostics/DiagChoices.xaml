@@ -89,9 +89,13 @@
         	<LineBreak/>
         	<Run/>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="916,182,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="371" Width="345">
-        	<Run FontSize="13" Text="TextBl"/>
-        	<Run Text="ock"/>
+        <TextBlock HorizontalAlignment="Left" Margin="916,182,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="371" Width="345" FontSize="13">
+        	<Run Text="This dataset is composed of images from mammographies. The creator was the Mammographic Image Analysis Society. The diagnostic test created for this specific dataset is called a MID test, mammography image diagnostic test."/>
+        	<LineBreak/>
+        	<Run/>
+        	<LineBreak/>
+        	<Run Text="The dataset is composed of images with 200 micron pixel edges. Each image size is  1024x1024 pixels. 18.2 percent of the data was used for testing while the other 81.8 percent were used for training. The breasts that were in the dataset had three distinct background tissues: fatty, fatty-glandular, and dense-glandular. Only images with fatty background tissue were used during the experiment to reduce a variable for the network. Also only images of left breasts were used to reduce the amount of uncertainty in the network because of the existence of black space on either side of the breast. Once these specific images were separated from the original dataset, a total of 22 images remained. Of these 11 were tumorous and 11 were normal (more normal ones existed but in order to achieve consistency during training and testing only 11 were used)."/>
+        	<LineBreak/>
         </TextBlock>
     </Grid>
 </Page>

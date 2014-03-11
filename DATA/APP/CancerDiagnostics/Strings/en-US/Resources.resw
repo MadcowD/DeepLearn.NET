@@ -223,9 +223,11 @@
     <value>Through the Implementation of Neural Networks</value>
   </data>
   <data name="LongText.Text" xml:space="preserve">
-    <value>The challenge of diagnosing any type of cancer is that the no single test can accurately succeed. Diagnostic testing is essential to successfully evaluate the health of an individual and determine whether or not the symptoms are caused by cancer or another disease. Diagnostic imaging is a useful technique to produce an internal picture of the body in order to analyze its structure. However, it is still up to the medical professional to successful analyze the images and determine whether the individual has cancer. While analyzing the data taken from the imaging with neural networks, the analysis can be made more efficient, but also one can minimize the error that occurs during diagnostic testing.
+    <value>The challenge of diagnosing cancer is that no single test can accurately succeed. Diagnostic testing is essential to evaluate the health of an individual and determine whether the individual has cancer. Diagnostic imaging is a useful technique to produce an internal picture of the body for analyzing structure. However, medical professionals are required to successful analyze the images and determine whether the individual has cancer. Applying artificial neural networks to this problem makes the analysis more efficient while minimizing error in diagnosis.
 
-The purpose of the project is to implement a successful neural network with back propagation to analyze a breast cancer numerical dataset. It also evaluates the efficiency or the network as it is influenced by different conditions. The efficiency is gauged by the error percentages accumulated by the network. Furthermore, statistical analysis is applied to the network in order to analyze the effectiveness of the neural network.</value>
+The purpose of the project is to implement a successful neural network with backpropagation to analyze a breast cancer numerical and image dataset. It also evaluates the efficiency of the network as it is influenced by different conditions. The efficiency is gauged by the error percentages accumulated by the network. Furthermore, statistical analysis is applied to the network in order to analyze the effectiveness.
+
+The project showed that despite the adaptability of the neural network, it is still unable to remove the error completely.</value>
     <comment>"Section1DescriptionText" duplicated three times.</comment>
   </data>
   <data name="Section1DescriptionText.Text" xml:space="preserve">
