@@ -1,6 +1,7 @@
 ﻿using NeuralLibrary;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -132,6 +133,11 @@ namespace BreastDiagWeb
 
         protected void midSubmit_Click(object sender, EventArgs e)
         {
+            Bitmap c = (Bitmap)Bitmap.FromStream((midImage.FileContent));
+            c.Save(".\\img.png");
+
+            Image1.ImageUrl = ".\\img.png";
+
         }
     }
 }

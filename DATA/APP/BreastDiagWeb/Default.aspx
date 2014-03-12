@@ -282,14 +282,15 @@
 						<p>The dataset is composed of images with 200 micron pixel edges. Each image size is  1024x1024 pixels. 18.2 percent of the data was used for testing while the other 81.8 percent were used for training. The breasts that were in the dataset had three distinct background tissues: fatty, fatty-glandular, and dense-glandular. Only images with fatty background tissue were used during the experiment to reduce a variable for the network. Also only images of left breasts were used to reduce the amount of uncertainty in the network because of the existence of black space on either side of the breast. Once these specific images were separated from the original dataset, a total of 22 images remained. Of these 11 were tumorous and 11 were normal (more normal ones existed but in order to achieve consistency during training and testing only 11 were used).</p>
 						<p>
 							<strong><u>Upload Mammographic Image</u></strong><br />
-						    <asp:FileUpload ID="midImage" runat="server" Width="100%" />
+							<asp:FileUpload ID="midImage" runat="server" Width="100%" />
+						    <asp:Image ID="Image1" runat="server" />
 						</p>
-                        <p>
-                            <asp:Button ID="midSubmit" runat="server" OnClick="midSubmit_Click" Text="Submit" />
-                        </p>
-                        <div class="diagnosis">
-					    &nbsp;<strong><asp:Label ID="midDiagnosis" runat="server" Text="1"></asp:Label></strong>
-			         </div>
+						<p>
+							<asp:Button ID="midSubmit" runat="server" OnClick="midSubmit_Click" Text="Submit" />
+						</p>
+						<div class="diagnosis">
+						&nbsp;<strong><asp:Label ID="midDiagnosis" runat="server" Text=""></asp:Label></strong>
+					 </div>
 					</div>
 				</div>
 
