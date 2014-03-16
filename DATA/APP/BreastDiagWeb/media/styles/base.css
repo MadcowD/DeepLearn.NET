@@ -1,15 +1,19 @@
 /* Total Website Style */
 a:link {
+    text-decoration:none;
 	COLOR: #FA6B79;
 }
 a:visited {
 	COLOR: #FA6B79;
+    text-decoration:none;
 }
 a:hover {
 	COLOR: #F95162;
+    text-decoration:underline;
 }
 a:active {
-COLOR: #575757;
+    COLOR: #575757;
+    text-decoration:underline;
 }
 
 p{
@@ -18,7 +22,7 @@ p{
 }
 
 body {
-	background-color: #787878;
+	background-color: rgba(0,0,0,0.9);
 	font: 1em 'Times New Roman', serif;
 	line-height: 1.6em;
 	margin: 0;
@@ -28,7 +32,7 @@ body {
   
   /* Background stuff */
   background-attachment: fixed;
-  background-image:url(../img/back.jpg)
+  background-image:url(../img/back.png)
   
 }
 
@@ -40,6 +44,14 @@ body {
 .tests{
     padding-left: 20px;
         color: #dfdfdf;
+}
+
+.lbl{  
+      color: #dfdfdf;
+        width: 593px;
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
 }
 
 /*title*/
@@ -89,8 +101,9 @@ h3 {
 	padding: 0;
 	margin-right: 0;
 	margin-bottom: 0px;
-	font: 22px'Oleo Script';
+	font: 22px'Times New Roman';
 	background-color: rgba(0,0,0,0.9);
+    text-transform: uppercase;
 }
 
 .content {

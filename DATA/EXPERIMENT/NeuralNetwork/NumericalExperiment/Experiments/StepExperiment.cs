@@ -38,14 +38,14 @@ namespace NumericalExperiment.Experiments
                 double avgError = 0;
                 Console.WriteLine("SF -- " + sf);
                 string subdirectory = sf + @"\";
-                for (int i = 0; i < 10; i++)
+                for (int i = 1; i < 10; i++)
                 {
                     Console.WriteLine("\tNETWORK: " + i);
-                    Network nn = Network.Load(DATASTORE + @"CONCLUSION\" + i + "\\weights.nn");
+                    Network nn = Network.Load(DATASTORE + @"IMAGES\" + i + "\\weights.nn");
                     avgError += testingSet.CalculateError(nn, sf);
                 }
 
-                avgError/=10;
+                avgError/=9;
 
                 summary.Add(sf.ToString() + " " + avgError);
                 if (avgError< lowestError)
@@ -71,7 +71,7 @@ namespace NumericalExperiment.Experiments
         /// </summary>
         public override string PERSIST
         {
-            get { return @"STEP_CONCLUSION\"; }
+            get { return @"STEP_IMAGE\"; }
         }
     }
 }

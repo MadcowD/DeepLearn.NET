@@ -140,9 +140,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DWT2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="uploads\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NeuralLibrary\NeuralLibrary.csproj">
       <Project>{cca9a4f2-2092-4fa2-aa77-740e81f787db}</Project>

@@ -118,6 +118,9 @@
     <Compile Include="DiagChoices.xaml.cs">
       <DependentUpon>DiagChoices.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MID.xaml.cs">
+      <DependentUpon>MID.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PFNA.xaml.cs">
       <DependentUpon>PFNA.xaml</DependentUpon>
     </Compile>
@@ -224,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DiagChoices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MID.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
