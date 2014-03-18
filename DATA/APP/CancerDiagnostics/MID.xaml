@@ -46,5 +46,11 @@
             <TextBlock x:Name="pageTitle" Text="MID" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
+        <Button x:Name="openImage" Content="Select Mammogram" HorizontalAlignment="Left" Margin="987,530,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.425,0.632" Click="openImage_Click"/>
+        <Image x:Name="orig" Margin="73,32,568,51" Grid.Row="1" Source="Assets/mdb006.png" Stretch="Fill"/>
+        <Image x:Name="dwt" HorizontalAlignment="Left" Margin="917,72,0,249" Grid.Row="1" Width="307" Source="Assets/first.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+        <Rectangle x:Name="resultBox" Height="115" Margin="897,390,124,0" Grid.Row="1" Stroke="#FF2F2F2F" VerticalAlignment="Top" Fill="Black" StrokeThickness="10"/>
+        <TextBlock x:Name="diagnosis" Margin="970,425,197,159" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="36" RenderTransformOrigin="0.5,0.5" Width="199"/>
+        <ProgressBar x:Name="progress" HorizontalAlignment="Left" Height="32" Margin="917,533,0,0" Grid.Row="1" VerticalAlignment="Top" Width="307" SmallChange="1E-06" Value="20" Visibility="Collapsed"/>
     </Grid>
 </Page>

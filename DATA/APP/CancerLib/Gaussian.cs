@@ -26,5 +26,15 @@ namespace NeuralLibrary
         {
             return GetRandomGaussian(0, 1);
         }
+
+        public static double Step(double p, double stepPoint)
+        {
+            if (stepPoint == -1)
+                return p;
+            if (p <= stepPoint)
+                return 0;
+            else
+                return 1;
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using CancerDiagnostics.Common;
+using Imaging;
+using NeuralLibrary;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,12 +8,18 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
+using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
@@ -51,6 +59,8 @@ namespace CancerDiagnostics
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+            diagnosis.Text = "normal";
+            resultBox.Fill = new SolidColorBrush(Color.FromArgb(255, 16, 145, 16));
         }
 
         /// <summary>
@@ -102,5 +112,87 @@ namespace CancerDiagnostics
         }
 
         #endregion
+
+        private async void openImage_Click(object sender, RoutedEventArgs e)
+        {
+            FileOpenPicker fop = new FileOpenPicker();
+            fop.FileTypeFilter.Clear();
+            fop.FileTypeFilter.Add(".bmp");
+            fop.FileTypeFilter.Add(".jpeg");
+            fop.FileTypeFilter.Add(".jpg");
+            fop.FileTypeFilter.Add(".png");
+
+
+            StorageFile file = await fop.PickSingleFileAsync();
+
+
+            if (file == null)
+                return;
+
+            IRandomAccessStream fileStream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
+
+            
+            WriteableBitmap bp = new WriteableBitmap(512, 512);
+            bp.SetSource(fileStream);
+
+            orig.Source = bp;
+            byte[] bitez = bp.ToByteArray();
+            int[,] imageC = new int[bp.PixelWidth, bp.PixelHeight];
+            int[,] imageProcess = new int[bp.PixelWidth, bp.PixelHeight];
+            for (int x = 0; x < bp.PixelWidth; x++)
+                for (int y = 0; y < bp.PixelHeight; y++)
+                {
+                    int baseIndex = (y * bp.PixelWidth + x) * 4;
+                    int a = bitez[baseIndex];
+                    int r = bitez[baseIndex + 1];
+                    int g = bitez[baseIndex + 2];
+                    int b = bitez[baseIndex + 3];
+
+                    double bright =
+                    (0.2126 * r) + (0.7152 * g) + (0.0722 * b);
+                    imageC[x, y] = (int)(bright);
+                }
+
+            DWT2D d = new DWT2D(imageC);
+            imageProcess = d.Transform(imageC);
+
+
+            WriteableBitmap sbp = new WriteableBitmap(8, 8);
+
+            double[] numout = new double[8 * 8];
+            for (int x = 7; x < 15; x++)
+            {
+                for (int y = 8; y < 16; y++)
+                {
+                    sbp.SetPixel(x - 7, y - 8, Color.FromArgb(255, (byte)imageProcess[x, y], (byte)imageProcess[x, y], (byte)imageProcess[x, y]));
+                    numout[8 * (x - 7) + y - 8] = imageProcess[x, y];
+                }
+            }
+            WriteableBitmap s = sbp.Resize(200, 200, Windows.UI.Xaml.Media.Imaging.WriteableBitmapExtensions.Interpolation.NearestNeighbor);
+           
+            dwt.Source = s;
+             StorageFolder root = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Assets");
+           
+            StorageFile imgfile = await root.GetFileAsync("0.nn");
+            IList<string> fileLines = await FileIO.ReadLinesAsync(imgfile);
+            Network images = Network.Load(fileLines.ToArray());
+
+            //Now run through neural networks
+            {
+                images.FeedForward(numout);
+                if (Gaussian.Step(images.Output[0], 0.58) == 0)
+                {
+                    diagnosis.Text = "tumorous";
+                    resultBox.Fill = new SolidColorBrush(Color.FromArgb(255, 186, 21, 21));
+                }
+                else
+                {
+                    diagnosis.Text = "normal";
+                    resultBox.Fill = new SolidColorBrush(Color.FromArgb(255, 16, 145, 16));
+                }
+            }
+
+
+        }
     }
 }

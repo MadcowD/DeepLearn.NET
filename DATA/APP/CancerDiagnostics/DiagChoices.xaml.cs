@@ -112,5 +112,15 @@ namespace CancerDiagnostics
         {
             this.Frame.Navigate(typeof(DFNA));
         }
+
+        private void diagnosis_Copy_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void loadMidPage(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MID));
+        }
     }
 }

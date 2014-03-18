@@ -16,7 +16,7 @@
 	<body>
 		<form id="form1" runat="server">
 			<div class="header">
-				<h1>Breast Cancer Diagnostics</h1>
+		Z		<h1>Breast Cancer Diagnostics</h1>
 			</div>
 			<div class="navbar">
 				<table width="400" border="0" align="center" class="links">
