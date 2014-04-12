@@ -1,0 +1,67 @@
+﻿using NeuralLibrary.NeuralNetwork;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace NeuralLibrary
+{
+    public abstract class Experiment
+    {
+        public Experiment(DataSet trainingSet, DataSet testingSet)
+        {
+            this.trainingSet = trainingSet;
+            this.testingSet = testingSet;
+        }
+
+        /// <summary>
+        /// Runs the experiment
+        /// <returns>The results of the experiment.</returns>
+        /// </summary>
+        public abstract void Run();
+
+        /// <summary>
+        /// Runs the experiment as a thread.
+        /// </summary>
+        /// <returns></returns>
+        public bool RunAsThread()
+        {
+            if (worker == null)
+            {
+                worker = new Thread(new ThreadStart(this.Run));
+                worker.Start();
+            }
+            else
+            {
+                if (worker.IsAlive)
+                    return false;
+                else
+                    worker.Start();
+            }
+            return true;
+        }
+
+        #region Properties
+
+
+        /// <summary>
+        /// The datastore location
+        /// </summary>
+        public static string DATASTORE = @"..\..\..\..\OUTPUT\";
+
+        /// <summary>
+        /// THE FOLDER IN WHICH THE DATA WILL GO
+        /// </summary>
+        public abstract string PERSIST { get; }
+        #endregion
+
+        #region Fields
+        Thread worker;
+        protected DataSet trainingSet;
+        protected DataSet testingSet;
+        #endregion Fields
+    }
+}
