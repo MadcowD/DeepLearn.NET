@@ -16,13 +16,13 @@
 	<body>
 		<form id="form1" runat="server">
 			<div class="header">
-				<h1>Breast Cancer Diagnostics</h1>
+		Z		<h1>Breast Cancer Diagnostics</h1>
 			</div>
 			<div class="navbar">
 				<table width="400" border="0" align="center" class="links">
 				  <tr>
 					<td><a href="#">Diagnostic</a></td>
-					<td><a href="./project.aspx">Project Page</a></td>
+					<td><a href="./project.aspx">Paper</a></td>
 					<td><a href="mailto:carlostnb@gmail.com">Contact</a></td>
 				  </tr>
 				</table>
@@ -280,21 +280,24 @@
 						<h3>Mammographic Imaging Diagnostic</h3>
 						<p>This dataset is composed of images from mammographies. The creator was the Mammographic Image Analysis Society. The diagnostic test created for this specific dataset is called a MID test, mammography image diagnostic test. </p>
 						<p>The dataset is composed of images with 200 micron pixel edges. Each image size is  1024x1024 pixels. 18.2 percent of the data was used for testing while the other 81.8 percent were used for training. The breasts that were in the dataset had three distinct background tissues: fatty, fatty-glandular, and dense-glandular. Only images with fatty background tissue were used during the experiment to reduce a variable for the network. Also only images of left breasts were used to reduce the amount of uncertainty in the network because of the existence of black space on either side of the breast. Once these specific images were separated from the original dataset, a total of 22 images remained. Of these 11 were tumorous and 11 were normal (more normal ones existed but in order to achieve consistency during training and testing only 11 were used).</p>
-						<p>
-							<strong><u>Upload Mammographic Image</u></strong><br />
-							<asp:FileUpload ID="midImage" runat="server" Width="100%" />
-						    <asp:Image ID="Image1" runat="server" />
-						</p>
-						<p>
+							
+						<p><b><u><asp:Label ID="Label1" runat="server" Text="Upload Mammographic Image"></asp:Label></u></b></p>
+							
+						<div class="lbl">
+									<asp:Label ID="Label2" runat="server" CssClass="lbl"  Text="Raw Image" Visible="false"></asp:Label><br />
+									<asp:Image ID="Image1" runat="server" CssClass="lbl" /><br />
+									<asp:Label ID="Label3" runat="server" Text="Post-DWT" Visible="false"></asp:Label><br />
+									<asp:Image ID="Image2" runat="server" Visible ="false" />
+						</div>
+		  
+						<p>                            
+							<asp:FileUpload ID="midImage" runat="server" Width="100%" /><br />
 							<asp:Button ID="midSubmit" runat="server" OnClick="midSubmit_Click" Text="Submit" />
 						</p>
 						<div class="diagnosis">
 						&nbsp;<strong><asp:Label ID="midDiagnosis" runat="server" Text=""></asp:Label></strong>
 					 </div>
-					</div>
 				</div>
-
-
 		</form>
 	</body>
 </html>
