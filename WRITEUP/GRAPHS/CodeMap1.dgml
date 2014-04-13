@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @3 @10 Member=Load)" Category="CodeSchema_Method" Bounds="-662.826172281901,307.918144326892,61.8533333333332,25.96" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" DelayedCrossGroupLinksState="Fetched" Label="Load" />
+    <Node Id="@11" Category="CodeSchema_Class" Bounds="-682.826172281901,156.097884414783,251.550464274089,197.880488085937" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="5" Group="Expanded" Label="DataSet" UseManualLocation="True" />
+    <Node Id="@13" Category="CodeSchema_Class" Bounds="-1114.99195251028,298.144395864509,331.134368252692,197.877748375" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="4" Group="Expanded" Label="Gaussian" UseManualLocation="True" />
+    <Node Id="@15" Category="CodeSchema_Class" Bounds="-1096.81945588652,-385.482247871507,1443.03689638306,253.83884813501" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="19" Group="Expanded" Label="Network" UseManualLocation="True" />
+    <Node Id="@17" Category="CodeSchema_Class" Bounds="-712.381221249978,383.97847250072,485.533071843296,196.915170176094" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="8" Group="Expanded" Label="Neuron" UseManualLocation="True" />
+    <Node Id="@19" Category="CodeSchema_Class" Bounds="-1103.5954673924,-101.64328938678,1016.57070405848,197.870634105625" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="11" Group="Expanded" Label="Sigmoid" UseManualLocation="True" />
+    <Node Id="@2" Category="CodeSchema_Assembly" Bounds="-1154.99195251028,-465.482451344886,1541.20939300682,1091.31282540984" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="2" Group="Expanded" Label="NeuralLibrary.dll" UseManualLocation="True" />
+    <Node Id="@21" Category="CodeSchema_Class" Bounds="-1110.66163471926,126.227532724861,397.835418163835,141.916754470703" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="5" Group="Expanded" Label="Trainer" UseManualLocation="True" />
+    <Node Id="@25" Category="CodeSchema_Method" Bounds="-743.321350631864,-233.561841219174,115.065552826227,25.9570142556159" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="BackPropagate" />
+    <Node Id="@26" Category="CodeSchema_Method" Bounds="-598.070256144206,-233.563505752743,104.563333333333,25.96" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="FeedForward" />
+    <Node Id="@27" Category="CodeSchema_Method" Bounds="-112.236868853453,-233.561841219174,132.896589269406,25.9570142556159" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="GenerateSigmoids" />
+    <Node Id="@28" Category="CodeSchema_Method" Bounds="-692.381106298175,534.936030996814,66.2736872057244,25.95751168" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="GetID" />
+    <Node Id="@29" Category="CodeSchema_Method" Bounds="-359.44478882574,423.978603018298,112.596639419058,25.95751168" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" DelayedCrossGroupLinksState="Fetched" Label="UpdateOutput" />
+    <Node Id="@30" Category="CodeSchema_Method" Bounds="-463.058398496186,-233.563137709153,60.5398621779182,25.9592319999999" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="Save" />
+    <Node Id="@33" Category="CodeSchema_Method" Bounds="-793.905017824724,-5.69283922353395,79.6868667041363,25.9599923200001" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="Sigmoid" />
+    <Node Id="@34" Category="CodeSchema_Method" Bounds="-47.6235149892171,483.909903675412,88.2066666666667,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="DataPoint" />
+    <Node Id="@36" Category="CodeSchema_Method" Bounds="-118.407468109106,-289.521649568783,81.2377572631335,25.9570142556163" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="Network" />
+    <Node Id="@37" Category="CodeSchema_Method" Bounds="20.2670194335022,-345.482147173886,61.8887821779183,25.9592320000002" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="Load" />
+    <Node Id="@38" Category="CodeSchema_Method" Bounds="-871.038321307146,166.227632724861,72.7583442744494,25.9582720000001" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="Trainer" />
+    <Node Id="@39" Category="CodeSchema_Method" Bounds="-1094.99195251028,394.103827864509,146.172869864318,25.959232" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="GetRandomGaussian" />
+    <Node Id="@4" Category="CodeSchema_Namespace" Bounds="-1134.99195251028,-425.482351344886,1501.20939300682,1031.31262540985" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="8" Group="Expanded" Label="NeuralLibrary" />
+    <Node Id="@40" Category="CodeSchema_Method" Bounds="-163.194940700847,196.199665781949,113.139820366538,25.95889408" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" DelayedCrossGroupLinksState="Fetched" Label="UpdateWeight" />
+    <Node Id="@41" Category="CodeSchema_Method" Bounds="-260.881498505277,-233.561841219174,118.185818055475,25.9570142556159" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="UpdateWeights" />
+    <Node Id="@42" Category="CodeSchema_Method" Bounds="-692.381221249978,424.006034156501,100.469351679643,25.90319872" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" DelayedCrossGroupLinksState="Fetched" Label="UpdateError" />
+    <Node Id="@43" Category="CodeSchema_Method" Bounds="-289.966754055444,196.19965052316,96.6821348198716,25.95889408" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="Connection" />
+    <Node Id="@44" Category="CodeSchema_Method" Bounds="-372.407529144262,-233.561841219174,81.2377572631335,25.9570142556159" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="Network" />
+    <Node Id="@46" Category="CodeSchema_Method" Bounds="-6.389471438253,-289.521649568783,115.201794439006,25.9570142556158" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="GetConnection" />
+    <Node Id="@47" Category="CodeSchema_Method" Bounds="-289.966754055444,252.159077403043,96.6821348198716,25.95889408" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="Connection" />
+    <Node Id="@48" Category="CodeSchema_Method" Bounds="-716.937801307709,-289.522735552792,62.2984541779183,25.9592319999999" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="Train" />
+    <Node Id="@49" Category="CodeSchema_Method" Bounds="-963.822695789568,166.227633422482,62.3271542744494,25.9582720000001" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="Train" />
+    <Node Id="@5" Category="CodeSchema_Namespace" Bounds="58.9190964759536,-14.3629975712956,175.821576,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="NeuralLibrary‎.Neurons" UseManualLocation="True" />
+    <Node Id="@50" Category="CodeSchema_Method" Bounds="-662.826063181498,196.100348842673,108.452053120809,25.95557632" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsSpecialName="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="static DataSet" />
+    <Node Id="@51" Category="CodeSchema_Method" Bounds="-917.953634004126,394.110607471076,114.096049746534,25.9451315199998" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsSpecialName="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="static Gaussian" />
+    <Node Id="@52" Category="CodeSchema_Method" Bounds="-532.408444688874,-61.6431886891588,110.693781467591,25.95004672" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsSpecialName="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="static Sigmoid" />
+    <Node Id="@53" Category="CodeSchema_Method" Bounds="-570.972791748047,308.01827250072,77.4099999999999,25.96" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsProtected="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="DataSet" />
+    <Node Id="@54" Category="CodeSchema_Method" Bounds="-561.19720946574,423.97857250072,76.1014806990576,25.95751168" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="Neuron" />
+    <Node Id="@55" Category="CodeSchema_Field" Bounds="-593.304299644044,-177.601929872738,95.0313898154322,25.9570142556161" CodeSchemaProperty_IsInternal="True" DelayedCrossGroupLinksState="Fetched" Label="Activations" />
+    <Node Id="@56" Category="CodeSchema_Property" Bounds="-53.446240004913,308.547835232363,141.642394787382,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="AnteriorNeuron" />
+    <Node Id="@57" Category="CodeSchema_Property" Bounds="-371.506459101465,-177.123452216405,79.4357281207149,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Bias" />
+    <Node Id="@58" Category="CodeSchema_Field" Bounds="-253.161922810873,-177.603499038876,102.746666666667,25.96" CodeSchemaProperty_IsInternal="True" DelayedCrossGroupLinksState="Fetched" Label="Connections" />
+    <Node Id="@59" Category="CodeSchema_Field" Bounds="-798.198408364126,50.2672530964662,88.2734646774697,25.9599923200001" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="derivative" />
+    <Node Id="@60" Category="CodeSchema_Property" Bounds="-1083.5954673924,-5.21297396972875,111.06901043236,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Derivative" />
+    <Node Id="@61" Category="CodeSchema_Field" Bounds="-41.4502865600586,539.870064710568,75.8600000000001,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="desired" />
+    <Node Id="@62" Category="CodeSchema_Property" Bounds="-176.848125114407,484.389815590143,98.6557281207151,25.0000000000005" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Desired" />
+    <Node Id="@63" Category="CodeSchema_Property" Bounds="-575.181042496803,479.936190050768,84.0690614540481,25.0000000000002" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Error" />
+    <Node Id="@64" Category="CodeSchema_Property" Bounds="-854.491944676136,222.665051537853,121.665728120715,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="ErrorHistory" />
+    <Node Id="@65" Category="CodeSchema_Method" Bounds="-27.9166562084321,252.158985850309,104.583022499872,25.95889408" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="FeedForward" />
+    <Node Id="@66" Category="CodeSchema_Field" Bounds="-679.398347211391,50.2670547322084,80.6735254774696,25.9599923200001" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="function" />
+    <Node Id="@67" Category="CodeSchema_Property" Bounds="-308.237508159524,-5.21297827221633,104.230555692483,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Function" />
+    <Node Id="@68" Category="CodeSchema_Method" Bounds="-1094.99195251028,338.144495864509,146.172869864318,25.9592319999999" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="GetRandomGaussian" />
+    <Node Id="@69" Category="CodeSchema_Method" Bounds="228.205350030804,-233.561856477963,98.0120904657363,25.9570142556159" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="GetWeights" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="-401.275575155195,156.19955052316,669.903548654818,197.778821989844" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="10" Group="Expanded" Label="Connection" UseManualLocation="True" />
+    <Node Id="@70" Category="CodeSchema_Property" Bounds="-1076.81945588652,-177.123445278696,118.296015049471,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="GlobalError" />
+    <Node Id="@71" Category="CodeSchema_Property" Bounds="-162.659573252088,252.638222092209,104.069061454048,24.9999999999998" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Gradient" />
+    <Node Id="@72" Category="CodeSchema_Field" Bounds="-942.08165314837,-5.6928604289244,118.039893210803,25.9599923200001" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="HyperbolicStep" />
+    <Node Id="@73" Category="CodeSchema_Field" Bounds="-683.888058256235,-5.69303758779165,137.65306963747,25.9599923200001" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="HyperbolicTangent" />
+    <Node Id="@74" Category="CodeSchema_Field" Bounds="65.176380106608,539.870003675412,64.6066666666668,25.96" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="input" />
+    <Node Id="@75" Category="CodeSchema_Property" Bounds="71.3085415522531,484.389799770912,86.3423947873821,25.0000000000002" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Input" />
+    <Node Id="@76" Category="CodeSchema_Property" Bounds="-986.959769149372,-233.083445278696,86.3423947873816,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Input" />
+    <Node Id="@77" Category="CodeSchema_Field" Bounds="-381.275575155195,308.118081793004,121.301028240077,25.86019072" CodeSchemaProperty_IsProtected="True" DelayedCrossGroupLinksState="Fetched" Label="lastDeltaWeight" />
+    <Node Id="@78" Category="CodeSchema_Field" Bounds="-407.513363773813,-5.69289094650253,68.9036196374698,25.9599923200001" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="Linear" />
+    <Node Id="@79" Category="CodeSchema_Field" Bounds="-515.69337611018,-5.69289094650253,77.2635527574698,25.9599923200001" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="Logistic" />
+    <Node Id="@80" Category="CodeSchema_Property" Bounds="-461.031042496805,479.936250221024,77.7690614540484,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Net" />
+    <Node Id="@81" Category="CodeSchema_Field" Bounds="-1090.66163471926,222.185915893185,80.0052762744494,25.9582720000001" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="network" />
+    <Node Id="@82" Category="CodeSchema_Field" Bounds="-705.890883392217,-177.601929872738,82.2047404172458,25.9570142556161" CodeSchemaProperty_IsInternal="True" DelayedCrossGroupLinksState="Fetched" Label="Neurons" />
+    <Node Id="@83" Category="CodeSchema_Field" Bounds="-173.098405611391,-5.69275361740097,66.0736422774698,25.9599923200001" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="None" />
+    <Node Id="@84" Category="CodeSchema_Method" Bounds="138.121782359752,252.15880274484,110.506191139872,25.95889408" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="NudgeWeight" />
+    <Node Id="@85" Category="CodeSchema_Method" Bounds="82.4327803894802,-233.561841219174,115.557351818696,25.9570142556159" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="NudgeWeights" />
+    <Node Id="@86" Category="CodeSchema_Property" Bounds="-870.019276297885,-233.083445278696,96.2703163828032,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Output" />
+    <Node Id="@87" Category="CodeSchema_Property" Bounds="-352.27770916347,479.93621770648,96.2623947873817,25.0000000000002" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Output" />
+    <Node Id="@88" Category="CodeSchema_Property" Bounds="-229.602906671578,308.547764492304,145.955728120715,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="PosteriorNeuron" />
+    <Node Id="@89" Category="CodeSchema_Field" Bounds="-512.600646972656,252.058128457751,50,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="r" />
+    <Node Id="@9" Category="CodeSchema_Class" Bounds="-196.848125114407,387.949553856697,374.499061454043,197.88061015625" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="6" Group="Expanded" Label="DataPoint" UseManualLocation="True" />
+    <Node Id="@90" Category="CodeSchema_Field" Bounds="-885.928858729685,450.06280100549,50.0464991976514,25.9592320000002" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="R" />
+    <Node Id="@91" Category="CodeSchema_Method" Bounds="-454.638322212406,423.978638541024,64.983706192391,25.95751168" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="Reset" />
+    <Node Id="@92" Category="CodeSchema_Method" Bounds="-523.925708007812,196.097984414783,72.6500000000001,25.96" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="Shuffle" />
+    <Node Id="@93" Category="CodeSchema_Method" Bounds="74.1331306966146,427.949654554318,80.6933333333334,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" DelayedCrossGroupLinksState="Fetched" Label="ToString" />
+    <Node Id="@94" Category="CodeSchema_Field" Bounds="-979.951419420786,222.194271035564,94.5847236071979,25.94156032" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="trainingSet" />
+    <Node Id="@95" Category="CodeSchema_Property" Bounds="118.992093328395,308.547770169948,96.7657281207149,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Weight" />
+  </Nodes>
+  <Links>
+    <Link Source="@11" Target="(@1 @3 @10 Member=Load)" Category="Contains" FetchingParent="@11" />
+    <Link Source="@11" Target="@50" Category="Contains" FetchingParent="@11" />
+    <Link Source="@11" Target="@53" Category="Contains" Bounds="698.361328125,-168.832656860352,19.8043212890625,23.4200286865234" FetchingParent="@11" />
+    <Link Source="@11" Target="@89" Category="Contains" FetchingParent="@11" />
+    <Link Source="@11" Target="@9" Category="References" Bounds="-444.675248599173,-209.636230815015,1046.19971209812,349.162278787389" Weight="1" />
+    <Link Source="@11" Target="@92" Category="Contains" FetchingParent="@11" />
+    <Link Source="@13" Target="@39" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@51" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@68" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@90" Category="Contains" FetchingParent="@13" />
+    <Link Source="@15" Target="@25" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@26" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@27" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@30" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@36" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@37" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@41" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@44" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@46" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@48" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@55" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@57" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@58" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@69" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@70" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@76" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@82" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@85" Category="Contains" FetchingParent="@15" />
+    <Link Source="@15" Target="@86" Category="Contains" FetchingParent="@15" />
+    <Link Source="@17" Target="@28" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@29" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@42" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@54" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@63" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@80" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@87" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@91" Category="Contains" FetchingParent="@17" />
+    <Link Source="@19" Target="@33" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@52" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@59" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@60" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@66" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@67" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@72" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@73" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@78" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@79" Category="Contains" FetchingParent="@19" />
+    <Link Source="@19" Target="@83" Category="Contains" FetchingParent="@19" />
+    <Link Source="@2" Target="@4" Category="Contains" FetchingParent="@2" />
+    <Link Source="@21" Target="@38" Category="Contains" FetchingParent="@21" />
+    <Link Source="@21" Target="@49" Category="Contains" FetchingParent="@21" />
+    <Link Source="@21" Target="@64" Category="Contains" FetchingParent="@21" />
+    <Link Source="@21" Target="@81" Category="Contains" FetchingParent="@21" />
+    <Link Source="@21" Target="@94" Category="Contains" FetchingParent="@21" />
+    <Link Source="@25" Target="@42" Category="CodeSchema_Calls" Bounds="-670.656450692614,-187.355805311157,12.1409432164395,608.777149986857" Weight="2" />
+    <Link Source="@25" Target="@55" Category="CodeSchema_FieldRead" Bounds="-653.319070891682,-207.604821119262,66.7038327181901,26.6624395102294" Weight="2" />
+    <Link Source="@25" Target="@56" Category="CodeSchema_Calls" Bounds="-655.92287868611,-187.355805311157,844.441137884602,731.009179655683" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@25" Target="@58" Category="CodeSchema_FieldRead" Bounds="-642.226379394531,-207.604827880859,397.418869018555,26.984130859375" Weight="1" />
+    <Link Source="@25" Target="@63" Category="CodeSchema_Calls" Bounds="-668.653691059142,-187.355805311157,115.852715901885,664.839282851604" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@25" Target="@70" Category="CodeSchema_Calls" Bounds="-950.24250125969,-210.882392167803,206.921150627827,34.8901787960902" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@25" Target="@82" Category="CodeSchema_FieldRead" Bounds="-680.918132971602,-207.604821119262,8.09707484338014,21.5766782179614" Weight="9" />
+    <Link Source="@25" Target="@87" Category="CodeSchema_Calls" Bounds="-664.402911316971,-187.355805311157,334.016526185347,665.661596371498" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@25" Target="@88" Category="CodeSchema_Calls" Bounds="-658.885003522047,-187.355805311157,676.942456004559,730.299105530319" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@25" Target="@95" Category="CodeSchema_Calls" Bounds="-653.369320202689,-187.355805311157,988.997055919516,731.547498379757" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@26" Target="@29" Category="CodeSchema_Calls" Bounds="-526.643639360144,-187.354350585938,200.481320771268,609.197659290556" Weight="3" />
+    <Link Source="@26" Target="@55" Category="CodeSchema_FieldRead" Bounds="-545.788608009239,-207.603511352539,1.14531170538612E-05,21.0015835094003" Weight="3" />
+    <Link Source="@26" Target="@58" Category="CodeSchema_FieldRead" Bounds="-493.506922810873,-212.078620370273,231.461770850511,37.6529145521842" Weight="1" />
+    <Link Source="@26" Target="@65" Category="CodeSchema_Calls" Bounds="-517.178100673524,-187.354350585938,713.662363085858,674.328110672272" Weight="1" />
+    <Link Source="@26" Target="@80" Category="CodeSchema_Calls" Bounds="-529.191756508041,-187.354350585938,88.2696514906744,664.782571078174" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@26" Target="@82" Category="CodeSchema_FieldRead" Bounds="-629.045114934209,-207.603511352539,55.6543719912929,26.1716445187193" Weight="6" />
+    <Link Source="@26" Target="@91" Category="CodeSchema_Calls" Bounds="-529.043215466234,-187.354350585938,87.8089098652745,608.838824589446" Weight="1" />
+    <Link Source="@27" Target="@19" Category="CodeSchema_ReturnTypeLink" Bounds="-337.410643534123,-159.167097014664,258.888216488151,102.644443465717" Weight="1" />
+    <Link Source="@27" Target="@73" Category="CodeSchema_FieldRead" Bounds="-550.027890065952,-187.355805311157,487.656886667362,201.205324189314" Weight="2" />
+    <Link Source="@27" Target="@83" Category="CodeSchema_FieldRead" Bounds="-107.007884568384,-187.355805311157,71.3709828626506,196.180358343208" Weight="1" />
+    <Link Source="@28" Target="@15" Category="References" Bounds="-695.310038979583,11.1688177918507,263.61350864354,632.175241309556" Weight="1" />
+    <Link Source="@28" Target="@82" Category="CodeSchema_FieldRead" Bounds="-700.042693740566,-8.15173803667478,34.1045663571043,651.495797138081" Weight="1" />
+    <Link Source="@29" Target="@19" Category="References" Bounds="-530.67483120285,152.361551310605,178.183449665823,293.957226829481" Weight="1" />
+    <Link Source="@29" Target="@67" Category="CodeSchema_Calls" Bounds="-316.305207337253,51.5636053867816,80.9258002540813,378.828671488062" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@29" Target="@80" Category="CodeSchema_Calls" Bounds="-387.177415220328,449.936132926832,56.1920155113035,26.1972149773229" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@29" Target="@87" Category="CodeSchema_Calls" Bounds="-303.7589865611,449.936132926832,0.378566884198051,21.0015618026704" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@30" Target="@28" Category="CodeSchema_Calls" Bounds="-692.982814418352,-73.0984098178711,255.510267882968,707.976918388172" Weight="2" />
+    <Link Source="@30" Target="@56" Category="CodeSchema_Calls" Bounds="-407.228920501571,-187.354734585938,600.979455576251,729.950516335858" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@30" Target="@58" Category="CodeSchema_FieldRead" Bounds="-402.518536318267,-213.250596089995,141.598171648701,34.302342862832" Weight="2" />
+    <Link Source="@30" Target="@82" Category="CodeSchema_FieldRead" Bounds="-614.937059964221,-213.282198098508,151.878661468035,36.6342426815125" Weight="2" />
+    <Link Source="@30" Target="@88" Category="CodeSchema_Calls" Bounds="-410.191298670286,-187.354734585938,433.912762016666,729.164381806744" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@30" Target="@95" Category="CodeSchema_Calls" Bounds="-404.675144371826,-187.354734585938,745.259882009929,730.598119557088" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@33" Target="@59" Category="CodeSchema_FieldWrite" Bounds="-754.061640065325,20.2671452163653,3.43569266760824E-05,21.0001037091126" Weight="1" />
+    <Link Source="@33" Target="@66" Category="CodeSchema_FieldWrite" Bounds="-727.387140564263,20.2671452163653,53.5583830725103,26.061934374506" Weight="1" />
+    <Link Source="@34" Target="@61" Category="CodeSchema_FieldWrite" Bounds="-3.5202446066844,509.869913029802,4.00831357332265E-05,21.0001541088857" Weight="1" />
+    <Link Source="@34" Target="@74" Category="CodeSchema_FieldWrite" Bounds="19.9068443916365,509.869913029802,46.2734396076214,25.638307388645" Weight="1" />
+    <Link Source="@36" Target="@27" Category="CodeSchema_Calls" Bounds="-70.3669724296064,-263.564650822662,12.6891134174285,22.1900089791801" Weight="1" />
+    <Link Source="@36" Target="@44" Category="CodeSchema_Calls" Bounds="-282.38055162522,-267.594241069154,163.973083516114,36.1256032808962" Weight="1" />
+    <Link Source="@37" Target="@15" Category="CodeSchema_ReturnTypeLink" Bounds="51.2114105224609,-398.982238769531,12.3222694396973,53.5000915527344" Weight="1" />
+    <Link Source="@37" Target="@36" Category="CodeSchema_Calls" Bounds="-39.6133533566971,-319.817790670893,61.5833408840858,26.7144594326333" Weight="1" />
+    <Link Source="@37" Target="@46" Category="CodeSchema_Calls" Bounds="51.2114140616928,-319.522916958984,5.72654234076708E-06,21.001257975708" Weight="1" />
+    <Link Source="@37" Target="@95" Category="CodeSchema_Calls" Bounds="70.4445749772856,-299.273618863282,282.253348785096,840.285878256359" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@38" Target="@11" Category="References" Bounds="-788.178018789413,226.580741217496,106.502600173771,11.1554872684372" Weight="1" />
+    <Link Source="@38" Target="@15" Category="References" Bounds="-821.04024714307,-77.1795181836634,306.035603440687,291.661788396212" Weight="1" />
+    <Link Source="@38" Target="@64" Category="CodeSchema_Calls" Bounds="-825.14946680035,192.185907850586,17.0125269075406,23.2192718805374" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@38" Target="@81" Category="CodeSchema_FieldWrite" Bounds="-1001.96788807912,188.631389575529,130.929566771973,33.9194391522617" Weight="1" />
+    <Link Source="@38" Target="@94" Category="CodeSchema_FieldWrite" Bounds="-902.127672037893,192.185907850586,44.7381229420887,25.5456210160601" Weight="1" />
+    <Link Source="@39" Target="@90" Category="CodeSchema_FieldRead" Bounds="-984.561774174858,420.063066317383,90.1318031177632,31.327234156012" Weight="2" />
+    <Link Source="@4" Target="@11" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@13" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@15" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@17" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@19" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@21" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@5" Category="Contains" />
+    <Link Source="@4" Target="@7" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="@9" Category="Contains" FetchingParent="@4" />
+    <Link Source="@40" Target="@71" Category="CodeSchema_Calls" Bounds="-109.089838864544,222.158544640114,1.53702482960861,21.5025725310307" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@40" Target="@77" Category="CodeSchema_FieldRead" Bounds="-257.670593261719,222.158538818359,124.596801757813,83.869384765625" Weight="2">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@40" Target="@95" Category="CodeSchema_Calls" Bounds="-50.055118560791,218.59001159668,198.486072540283,83.6100311279297" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@41" Target="@40" Category="CodeSchema_Calls" Bounds="-181.475024813633,-187.355805311157,258.317563976842,616.251417126901" Weight="1" />
+    <Link Source="@41" Target="@58" Category="CodeSchema_FieldRead" Bounds="-201.788589477539,-207.604827214264,0,21.001324109985" Weight="1" />
+    <Link Source="@42" Target="@19" Category="References" Bounds="-680.858617239491,153.466651094737,62.5421209774511,292.879619218709" Weight="1" />
+    <Link Source="@42" Target="@60" Category="CodeSchema_Calls" Bounds="-986.609488692711,49.6722981641634,317.723948089702,380.747257260992" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@42" Target="@63" Category="CodeSchema_Calls" Bounds="-616.700228280081,449.909240961562,50.9738312205167,25.9445261346721" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@42" Target="@80" Category="CodeSchema_Calls" Bounds="-593.125643438381,449.319509868868,123.867884454035,31.2364401424568" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@43" Target="@17" Category="References" Bounds="-407.209416524466,222.741477487211,152.820305674686,155.402724592876" Weight="2" />
+    <Link Source="@43" Target="@47" Category="CodeSchema_Calls" Bounds="-241.625717163086,222.158539447226,2.8421709430404E-14,21.0005404292782" Weight="1" />
+    <Link Source="@43" Target="@68" Category="CodeSchema_Calls" Bounds="-915.691844985618,415.588690628877,818.11318297119,32.6569888443628" Weight="1" />
+    <Link Source="@44" Target="@19" Category="References" Bounds="-468.710869186914,-159.167097014664,121.225015162845,100.226767105566" Weight="1" />
+    <Link Source="@44" Target="@43" Category="CodeSchema_Calls" Bounds="-311.574782728987,-187.355805311157,253.571497948193,616.228779785989" Weight="2" />
+    <Link Source="@44" Target="@5" Category="CodeSchema_Calls" Bounds="-303.387958878911,-207.604823505164,414.682695651486,189.501100560851" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@44" Target="@55" Category="CodeSchema_FieldWrite" Bounds="-490.522286509469,-209.978960618091,118.180767650402,30.9036731533615" Weight="1" />
+    <Link Source="@44" Target="@57" Category="CodeSchema_Calls" Bounds="-331.788637647435,-207.604823505164,2.12939291373004E-05,21.4813689028623" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@44" Target="@58" Category="CodeSchema_FieldRead" Bounds="-301.638330304951,-207.604823505164,61.4293104805676,26.4428615827301" Weight="4">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@44" Target="@82" Category="CodeSchema_FieldRead" Bounds="-621.882568359375,-207.604827880859,256.144744873047,26.9241943359375" Weight="13">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@46" Target="@28" Category="CodeSchema_Calls" Bounds="-682.327484288938,-129.059136304809,721.315440167505,765.851590160988" Weight="2" />
+    <Link Source="@46" Target="@56" Category="CodeSchema_Calls" Bounds="68.3633876069397,-243.315453443482,137.64806199245,783.994926255823" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@46" Target="@58" Category="CodeSchema_FieldRead" Bounds="-166.318588256836,-265.669525146484,160.065769195557,84.1708221435547" Weight="1" />
+    <Link Source="@46" Target="@7" Category="References" Bounds="-34.7664734658628,-240.193018061829,115.00016694978,391.83992918342" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@46" Target="@88" Category="CodeSchema_Calls" Bounds="36.5588768019099,-243.315453443482,29.0449411602745,783.865438388743" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@47" Target="@17" Category="References" Bounds="-381.58781338172,278.700767037992,123.911730474682,100.201395665382" Weight="2" />
+    <Link Source="@47" Target="@56" Category="CodeSchema_Calls" Bounds="-193.318356021168,275.566417370554,143.989508885627,31.0823607354715" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@47" Target="@77" Category="CodeSchema_FieldWrite" Bounds="-295.008734743426,278.117973956504,35.0432924995835,24.8009475116296" Weight="1" />
+    <Link Source="@47" Target="@88" Category="CodeSchema_Calls" Bounds="-221.892631870795,278.117973956504,38.7441716302217,25.4839988949724" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@47" Target="@95" Category="CodeSchema_Calls" Bounds="-203.447647094727,278.117980957031,325.345031738281,27.7623596191406" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@48" Target="@25" Category="CodeSchema_Calls" Bounds="-685.78857421875,-263.563505337891,0,21.0016699630124" Weight="1" />
+    <Link Source="@48" Target="@26" Category="CodeSchema_Calls" Bounds="-655.51699185674,-264.443220428981,68.897863231013,27.5392712531967" Weight="1" />
+    <Link Source="@48" Target="@41" Category="CodeSchema_Calls" Bounds="-654.639343261719,-273.432037353516,390.238433837891,38.9757537841797" Weight="1" />
+    <Link Source="@48" Target="@70" Category="CodeSchema_Calls" Bounds="-960.19189453125,-271.3095703125,243.254089355469,91.9507598876953" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@49" Target="@48" Category="CodeSchema_Calls" Bounds="-866.167686075676,-235.024315749088,186.263277204961,440.727690125064" Weight="1" />
+    <Link Source="@49" Target="@62" Category="CodeSchema_Calls" Bounds="-840.489437999494,222.468538172854,248.839516540904,30.2312318780666" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@49" Target="@64" Category="CodeSchema_Calls" Bounds="-902.440952849439,191.371923727669,69.3830962646214,27.9320693806065" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@49" Target="@75" Category="CodeSchema_Calls" Bounds="-840.489437999494,220.889572860946,496.952977805714,35.1951340271041" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@49" Target="@81" Category="CodeSchema_FieldRead" Bounds="-1015.15779828243,192.185907850586,55.1294253211389,26.1436537790831" Weight="3" />
+    <Link Source="@49" Target="@85" Category="CodeSchema_Calls" Bounds="-841.563805142118,-183.955148459843,956.51387227412,390.358101548622" Weight="2" />
+    <Link Source="@49" Target="@9" Category="References" Bounds="-901.495419444807,231.934391178093,654.535054334526,192.476705855135" Weight="3" />
+    <Link Source="@49" Target="@94" Category="CodeSchema_FieldRead" Bounds="-932.659104495662,192.185907850586,2.29143722663139E-05,21.0083663107084" Weight="1" />
+    <Link Source="@5" Target="@17" Category="InheritsFrom" Bounds="-788.272855568337,592.53971122043,99.1651607169849,46.1994733297817" IsSourceVirtualized="True" Weight="4" />
+    <Link Source="@5" Target="@19" Category="References" Bounds="-810.902277514231,104.758380091496,179.472424103688,533.980804458716" IsSourceVirtualized="True" Weight="3" />
+    <Link Source="@5" Target="@54" Category="CodeSchema_Calls" Bounds="-495.801977504654,10.6370024287044,623.55136791251,408.41038217171" IsSourceVirtualized="True" Weight="4" />
+    <Link Source="@5" Target="@60" Category="CodeSchema_Calls" Bounds="-963.526704371513,-1.17835276274483,1022.45001284747,7.9627894280588" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@5" Target="@63" Category="CodeSchema_Calls" Bounds="-508.671132260423,10.6370024287044,638.309656101678,464.00726924155" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@5" Target="@80" Category="CodeSchema_Calls" Bounds="-400.963738049849,10.6370024287044,533.409268015056,463.396811990157" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@5" Target="@87" Category="CodeSchema_Calls" Bounds="-286.676008639592,10.6370024287044,422.105560549715,462.65061058904" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@50" Target="@89" Category="CodeSchema_FieldWrite" Bounds="-580.538839058917,222.055928418789,60.1254537151829,27.8069173495027" Weight="1" />
+    <Link Source="@51" Target="@90" Category="CodeSchema_FieldWrite" Bounds="-860.905578613281,420.055726160391,1.13686837721616E-13,21.0070772732031" Weight="1" />
+    <Link Source="@52" Target="@33" Category="CodeSchema_Calls" Bounds="-705.396342369761,-37.5348165370777,173.22053289109,34.9913587995118" Weight="5" />
+    <Link Source="@52" Target="@60" Category="CodeSchema_Calls" Bounds="-970.543640136719,-43.8815116882324,438.135192871094,37.8918585777283" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@52" Target="@67" Category="CodeSchema_Calls" Bounds="-425.8301617413,-35.6931308813701,112.442197207522,28.4774641557558" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@52" Target="@72" Category="CodeSchema_FieldWrite" Bounds="-815.143371582031,-41.9631690979004,282.734924316406,38.9580323696136" Weight="1" />
+    <Link Source="@52" Target="@73" Category="CodeSchema_FieldRead" Bounds="-574.70899824425,-35.6931308813701,65.6476433259944,26.618281365683" Weight="3">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@52" Target="@78" Category="CodeSchema_FieldWrite" Bounds="-452.945810230438,-35.6931308813701,47.8336068796233,25.7359745460405" Weight="1" />
+    <Link Source="@52" Target="@79" Category="CodeSchema_FieldWrite" Bounds="-477.061581749855,-35.6931308813701,1.71800539874312E-05,21.000228837584" Weight="1" />
+    <Link Source="@52" Target="@83" Category="CodeSchema_FieldWrite" Bounds="-421.714660644531,-40.9206161499023,242.747909545898,33.9801959991455" Weight="1" />
+    <Link Source="@53" Target="@9" Category="References" Bounds="-495.196158192657,330.458774996992,248.352494212721,84.7499138927578" Weight="1" />
+    <Link Source="@54" Target="@63" Category="CodeSchema_Calls" Bounds="-529.296873029176,449.936091158275,3.81098811166294,21.1428358237517" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@54" Target="@80" Category="CodeSchema_Calls" Bounds="-499.518505437621,449.936091158275,46.7273244945286,25.6671520204038" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@54" Target="@87" Category="CodeSchema_Calls" Bounds="-485.095728766682,446.59666654628,126.286316935617,31.991904160739" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@55" Target="@19" Category="References" Bounds="-562.418462511487,-103.207166594742,12.6607286292958,41.3951834248726" Weight="1" />
+    <Link Source="@56" Target="@17" Category="References" Bounds="-258.968284155838,334.130684234834,235.470068669022,72.0123362842863" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@57" Target="@5" Category="References" Bounds="-295.642762041954,-152.331700778305,397.197846179952,135.071119948515" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@58" Target="@7" Category="References" Bounds="-165.630358195756,-128.271876831054,71.7254773358557,279.836368422728" Weight="1" />
+    <Link Source="@60" Target="@59" Category="CodeSchema_FieldRead" Bounds="-973.997098539213,18.3287500752124,166.980718578053,34.1032949059647" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@62" Target="@61" Category="CodeSchema_FieldRead" Bounds="-99.8220352905228,509.389815590143,59.3365898961484,26.7781546743888" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@65" Target="@56" Category="CodeSchema_Calls" Bounds="20.0580445708773,278.11788240377,2.6917739393818,21.4996626956415" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@65" Target="@80" Category="CodeSchema_Calls" Bounds="-390.193763921448,499.382577056104,554.664749619754,6.17007228533748" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@65" Target="@87" Category="CodeSchema_Calls" Bounds="-262.947368893106,499.625104160492,427.418354591412,5.79968513760912" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@65" Target="@88" Category="CodeSchema_Calls" Bounds="-107.558650816246,278.11788240377,89.9140679133595,27.7736909326796" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@65" Target="@95" Category="CodeSchema_Calls" Bounds="57.5725716941012,278.11788240377,69.4488334994766,27.1526944406796" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@67" Target="@66" Category="CodeSchema_FieldRead" Bounds="-589.798889160156,16.0324420928955,281.716552734375,40.8540058135986" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@68" Target="@39" Category="CodeSchema_Calls" Bounds="-1021.90551757813,364.103730990235,2.27373675443232E-13,21.0001033271485" Weight="1" />
+    <Link Source="@69" Target="@58" Category="CodeSchema_FieldRead" Bounds="-141.459838867188,-207.780319213867,371.654205322266,37.1297302246094" Weight="1" />
+    <Link Source="@69" Target="@95" Category="CodeSchema_Calls" Bounds="293.236813266719,-187.355805311157,64.6201757243286,727.934872105588" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@7" Target="@40" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@43" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@47" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@56" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@65" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@71" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@77" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@84" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@88" Category="Contains" FetchingParent="@7" />
+    <Link Source="@7" Target="@95" Category="Contains" FetchingParent="@7" />
+    <Link Source="@71" Target="@56" Category="CodeSchema_Calls" Bounds="-82.0074236745792,277.638212026307,62.5172090039819,27.3071325966213" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@71" Target="@63" Category="CodeSchema_Calls" Bounds="-498.043807085588,499.439164561667,527.771732151923,6.09425583291988" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@71" Target="@87" Category="CodeSchema_Calls" Bounds="-262.948018835036,499.885517412456,292.675943901371,5.30549509146317" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@71" Target="@88" Category="CodeSchema_Calls" Bounds="-140.62240699219,277.638212026307,19.7128965056511,23.9595482472868" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@72" Target="@19" Category="References" Bounds="-883.061706542969,20.2671489715576,12.322265625,89.4601993560791" Weight="1" />
+    <Link Source="@73" Target="@19" Category="References" Bounds="-609.784790039063,20.2669658660889,33.8603515625,89.4603824615479" Weight="1" />
+    <Link Source="@75" Target="@74" Category="CodeSchema_FieldRead" Bounds="104.038917803549,509.389799770912,6.64347466263958,21.8688059479724" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@76" Target="@80" Category="CodeSchema_Calls" Bounds="-920.140098918945,-187.834367350359,468.116063419441,666.818175647392" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@76" Target="@82" Category="CodeSchema_FieldRead" Bounds="-900.74741537492,-211.950528925093,186.032280494653,37.3131498227611" IsSourceVirtualized="True" Weight="3" />
+    <Link Source="@78" Target="@19" Category="References" Bounds="-373.061553955078,20.26708984375,12.322265625,89.4602584838867" Weight="1" />
+    <Link Source="@79" Target="@19" Category="References" Bounds="-477.061584472656,20.26708984375,12.322265625,89.4602584838867" Weight="1" />
+    <Link Source="@81" Target="@15" Category="References" Bounds="-1032.90552982873,-78.0770365232983,476.718591508735,348.51758920655" Weight="1" />
+    <Link Source="@82" Target="@17" Category="References" Bounds="-629.442992381636,-131.773529565953,98.3161050665626,507.49906268412" Weight="1" />
+    <Link Source="@83" Target="@19" Category="References" Bounds="-107.024765014648,7.28724670410156,33.5,12.3222694396973" Weight="1" />
+    <Link Source="@84" Target="@68" Category="CodeSchema_Calls" Bounds="-915.705306022344,417.87744845797,1246.21469214186,84.5099193864476" Weight="1" />
+    <Link Source="@84" Target="@95" Category="CodeSchema_Calls" Bounds="176.982940535751,278.117706927694,10.3560306224118,22.2693219256365" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@85" Target="@58" Category="CodeSchema_FieldRead" Bounds="-141.533369093462,-211.129280971932,223.966149482943,36.6465055129409" Weight="1" />
+    <Link Source="@85" Target="@84" Category="CodeSchema_Calls" Bounds="159.322519138671,-187.355805311157,219.408332155717,671.955150230226" Weight="1" />
+    <Link Source="@86" Target="@82" Category="CodeSchema_FieldRead" Bounds="-786.79616129283,-208.083445278696,77.0942054645798,27.461524872473" IsSourceVirtualized="True" Weight="6" />
+    <Link Source="@86" Target="@87" Category="CodeSchema_Calls" Bounds="-798.227625830001,-187.834343036649,464.303037156833,666.798394857677" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@88" Target="@17" Category="References" Bounds="-286.362764917115,334.130613494775,102.341385346255,46.6947552649684" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@9" Target="@34" Category="Contains" FetchingParent="@9" />
+    <Link Source="@9" Target="@61" Category="Contains" FetchingParent="@9" />
+    <Link Source="@9" Target="@62" Category="Contains" FetchingParent="@9" />
+    <Link Source="@9" Target="@74" Category="Contains" FetchingParent="@9" />
+    <Link Source="@9" Target="@75" Category="Contains" FetchingParent="@9" />
+    <Link Source="@9" Target="@93" Category="Contains" FetchingParent="@9" />
+    <Link Source="@91" Target="@63" Category="CodeSchema_Calls" Bounds="-500.086485667284,449.936153300937,51.9725728519618,25.9763471999092" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@91" Target="@80" Category="CodeSchema_Calls" Bounds="-422.146495240028,449.936153300937,1.61454151452745E-05,21.0000969200892" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@91" Target="@87" Category="CodeSchema_Calls" Bounds="-394.541480246695,449.936153300938,55.6635506222432,26.1707634126726" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@92" Target="@11" Category="CodeSchema_ReturnTypeLink" Bounds="-487.600708007813,142.597885131836,12.322265625,53.5001068115234" Weight="1" />
+    <Link Source="@92" Target="@89" Category="CodeSchema_FieldRead" Bounds="-487.600693850657,222.05799781437,2.29046368644958E-05,21.0001364135796" Weight="1" />
+    <Link Source="@92" Target="@9" Category="References" Bounds="-467.080671630295,218.867878417969,251.984801362977,159.394560460857" Weight="3" />
+    <Link Source="@93" Target="@62" Category="CodeSchema_Calls" Bounds="-70.9147343574924,450.259418026937,145.047872683502,33.5409171862328" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@93" Target="@75" Category="CodeSchema_Calls" Bounds="114.479764321225,453.909641723633,2.53518626465166E-05,21.4801580472847" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@94" Target="@11" Category="References" Bounds="-875.264859640617,261.491584643824,193.563431991445,13.8524484659013" Weight="1" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Assembly" Label="Assembly" BasedOn="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Assembly" NavigationActionLabel="Assemblies" />
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Field" Label="Field" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Fields" />
+    <Category Id="CodeSchema_FieldRead" Label="Field Read" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Read By" OutgoingActionLabel="Reads Fields" />
+    <Category Id="CodeSchema_FieldReference" Label="Field Reference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References Fields" />
+    <Category Id="CodeSchema_FieldWrite" Label="Field Write" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Written By" OutgoingActionLabel="Writes Fields" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_Namespace" Label="Namespace" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Type" Icon="CodeSchema_Namespace" NavigationActionLabel="Namespaces" />
+    <Category Id="CodeSchema_Property" Label="Property" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Property" NavigationActionLabel="Properties" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="Return" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Return types" OutgoingActionLabel="Return types" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="File" Label="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="Files" />
+    <Category Id="InheritsFrom" Label="Inherits From" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Inherited By" OutgoingActionLabel="Inherits From" />
+    <Category Id="References" Label="References" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="Is Constructor" Description="Flag to indicate the method is a constructor" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsFinal" Label="Is Final" Description="Flag to indicate the member is 'Final' and cannot be derived from" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsProtected" Label="Is Protected" Description="Flag to indicate the scope is Protected" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsSpecialName" Label="Is Special Name" Description="Flag to indicate the method is treated in a special way by some compilers" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsVirtual" Label="Is Virtual" Description="Flag to indicate the method can be overridden" DataType="System.Boolean" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="Delayed Child Nodes State" Description="Unspecified if the delayed child nodes state is not specified. NotFetched if the group contains child nodes that are not fetched into the graph yet. Fetched if the group has all its delayed child nodes already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="Delayed Cross-Group Links State" Description="Unspecified if the delayed cross-group links state is not specified. NotFetched if delayed cross-group links on this node are not fetched into the graph yet. Fetched if all delayed cross-group links have already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FetchedChildrenCount" DataType="System.Int32" />
+    <Property Id="FetchingParent" DataType="Microsoft.VisualStudio.GraphModel.GraphNodeId" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="Link Source Virtualized" Description="If true, the link source end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="Link Target Virtualized" Description="If true, the link target end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="Weight" Description="Weight" DataType="System.Double" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="ArrayRank" Label="Array Rank" ValueType="System.String" />
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="GenericArguments" Label="Generic Arguments" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" />
+    <Name Id="GenericParameterCount" Label="Generic Parameter Count" ValueType="System.String" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="ParentType" Label="Parent Type" ValueType="System.Object" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(cca9a4f2-2092-4fa2-aa77-740e81f787db.OutputPathUri)" />
+    <Alias n="2" Id="(@1)" />
+    <Alias n="3" Id="Namespace=NeuralLibrary" />
+    <Alias n="4" Id="(@1 @3)" />
+    <Alias n="5" Id="(@1 Namespace=NeuralLibrary.Neurons)" />
+    <Alias n="6" Id="Type=Connection" />
+    <Alias n="7" Id="(@1 @3 @6)" />
+    <Alias n="8" Id="Type=DataPoint" />
+    <Alias n="9" Id="(@1 @3 @8)" />
+    <Alias n="10" Id="Type=DataSet" />
+    <Alias n="11" Id="(@1 @3 @10)" />
+    <Alias n="12" Id="Type=Gaussian" />
+    <Alias n="13" Id="(@1 @3 @12)" />
+    <Alias n="14" Id="Type=Network" />
+    <Alias n="15" Id="(@1 @3 @14)" />
+    <Alias n="16" Id="Type=Neuron" />
+    <Alias n="17" Id="(@1 @3 @16)" />
+    <Alias n="18" Id="Type=Sigmoid" />
+    <Alias n="19" Id="(@1 @3 @18)" />
+    <Alias n="20" Id="Type=Trainer" />
+    <Alias n="21" Id="(@1 @3 @20)" />
+    <Alias n="22" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.5/mscorlib.dll" />
+    <Alias n="23" Id="Namespace=System" />
+    <Alias n="24" Id="(@22 @23 Type=(Name=Double ArrayRank=1 ParentType=Double))" />
+    <Alias n="25" Id="(@1 @3 @14 Member=(Name=BackPropagate OverloadingParameters=[@24]))" />
+    <Alias n="26" Id="(@1 @3 @14 Member=(Name=FeedForward OverloadingParameters=[@24]))" />
+    <Alias n="27" Id="(@1 @3 @14 Member=(Name=GenerateSigmoids OverloadingParameters=[(@22 @23 Type=(Name=Int32 ArrayRank=1 ParentType=Int32))]))" />
+    <Alias n="28" Id="(@1 @3 @16 Member=(Name=GetID OverloadingParameters=[@15]))" />
+    <Alias n="29" Id="(@1 @3 @16 Member=(Name=UpdateOutput OverloadingParameters=[@19]))" />
+    <Alias n="30" Id="(@1 @3 @14 Member=(Name=Save OverloadingParameters=[(@22 @23 Type=String)]))" />
+    <Alias n="31" Id="Name=.ctor" />
+    <Alias n="32" Id="(@22 @23 Type=Double)" />
+    <Alias n="33" Id="(@1 @3 @18 Member=(@31 OverloadingParameters=[(@22 @23 Type=(Name=Func GenericParameterCount=2 GenericArguments=[@32,@32])),(@22 @23 Type=(Name=Func GenericParameterCount=2 GenericArguments=[@32,@32]))]))" />
+    <Alias n="34" Id="(@1 @3 @8 Member=(@31 OverloadingParameters=[@24,@24]))" />
+    <Alias n="35" Id="(@22 @23 Type=Boolean)" />
+    <Alias n="36" Id="(@1 @3 @14 Member=(@31 OverloadingParameters=[@35,(@22 @23 Type=(Name=Int32 ArrayRank=1 ParentType=Int32))]))" />
+    <Alias n="37" Id="(@1 @3 @14 Member=(Name=Load OverloadingParameters=[(@22 @23 Type=String),@35]))" />
+    <Alias n="38" Id="(@1 @3 @20 Member=(@31 OverloadingParameters=[@15,@11]))" />
+    <Alias n="39" Id="(@1 @3 @12 Member=(Name=GetRandomGaussian OverloadingParameters=[@32,@32]))" />
+    <Alias n="40" Id="(@1 @3 @6 Member=(Name=UpdateWeight OverloadingParameters=[@32,@32]))" />
+    <Alias n="41" Id="(@1 @3 @14 Member=(Name=UpdateWeights OverloadingParameters=[@32,@32]))" />
+    <Alias n="42" Id="(@1 @3 @16 Member=(Name=UpdateError OverloadingParameters=[@19,@32]))" />
+    <Alias n="43" Id="(@1 @3 @6 Member=(@31 OverloadingParameters=[@17,@17]))" />
+    <Alias n="44" Id="(@1 @3 @14 Member=(@31 OverloadingParameters=[(@22 @23 Type=(Name=Int32 ArrayRank=1 ParentType=Int32)),(@1 @3 Type=(Name=Sigmoid ArrayRank=1 ParentType=Sigmoid)),@35]))" />
+    <Alias n="45" Id="(@22 @23 Type=Int32)" />
+    <Alias n="46" Id="(@1 @3 @14 Member=(Name=GetConnection OverloadingParameters=[@45,@45,@45]))" />
+    <Alias n="47" Id="(@1 @3 @6 Member=(@31 OverloadingParameters=[@32,@17,@17]))" />
+    <Alias n="48" Id="(@1 @3 @14 Member=(Name=Train OverloadingParameters=[@24,@24,@32,@32]))" />
+    <Alias n="49" Id="(@1 @3 @20 Member=(Name=Train OverloadingParameters=[@45,@32,@32,@32,@35]))" />
+    <Alias n="50" Id="(@1 @3 @10 Member=.cctor)" />
+    <Alias n="51" Id="(@1 @3 @12 Member=.cctor)" />
+    <Alias n="52" Id="(@1 @3 @18 Member=.cctor)" />
+    <Alias n="53" Id="(@1 @3 @10 Member=.ctor)" />
+    <Alias n="54" Id="(@1 @3 @16 Member=.ctor)" />
+    <Alias n="55" Id="(@1 @3 @14 Member=Activations)" />
+    <Alias n="56" Id="(@1 @3 @6 Member=AnteriorNeuron)" />
+    <Alias n="57" Id="(@1 @3 @14 Member=Bias)" />
+    <Alias n="58" Id="(@1 @3 @14 Member=Connections)" />
+    <Alias n="59" Id="(@1 @3 @18 Member=derivative)" />
+    <Alias n="60" Id="(@1 @3 @18 Member=Derivative)" />
+    <Alias n="61" Id="(@1 @3 @8 Member=desired)" />
+    <Alias n="62" Id="(@1 @3 @8 Member=Desired)" />
+    <Alias n="63" Id="(@1 @3 @16 Member=Error)" />
+    <Alias n="64" Id="(@1 @3 @20 Member=ErrorHistory)" />
+    <Alias n="65" Id="(@1 @3 @6 Member=FeedForward)" />
+    <Alias n="66" Id="(@1 @3 @18 Member=function)" />
+    <Alias n="67" Id="(@1 @3 @18 Member=Function)" />
+    <Alias n="68" Id="(@1 @3 @12 Member=GetRandomGaussian)" />
+    <Alias n="69" Id="(@1 @3 @14 Member=GetWeights)" />
+    <Alias n="70" Id="(@1 @3 @14 Member=GlobalError)" />
+    <Alias n="71" Id="(@1 @3 @6 Member=Gradient)" />
+    <Alias n="72" Id="(@1 @3 @18 Member=HyperbolicStep)" />
+    <Alias n="73" Id="(@1 @3 @18 Member=HyperbolicTangent)" />
+    <Alias n="74" Id="(@1 @3 @8 Member=input)" />
+    <Alias n="75" Id="(@1 @3 @8 Member=Input)" />
+    <Alias n="76" Id="(@1 @3 @14 Member=Input)" />
+    <Alias n="77" Id="(@1 @3 @6 Member=lastDeltaWeight)" />
+    <Alias n="78" Id="(@1 @3 @18 Member=Linear)" />
+    <Alias n="79" Id="(@1 @3 @18 Member=Logistic)" />
+    <Alias n="80" Id="(@1 @3 @16 Member=Net)" />
+    <Alias n="81" Id="(@1 @3 @20 Member=network)" />
+    <Alias n="82" Id="(@1 @3 @14 Member=Neurons)" />
+    <Alias n="83" Id="(@1 @3 @18 Member=None)" />
+    <Alias n="84" Id="(@1 @3 @6 Member=NudgeWeight)" />
+    <Alias n="85" Id="(@1 @3 @14 Member=NudgeWeights)" />
+    <Alias n="86" Id="(@1 @3 @14 Member=Output)" />
+    <Alias n="87" Id="(@1 @3 @16 Member=Output)" />
+    <Alias n="88" Id="(@1 @3 @6 Member=PosteriorNeuron)" />
+    <Alias n="89" Id="(@1 @3 @10 Member=r)" />
+    <Alias n="90" Id="(@1 @3 @12 Member=R)" />
+    <Alias n="91" Id="(@1 @3 @16 Member=Reset)" />
+    <Alias n="92" Id="(@1 @3 @10 Member=Shuffle)" />
+    <Alias n="93" Id="(@1 @3 @8 Member=ToString)" />
+    <Alias n="94" Id="(@1 @3 @20 Member=trainingSet)" />
+    <Alias n="95" Id="(@1 @3 @6 Member=Weight)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="True">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Target.HasCategory('CodeSchema_Field') And HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="cca9a4f2-2092-4fa2-aa77-740e81f787db.OutputPath" Value="C:\Users\William\Desktop\ISEFNeuralNetwork\DATA\EXPERIMENT\NeuralNetwork\NeuralLibrary\bin\Release\NeuralLibrary.dll" />
+    <Path Id="cca9a4f2-2092-4fa2-aa77-740e81f787db.OutputPathUri" Value="file:///C:/Users/William/Desktop/ISEFNeuralNetwork/DATA/EXPERIMENT/NeuralNetwork/NeuralLibrary/bin/Release/NeuralLibrary.dll" />
+    <Path Id="FxReferenceAssemblies" Value="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>
