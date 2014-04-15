@@ -15,30 +15,37 @@ namespace NeuralLibrary.NeuralNetwork.Connections
             : base(anteriorNeuron, posteriorNeuron)
         { }
 
-
         /// <summary>
         /// Updates the weight given some parameters.
         /// Using BPROP this follows:
         /// </summary>
         /// <param name="learningRate">The learning rate</param>
         /// <param name="momentum">The momentum</param>
-        public override void UpdateWeight(double learningRate, double momentum)
+        protected override void UpdateWeight(params double[] learningParameters)
         {
+            double learningRate = learningParameters[0];
+            double momentum = learningParameters[1];
             double deltaWeight = -Gradient * learningRate + momentum * lastDeltaWeight;
             Weight += deltaWeight;
             lastDeltaWeight = deltaWeight;
         }
-        
-            #region Fields
 
-            /// <summary>
-            /// The last delta weight (used for momentum)
-            /// </summary>
-            protected double lastDeltaWeight = 0;
+        #region Fields
 
-            #endregion
+        /// <summary>
+        /// The last delta weight (used for momentum)
+        /// </summary>
+        protected double lastDeltaWeight = 0;
+
+        #endregion
+
+        #region Properties
+
+        protected override uint LearningParameterCount
+        {
+            get { return 2; }
+        }
+
+        #endregion
     }
-    
-
-
 }

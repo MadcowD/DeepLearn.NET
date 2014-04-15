@@ -20,6 +20,16 @@ namespace NeuralLibrary.NeuralNetwork
         }
 
         /// <summary>
+        /// Creates a network with default layers but different error correction algorithm
+        /// </summary>
+        /// <param name="connectionType"></param>
+        /// <param name="layers"></param>
+        public Network(Type connectionType, params int[] layers)
+            : this(connectionType, layers, GenerateSigmoids(layers))
+        {
+        }
+
+        /// <summary>
         /// Constructs a neural network with full control over activations.
         /// </summary>
         /// <param name="layers"></param>
@@ -97,11 +107,11 @@ namespace NeuralLibrary.NeuralNetwork
         /// <param name="learningRate">The rate at which weights will change</param>
         /// <param name="momentum">The momentum with which weight change occurs.</param>
         /// <returns></returns>
-        public double Train(double[] input, double[] desired, double learningRate, double momentum)
+        public double Train(double[] input, double[] desired, params double[] learningParameters)
         {
             FeedForward(input);
             BackPropagate(desired);
-            UpdateWeights(learningRate, momentum);
+            UpdateWeights(learningParameters);
 
 
             return GlobalError;
@@ -278,12 +288,12 @@ namespace NeuralLibrary.NeuralNetwork
         /// <summary>
         /// Updates all of the weights in the neural network based on neural error.
         /// </summary>
-        public void UpdateWeights(double learningRate, double momentum)
+        public void UpdateWeights(params double[] learningParameters)
         {
             //Update the weights of every connection.
             foreach (Connection[] layer in Connections)
                 foreach (Connection connection in layer)
-                    connection.UpdateWeight(learningRate, momentum);
+                    connection.UpdateWeight(learningParameters);
         }
 
         /// <summary>

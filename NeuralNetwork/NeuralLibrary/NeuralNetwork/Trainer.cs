@@ -33,7 +33,7 @@ namespace NeuralLibrary.NeuralNetwork
         /// <param name="momentum">The momentum at which the network will begin to learn.</param>
         /// <param name="nudging">Enables nudging of the neural network during training.</param>
         /// <returns>Whether or not the network was sucessful in learning.</returns>
-        public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool nudging = false)
+        public bool Train(int epochs, double minimumError, bool nudging = false, params double[] learningParameters)
         {
             ErrorHistory.Clear();
             int epoch = 0;
@@ -42,13 +42,10 @@ namespace NeuralLibrary.NeuralNetwork
             do
             {
                 epoch++;
-                trainingSet.ForEach(
-                    dp => network.Train(dp.Input, dp.Desired, learningRate, momentum));
 
                 error = trainingSet.Select(
-                    dp => network.Train(dp.Input, dp.Desired, learningRate, momentum))
+                    dp => network.Train(dp.Input, dp.Desired, learningParameters))
                         .Sum();
-
                 this.ErrorHistory.Add(error);
 
               

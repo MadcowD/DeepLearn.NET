@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="NeuralNetwork\Connection.cs" />
     <Compile Include="NeuralNetwork\Connections\BPROPConnection.cs" />
+    <Compile Include="NeuralNetwork\Connections\RPROP\RPROPConnection.cs" />
     <Compile Include="NeuralNetwork\DataPoint.cs" />
     <Compile Include="NeuralNetwork\DataSet.cs" />
     <Compile Include="Experiment.cs" />

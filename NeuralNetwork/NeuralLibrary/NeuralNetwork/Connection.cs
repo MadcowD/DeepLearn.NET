@@ -64,9 +64,28 @@ namespace NeuralLibrary.NeuralNetwork
         public Neuron PosteriorNeuron { protected set; get; }
 
         /// <summary>
+        /// Establishes the amount of learning parameters an algorithm takes.
+        /// </summary>
+        protected abstract uint LearningParameterCount { get; }
+
+        /// <summary>
+        /// Attempts to update the weight of a given connection.
+        /// </summary>
+        /// <param name="learningParameters"></param>
+        public  void TryUpdateWeight(params double[] learningParameters) 
+        {
+            if (LearningParameterCount > 0)
+                if (!(learningParameters != null && learningParameters.Length == LearningParameterCount))
+                    throw new ArgumentNullException("No or uneven learning parameters given.");
+
+            UpdateWeight(learningParameters);
+            
+        }
+
+        /// <summary>
         /// Updates the weight of the connection using the weight update rule. dW = ERROR_posterior * OUTPUT_anterior
         /// </summary>
-        public abstract void UpdateWeight(double learningRate, double momentum);
+        protected abstract void UpdateWeight(params double[] learningParameters);
 
         /// <summary>
         /// Gets the gradient of the connection,
