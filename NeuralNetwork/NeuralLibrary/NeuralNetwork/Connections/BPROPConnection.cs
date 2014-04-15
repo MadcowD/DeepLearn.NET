@@ -25,6 +25,7 @@ namespace NeuralLibrary.NeuralNetwork.Connections
         {
             double learningRate = learningParameters[0];
             double momentum = learningParameters[1];
+
             double deltaWeight = -Gradient * learningRate + momentum * lastDeltaWeight;
             Weight += deltaWeight;
             lastDeltaWeight = deltaWeight;

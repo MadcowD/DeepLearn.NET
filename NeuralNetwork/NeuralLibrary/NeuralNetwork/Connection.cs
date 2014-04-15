@@ -75,8 +75,8 @@ namespace NeuralLibrary.NeuralNetwork
         public  void TryUpdateWeight(params double[] learningParameters) 
         {
             if (LearningParameterCount > 0)
-                if (!(learningParameters != null && learningParameters.Length == LearningParameterCount))
-                    throw new ArgumentNullException("No or uneven learning parameters given.");
+                if (!(learningParameters != null && learningParameters.Length >= LearningParameterCount))
+                    throw new ArgumentNullException("No--or uneven-- learning parameters given.");
 
             UpdateWeight(learningParameters);
             
