@@ -10,6 +10,7 @@
         /// </summary>
         public override void UpdateOutput(Sigmoid activation)
         {
+            //Do nothing
         }
 
         public override double Output

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NeuralNetwork\Connection.cs" />
+    <Compile Include="NeuralNetwork\Connections\BPROPConnection.cs" />
     <Compile Include="NeuralNetwork\DataPoint.cs" />
     <Compile Include="NeuralNetwork\DataSet.cs" />
     <Compile Include="Experiment.cs" />
@@ -49,7 +50,6 @@
     <Compile Include="NeuralNetwork\Network.cs" />
     <Compile Include="NeuralNetwork\Neuron.cs" />
     <Compile Include="NeuralNetwork\Neurons\BiasNeuron.cs" />
-    <Compile Include="NeuralNetwork\Neurons\HiddenNeuron.cs" />
     <Compile Include="NeuralNetwork\Neurons\InputNeuron.cs" />
     <Compile Include="NeuralNetwork\Neurons\OutputNeuron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

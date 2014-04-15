@@ -1,4 +1,5 @@
-﻿using NeuralLibrary.NeuralNetwork.Neurons;
+﻿using NeuralLibrary.NeuralNetwork.Connections;
+using NeuralLibrary.NeuralNetwork.Neurons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,8 @@ namespace NeuralLibrary.NeuralNetwork
         /// Creates a network with default
         /// </summary>
         /// <param name="layers"></param>
-        public Network(bool RPROP = false, params int[] layers)
-            : this(layers, GenerateSigmoids(layers), RPROP)
+        public Network(params int[] layers)
+            : this(typeof(BPROPConnection), layers, GenerateSigmoids(layers))
         {
         }
 
@@ -23,7 +24,7 @@ namespace NeuralLibrary.NeuralNetwork
         /// </summary>
         /// <param name="layers"></param>
         /// <param name="activations"></param>
-        public Network(int[] layers, Sigmoid[] activations, bool RPROP = false)
+        public Network(Type connectionType, int[] layers, Sigmoid[] activations)
         {
             if (layers.Length < 2)
                 throw new ArgumentException("Not enough layers specified", "layers");
@@ -54,7 +55,7 @@ namespace NeuralLibrary.NeuralNetwork
                     else if (layer == layerCount - 1) //Output
                         Neurons[layer][k] = new OutputNeuron();
                     else //Hidden
-                        Neurons[layer][k] = new HiddenNeuron();
+                        Neurons[layer][k] = new Neuron();
                 }
             }
 
@@ -77,9 +78,9 @@ namespace NeuralLibrary.NeuralNetwork
                         int con = i + j * Neurons[layer + 1].Length;
 
                         if (j == 0) //If the bias
-                            Connections[layer][con] = new Connection(Bias, Neurons[layer + 1][i]);
+                            Connections[layer][con] = (Connection)Activator.CreateInstance(connectionType, Bias, Neurons[layer + 1][i]);
                         else //If normal
-                            Connections[layer][con] = new Connection(Neurons[layer][j - 1], Neurons[layer + 1][i]);
+                            Connections[layer][con] = (Connection)Activator.CreateInstance(connectionType, Neurons[layer][j - 1], Neurons[layer + 1][i]);
                     }
             }
 
@@ -131,12 +132,11 @@ namespace NeuralLibrary.NeuralNetwork
         }
 
         /// <summary>
-        /// Loads a neurak network from a file.
+        /// Loads a neural network from a file.
         /// </summary>
         /// <param name="fileName">The name of the file from which the network will be loaded.</param>
-        /// <param name="RPROP">Whether or not the network will run the RPROP algorithm </param>
         /// <returns></returns>
-        public static Network Load(string fileName, bool RPROP = false)
+        public static Network Load(string fileName)
         {
             string[] file = System.IO.File.ReadAllLines(fileName);
 
@@ -157,7 +157,7 @@ namespace NeuralLibrary.NeuralNetwork
                 neurons[i] = int.Parse(file[ln]); 
 
             //Create network
-            loadWork = new Network(RPROP, neurons);
+            loadWork = new Network(neurons);
 
             //Loadweights
             connections = new int[int.Parse(file[ln])];
@@ -256,7 +256,7 @@ namespace NeuralLibrary.NeuralNetwork
             for (int i = 0; i < desired.Length; i++)
             {
                 (Neurons[Neurons.Length - 1][i] as OutputNeuron).UpdateError(this.Activations[Neurons.Length - 1], desired[i]);
-                GlobalError += Math.Pow(Neurons[Neurons.Length - 1][i].Output - desired[i], 2)/2;
+                GlobalError += Math.Abs(Neurons[Neurons.Length - 1][i].Output - desired[i]);
             }
 
             //Propagate the error backwards

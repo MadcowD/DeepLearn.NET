@@ -7,7 +7,7 @@ namespace NeuralLibrary.NeuralNetwork
     /// The base unit of the neural network.
     /// Contains pertinent information to neural nodes and feedforward propagation thereof.
     /// </summary>
-    public abstract class Neuron
+    public class Neuron
     {
         public Neuron()
         {

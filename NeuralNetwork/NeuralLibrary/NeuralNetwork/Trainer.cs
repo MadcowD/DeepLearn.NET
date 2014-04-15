@@ -33,7 +33,7 @@ namespace NeuralLibrary.NeuralNetwork
         /// <param name="momentum">The momentum at which the network will begin to learn.</param>
         /// <param name="nudging">Enables nudging of the neural network during training.</param>
         /// <returns>Whether or not the network was sucessful in learning.</returns>
-        public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool nudging = true)
+        public bool Train(int epochs, double minimumError, double learningRate, double momentum, bool nudging = false)
         {
             ErrorHistory.Clear();
             int epoch = 0;
@@ -45,40 +45,26 @@ namespace NeuralLibrary.NeuralNetwork
                 trainingSet.ForEach(
                     dp => network.Train(dp.Input, dp.Desired, learningRate, momentum));
 
+                error = trainingSet.Select(
+                    dp => network.Train(dp.Input, dp.Desired, learningRate, momentum))
+                        .Sum();
 
-                //Calculates error at all points and returns for a given point error;
-                error = testingSet.Select((x)
-                    =>
-                    {
-                        network.FeedForward(x.Input);
+                this.ErrorHistory.Add(error);
 
-                        double pointError = x.Desired
-                            .Select((des, i) =>
-                                Math.Abs(des - network.Output[i] ))
-                            .Sum();
-
-                        this.ErrorHistory.Add(pointError);
-                        return pointError;
-
-                    }).Sum();
-                
-                
-
+              
                 
                 //IF NETWORK IS NOT MOVING
-                if (ErrorHistory
+                if (nudging && ErrorHistory
                     .SkipWhile( i => i < ErrorHistory.Count()-10)
                     .StdDev() < .00075) 
                 {
-                    if (nudging)
-                        network.NudgeWeights(); //Nudge the weights
-                    else
-                        return error < minimumError; //Stop the training
+                    network.NudgeWeights(); //Nudge the weights
                 }
                 
 
 #if DEBUG
                 Console.WriteLine("Epoch {0}: Error = {1};", epoch, error);
+                Console.ReadKey();
 #endif
             }
             while (epoch < epochs && error > minimumError);

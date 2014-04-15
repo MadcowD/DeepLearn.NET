@@ -6,7 +6,7 @@ namespace NeuralLibrary.NeuralNetwork
     /// <summary>
     /// The connection held between two neurons with a given weight.
     /// </summary>
-    public class Connection
+    public abstract class Connection
     {
         /// <summary>
         /// Initializes the connection.
@@ -49,13 +49,6 @@ namespace NeuralLibrary.NeuralNetwork
 
         #region Fields
 
-        /// <summary>
-        /// The last delta weight (used for momentum)
-        /// </summary>
-        protected double lastDeltaWeight = 0;
-        protected double lastGradient = 0;
-        protected double acceleration = 0;
-
         #endregion Fields
 
         #region Properties
@@ -73,22 +66,7 @@ namespace NeuralLibrary.NeuralNetwork
         /// <summary>
         /// Updates the weight of the connection using the weight update rule. dW = ERROR_posterior * OUTPUT_anterior
         /// </summary>
-        public virtual void UpdateWeight(double learningRate, double momentum)
-        {
-
-
-            if (lastGradient * Gradient > 0)
-                acceleration += learningRate;
-            else if (lastGradient * Gradient < 0)
-                acceleration = 0;
-            else
-                acceleration = learningRate;
-
-            double deltaWeight = -(Gradient*learningRate) + momentum * lastDeltaWeight;
-            Weight += deltaWeight;
-            lastDeltaWeight = deltaWeight;
-            lastGradient = Gradient;
-        }
+        public abstract void UpdateWeight(double learningRate, double momentum);
 
         /// <summary>
         /// Gets the gradient of the connection,
