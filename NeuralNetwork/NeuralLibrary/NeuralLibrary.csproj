@@ -41,12 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NeuralNetwork\Connection.cs" />
+    <Compile Include="NeuralNetwork\Connections\ALRConnection.cs" />
     <Compile Include="NeuralNetwork\Connections\BPROPConnection.cs" />
     <Compile Include="NeuralNetwork\Connections\RPROP\RPROPMinusConnection.cs" />
     <Compile Include="NeuralNetwork\DataPoint.cs" />
     <Compile Include="NeuralNetwork\DataSet.cs" />
     <Compile Include="Experiment.cs" />
-    <Compile Include="NeuralNetwork\FeatureMap.cs" />
     <Compile Include="NeuralNetwork\Gaussian.cs" />
     <Compile Include="NeuralNetwork\Network.cs" />
     <Compile Include="NeuralNetwork\Neuron.cs" />

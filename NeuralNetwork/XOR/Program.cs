@@ -9,12 +9,13 @@ namespace XOR
     {
         private static void Main(string[] args)
         {
-            Network nn = new Network(typeof(RPROPMinusConnection), 2,4,1);
+            Network nn =  Network.Load(typeof(BPROPConnection), @"C:\temp\alrStart");
             DataSet ds = new XORDataSet();
             ds.Load();
+           
 
             Trainer xorTrainer = new Trainer(nn, ds, false);
-            xorTrainer.Train(100000, 0.1, false, 0.1, 0.9);
+            xorTrainer.Train(100000, 0.1, false, 0.01, 0.9);
             Console.ReadKey();
         }
     }

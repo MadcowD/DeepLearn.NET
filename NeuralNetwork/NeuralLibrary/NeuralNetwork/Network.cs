@@ -169,7 +169,7 @@ namespace NeuralLibrary.NeuralNetwork
         /// </summary>
         /// <param name="fileName">The name of the file from which the network will be loaded.</param>
         /// <returns></returns>
-        public static Network Load(string fileName)
+        public static Network Load(Type connectionType, string fileName)
         {
             string[] file = System.IO.File.ReadAllLines(fileName);
 
@@ -190,7 +190,7 @@ namespace NeuralLibrary.NeuralNetwork
                 neurons[i] = int.Parse(file[ln]); 
 
             //Create network
-            loadWork = new Network(neurons);
+            loadWork = new Network(connectionType, neurons);
 
             //Loadweights
             connections = new int[int.Parse(file[ln])];

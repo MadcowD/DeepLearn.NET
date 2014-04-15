@@ -11,12 +11,12 @@ namespace NeuralLibrary.NeuralNetwork
     public class Trainer
     {
 
-        public Trainer(Network network, DataSet trainingSet, bool online) :
+        public Trainer(Network network, DataSet trainingSet, bool online = true) :
             this(network, trainingSet, trainingSet, online)
         {
         }
 
-        public Trainer(Network network, DataSet trainingSet, DataSet testingSet, bool online)
+        public Trainer(Network network, DataSet trainingSet, DataSet testingSet, bool online = true)
         {
             this.trainingSet = trainingSet;
             this.network = network;
