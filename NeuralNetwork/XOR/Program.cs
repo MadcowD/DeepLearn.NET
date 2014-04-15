@@ -1,5 +1,6 @@
 ﻿using NeuralLibrary.NeuralNetwork;
 using NeuralLibrary.NeuralNetwork.Connections;
+using NeuralLibrary.NeuralNetwork.Connections.RPROP;
 using System;
 
 namespace XOR
@@ -8,12 +9,12 @@ namespace XOR
     {
         private static void Main(string[] args)
         {
-            Network nn = new Network(2,4,1);
+            Network nn = new Network(typeof(RPROPMinusConnection), 2,4,1);
             DataSet ds = new XORDataSet();
             ds.Load();
 
-            Trainer xorTrainer = new Trainer(nn, ds);
-            xorTrainer.Train(100000, 0.1, 0.1, 0.9);
+            Trainer xorTrainer = new Trainer(nn, ds, false);
+            xorTrainer.Train(100000, 0.1, false, 0.1, 0.9);
             Console.ReadKey();
         }
     }

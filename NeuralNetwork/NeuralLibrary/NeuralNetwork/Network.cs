@@ -107,12 +107,35 @@ namespace NeuralLibrary.NeuralNetwork
         /// <param name="learningRate">The rate at which weights will change</param>
         /// <param name="momentum">The momentum with which weight change occurs.</param>
         /// <returns></returns>
-        public double Train(double[] input, double[] desired, params double[] learningParameters)
+        public double Train(DataPoint dp, params double[] learningParameters)
         {
-            FeedForward(input);
-            BackPropagate(desired);
+            FeedForward(dp.Input);
+            BackPropagate(dp.Desired);
             UpdateWeights(learningParameters);
 
+
+            return GlobalError;
+        }
+
+        /// <summary>
+        /// Trains using batch training.
+        /// </summary>
+        /// <param name="ds">The dataset over which to train.</param>
+        /// <param name="learningParameters"></param>
+        /// <returns></returns>
+        public double Train(DataSet ds, params double[] learningParameters)
+        {
+            //Accumulate the gradient in the every connection
+            double setError =
+                ds.Select(dp =>
+                    {
+                        FeedForward(dp.Input);
+                        BackPropagate(dp.Desired);
+                        return GlobalError;
+                    }).Sum();
+
+            //After batch gradient determined, finalize gradients and TryUpdate weights.
+            UpdateWeights(learningParameters);
 
             return GlobalError;
         }
@@ -278,7 +301,16 @@ namespace NeuralLibrary.NeuralNetwork
                     //Take the sum of Posterior Error * weight
                     foreach (Connection con in Connections[layer])
                         if (con.AnteriorNeuron.Equals(n))
+                        {
                             errorCoefficient += con.PosteriorNeuron.Error * con.Weight;
+
+                            //Update the gradient using relative errors
+                            //In the case of batch training,
+                            //this may be called many times before
+                            //the gradient is finalized
+                            con.UpdateGradient();
+                           
+                        }
 
                     //Update the error with the derivative of the network's sigmoid
                     n.UpdateError(this.Activations[layer], errorCoefficient);
@@ -293,7 +325,11 @@ namespace NeuralLibrary.NeuralNetwork
             //Update the weights of every connection.
             foreach (Connection[] layer in Connections)
                 foreach (Connection connection in layer)
-                    connection.UpdateWeight(learningParameters);
+                {
+                    //Finalize the gradient.
+                    connection.FinalizeGradient();
+                    connection.TryUpdateWeight(learningParameters);
+                }
         }
 
         /// <summary>

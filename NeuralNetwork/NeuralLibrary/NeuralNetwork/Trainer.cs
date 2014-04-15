@@ -11,17 +11,18 @@ namespace NeuralLibrary.NeuralNetwork
     public class Trainer
     {
 
-        public Trainer(Network network, DataSet trainingSet) :
-            this(network, trainingSet, trainingSet)
+        public Trainer(Network network, DataSet trainingSet, bool online) :
+            this(network, trainingSet, trainingSet, online)
         {
         }
 
-        public Trainer(Network network, DataSet trainingSet, DataSet testingSet)
+        public Trainer(Network network, DataSet trainingSet, DataSet testingSet, bool online)
         {
             this.trainingSet = trainingSet;
             this.network = network;
             this.ErrorHistory = new List<double>();
             this.testingSet = testingSet;
+            this.online = online;
         }
 
         /// <summary>
@@ -32,7 +33,7 @@ namespace NeuralLibrary.NeuralNetwork
         /// <param name="learningRate">The learning rate at which the network will begin to learn.</param>
         /// <param name="momentum">The momentum at which the network will begin to learn.</param>
         /// <param name="nudging">Enables nudging of the neural network during training.</param>
-        /// <returns>Whether or not the network was sucessful in learning.</returns>
+        /// <returns>Whether or not the network was successful in learning.</returns>
         public bool Train(int epochs, double minimumError, bool nudging = false, params double[] learningParameters)
         {
             ErrorHistory.Clear();
@@ -43,21 +44,25 @@ namespace NeuralLibrary.NeuralNetwork
             {
                 epoch++;
 
-                error = trainingSet.Select(
-                    dp => network.Train(dp.Input, dp.Desired, learningParameters))
-                        .Sum();
+                //Train online or perform batch training
+                if (online)
+                    error = trainingSet.Select(
+                        dp => network.Train(dp, learningParameters))
+                            .Sum();
+                else
+                    error = network.Train(trainingSet, learningParameters);
                 this.ErrorHistory.Add(error);
 
               
                 
-                //IF NETWORK IS NOT MOVING
+                //NUDGING
                 if (nudging && ErrorHistory
                     .SkipWhile( i => i < ErrorHistory.Count()-10)
                     .StdDev() < .00075) 
                 {
                     network.NudgeWeights(); //Nudge the weights
                 }
-                
+      
 
 #if DEBUG
                 Console.WriteLine("Epoch {0}: Error = {1};", epoch, error);
@@ -65,7 +70,6 @@ namespace NeuralLibrary.NeuralNetwork
 #endif
             }
             while (epoch < epochs && error > minimumError);
-
             return (error < minimumError);
         }
 
@@ -83,6 +87,7 @@ namespace NeuralLibrary.NeuralNetwork
         private Network network;
         private DataSet trainingSet;
         private DataSet testingSet;
+        private bool online;
 
         #endregion Fields
 

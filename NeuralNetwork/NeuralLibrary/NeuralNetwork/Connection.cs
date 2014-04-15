@@ -49,6 +49,8 @@ namespace NeuralLibrary.NeuralNetwork
 
         #region Fields
 
+
+
         #endregion Fields
 
         #region Properties
@@ -87,24 +89,47 @@ namespace NeuralLibrary.NeuralNetwork
         /// </summary>
         protected abstract void UpdateWeight(params double[] learningParameters);
 
+        #region Gradient
+
+        private double gradient = 0;
+        private double finalizedGradient = 0;
+
+        internal void UpdateGradient()
+        {
+            double output = 0;
+            if (AnteriorNeuron is BiasNeuron)
+                output = (AnteriorNeuron as BiasNeuron).Output;
+            else if (AnteriorNeuron is InputNeuron)
+                output = (AnteriorNeuron as InputNeuron).Output;
+            else
+                output = AnteriorNeuron.Output;
+
+            gradient += PosteriorNeuron.Error * output;
+        }
+
         /// <summary>
-        /// Gets the gradient of the connection,
+        /// Finalizes the gradient. Must be called after batch training.
+        /// </summary>
+        internal void FinalizeGradient()
+        {
+            finalizedGradient = gradient;
+            gradient = 0;
+        }
+
+
+        /// <summary>
+        /// Gets the gradient of the connection.
         /// </summary>
         public double Gradient
         {
             get
             {
-                double output = 0;
-                if (AnteriorNeuron is BiasNeuron)
-                    output = (AnteriorNeuron as BiasNeuron).Output;
-                else if (AnteriorNeuron is InputNeuron)
-                    output = (AnteriorNeuron as InputNeuron).Output;
-                else
-                    output = AnteriorNeuron.Output;
-
-                return PosteriorNeuron.Error * output;
+                return finalizedGradient;
             }
         }
+
+        #endregion
+
 
         /// <summary>
         /// The weight associated with a connection.
