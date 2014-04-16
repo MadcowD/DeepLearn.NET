@@ -57,8 +57,6 @@ namespace NeuralLibrary.NeuralNetwork.Connections.RPROP
                 Weight += deltaWeight;
                 lastGradient = Gradient;
             }
-
-            Console.WriteLine("N[]: {0}: {1}", lastGradient, Gradient);
             lastStep = step;
         }
 

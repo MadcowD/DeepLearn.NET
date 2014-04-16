@@ -252,6 +252,9 @@ namespace NeuralLibrary.NeuralNetwork
             for (int i = 0; i < inputs.Length; i++)
                 Neurons[0][i].Net = inputs[i];
 
+            //Establish the bias
+            Bias.UpdateOutput(Sigmoid.HyperbolicTangent);
+
             //Feed Forward
             for (int layer = 0; layer < Neurons.Length; layer++)
             {
@@ -260,8 +263,6 @@ namespace NeuralLibrary.NeuralNetwork
                 {
                     if (layer == 0)
                         (neuron as InputNeuron).UpdateOutput(this.Activations[layer]);
-                    else if (neuron is BiasNeuron)
-                        (neuron as BiasNeuron).UpdateOutput(this.Activations[layer]);
                     else
                         neuron.UpdateOutput(this.Activations[layer]);
                 }
@@ -297,6 +298,14 @@ namespace NeuralLibrary.NeuralNetwork
                 foreach (Neuron n in Neurons[layer])
                 {
                     double errorCoefficient = 0;
+
+                    //Update the bias gradient.
+                    foreach (Connection bias in Connections[layer]
+                        .Where(c => c.AnteriorNeuron.Equals(Bias)))
+                    {
+                        bias.UpdateGradient();
+                    }
+                        
 
                     //Take the sum of Posterior Error * weight
                     foreach (Connection con in Connections[layer])

@@ -9,7 +9,7 @@ namespace XOR
     {
         private static void Main(string[] args)
         {
-            Network nn =  Network.Load(typeof(ALRConnection), @"C:\temp\alrStart");
+            Network nn = new Network(typeof(RPROPMinusConnection), 2, 4, 1);
             DataSet ds = new XORDataSet();
             ds.Load();
            
