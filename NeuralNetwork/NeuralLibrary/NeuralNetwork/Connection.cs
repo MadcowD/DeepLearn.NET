@@ -130,6 +130,7 @@ namespace NeuralLibrary.NeuralNetwork
 
         #endregion
 
+        internal Network Network {  set; get; }
 
         /// <summary>
         /// The weight associated with a connection.

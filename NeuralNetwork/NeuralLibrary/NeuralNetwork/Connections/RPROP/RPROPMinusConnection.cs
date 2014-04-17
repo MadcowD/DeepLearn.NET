@@ -39,14 +39,10 @@ namespace NeuralLibrary.NeuralNetwork.Connections.RPROP
         /// <param name="learningParameters"></param>
         protected override void UpdateWeight(params double[] learningParameters)
         {
-            double gradentialScalar = learningParameters != null && learningParameters.Length >= 1
-                ? learningParameters[0]
-                : Gradient == 0 ? 0 : 1/Math.Abs(Gradient);
-
             if (lastGradient * Gradient > 0)
             {
                 step = Math.Min(lastStep * stepIncrease, stepMax);
-                deltaWeight = -Gradient* gradentialScalar * step;
+                deltaWeight = -Math.Sign(Gradient) * step;
                 Weight += deltaWeight;
                 lastGradient = Gradient;
             }
@@ -57,7 +53,7 @@ namespace NeuralLibrary.NeuralNetwork.Connections.RPROP
             }
             else if(lastGradient * Gradient == 0)
             {
-                deltaWeight = -Gradient*gradentialScalar * step;
+                deltaWeight = -Math.Sign(Gradient) * step;
                 Weight += deltaWeight;
                 lastGradient = Gradient;
             }

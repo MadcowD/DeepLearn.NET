@@ -91,6 +91,8 @@ namespace NeuralLibrary.NeuralNetwork
                             Connections[layer][con] = (Connection)Activator.CreateInstance(connectionType, Bias, Neurons[layer + 1][i]);
                         else //If normal
                             Connections[layer][con] = (Connection)Activator.CreateInstance(connectionType, Neurons[layer][j - 1], Neurons[layer + 1][i]);
+
+                        Connections[layer][con].Network = this;
                     }
             }
 
