@@ -137,7 +137,7 @@ namespace NeuralLibrary.NeuralNetwork
             //After batch gradient determined, finalize gradients and TryUpdate weights.
             UpdateWeights(learningParameters);
 
-            return GlobalError;
+            return setError;
         }
 
         #region Read/Write
