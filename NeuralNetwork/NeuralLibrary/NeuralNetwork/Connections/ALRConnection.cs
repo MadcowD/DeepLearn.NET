@@ -33,14 +33,17 @@ namespace NeuralLibrary.NeuralNetwork.Connections
             double frictionCoefficient = learningParameters[1];
 
             if (lastGradient * Gradient > 0)
-                velocity += Math.Min(acceleration, 1);
+            {
+                velocity += acceleration;
+            }
             else if (lastGradient * Gradient < 0)
                 velocity = 0;
             else
                 velocity = acceleration;
 
+
             double deltaWeight =
-                -(Gradient * velocity) + frictionCoefficient * lastDeltaWeight;
+                -(Gradient*velocity) + frictionCoefficient * lastDeltaWeight; //TODO: Add a normalizing term to the gradient.
             Weight += deltaWeight;
 
             lastDeltaWeight = deltaWeight;
