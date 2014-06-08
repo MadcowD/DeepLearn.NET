@@ -15,10 +15,19 @@ namespace XOR
         {
             XORDataSet ds = new XORDataSet();
             ds.Load();
-            Network nn = new Network(typeof(ALRConnection), 2, 3, 1);
+            Network nn = new Network(typeof(ALRConnection), 2, 5, 1);
+            nn.Save(@"C:\temp\asq");
             Trainer xorTrainer = new Trainer(nn, ds, false);
 
-            xorTrainer.Train(1000000, 0.01, false, 0.02, 0.1);
+            xorTrainer.Train(1000000, 0.01, false, 0.2, 0.1);
+
+                     Console.ReadKey();
+
+            nn = Network.Load(typeof(RPROPMinusConnection), @"C:\temp\asq");
+            xorTrainer = new Trainer(nn, ds, false);
+
+            xorTrainer.Train(1000000, 0.01, false, 0.01, 0.9);
+
 
             Console.ReadKey();
         }

@@ -136,6 +136,9 @@ namespace NeuralLibrary.NeuralNetwork
                         return GlobalError;
                     }).Sum();
 
+            GlobalError = setError;
+            Console.WriteLine(GlobalError);
+
             //After batch gradient determined, finalize gradients and TryUpdate weights.
             UpdateWeights(learningParameters);
 

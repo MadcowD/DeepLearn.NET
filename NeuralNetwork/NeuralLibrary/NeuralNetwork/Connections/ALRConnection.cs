@@ -15,47 +15,58 @@ namespace NeuralLibrary.NeuralNetwork.Connections
             : base(anteriorNeuron, posteriorNeuron)
         { }
 
+
+        #region Parameters
+        const double stepMin = 0.0000016;
+        const double stepMax = 50;
+        const double stepInitial = 0.1;
+        const double stepIncrease = 1.2;
+        const double stepDecrease = 0.5;
+        #endregion Parameters
+
         #region Fields
 
-        double velocity = 0;
         double lastGradient = 0;
-        double lastDeltaWeight = 0;
+        double lastStep = 0;
+        double deltaWeight = 0;
+        double step = stepInitial;
 
         #endregion
 
         /// <summary>
-        /// Updates weights following our own accelerative learning algorithm.
+        /// Updates the weight using the RPROP- algorithm
+        /// http://www.inf.fu-berlin.de/lehre/WS06/Musterererkennung/Paper/rprop.pdf
         /// </summary>
         /// <param name="learningParameters"></param>
         protected override void UpdateWeight(params double[] learningParameters)
         {
-            double acceleration = learningParameters[0];
-            double frictionCoefficient = learningParameters[1];
-
             if (lastGradient * Gradient > 0)
             {
-                velocity += acceleration;
+                step = Math.Min(lastStep * (Math.Min(Math.Abs(Gradient), 50) * 0.01 + 1.2), stepMax);
+                deltaWeight = -Math.Sign(Gradient) * step;
+                Weight += deltaWeight;
+                lastGradient = Gradient;
             }
             else if (lastGradient * Gradient < 0)
-                velocity = 0;
-            else
-                velocity = acceleration;
-
-
-            double deltaWeight =
-                -(Gradient*velocity) + frictionCoefficient * lastDeltaWeight; //TODO: Add a normalizing term to the gradient.
-            Weight += deltaWeight;
-
-            lastDeltaWeight = deltaWeight;
-            lastGradient = Gradient;
+            {
+                step = Math.Max(lastStep  * stepDecrease, stepMin);
+                lastGradient = 0;
+            }
+            else if (lastGradient * Gradient == 0)
+            {
+                deltaWeight = -Math.Sign(Gradient) * step;
+                Weight += deltaWeight;
+                lastGradient = Gradient;
+            }
+            lastStep = step;
         }
 
         /// <summary>
-        /// This algorithm takes in a velocity step size and a coefficient of friction.
+        /// The learning parameter count.
         /// </summary>
         protected override uint LearningParameterCount
         {
-            get { return 2; }
+            get { return 0; }
         }
     }
 }
