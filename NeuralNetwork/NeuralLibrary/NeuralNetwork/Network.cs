@@ -174,7 +174,7 @@ namespace NeuralLibrary.NeuralNetwork
         /// </summary>
         /// <param name="fileName">The name of the file from which the network will be loaded.</param>
         /// <returns></returns>
-        public static Network Load(Type connectionType, string fileName)
+        public static Network Load(string fileName, Type connectionType)
         {
             string[] file = System.IO.File.ReadAllLines(fileName);
 

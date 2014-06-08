@@ -13,7 +13,12 @@ namespace XOR
     {
         private static void Main(string[] args)
         {
+<<<<<<< HEAD
+            Network nn =  Network.Load(typeof(BPROPConnection), @"C:\temp\a");
+            DataSet ds = new XORDataSet();
+=======
             XORDataSet ds = new XORDataSet();
+>>>>>>> fbe26bd8d6cb266d49f8e924fd7ffd514d398d7b
             ds.Load();
             Network nn = new Network(typeof(ALRConnection), 2, 5, 1);
             nn.Save(@"C:\temp\asq");
