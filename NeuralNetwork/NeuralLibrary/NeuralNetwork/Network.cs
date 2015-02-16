@@ -295,7 +295,7 @@ namespace NeuralLibrary.NeuralNetwork
             for (int i = 0; i < desired.Length; i++)
             {
                 (Neurons[Neurons.Length - 1][i] as OutputNeuron).UpdateError(this.Activations[Neurons.Length - 1], desired[i]);
-                GlobalError += Math.Abs(Neurons[Neurons.Length - 1][i].Output - desired[i]);
+                GlobalError += 0.5*Math.Pow(Neurons[Neurons.Length - 1][i].Output - desired[i],2);
             }
 
             //Propagate the error backwards
