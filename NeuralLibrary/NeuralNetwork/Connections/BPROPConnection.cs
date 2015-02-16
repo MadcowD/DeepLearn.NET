@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NeuralLibrary.NeuralNetwork.Connections
+﻿namespace NeuralLibrary.NeuralNetwork.Connections
 {
     /// <summary>
     /// Represents the standard backpropagtion connection.
@@ -38,7 +32,7 @@ namespace NeuralLibrary.NeuralNetwork.Connections
         /// </summary>
         protected double lastDeltaWeight = 0;
 
-        #endregion
+        #endregion Fields
 
         #region Properties
 
@@ -47,6 +41,6 @@ namespace NeuralLibrary.NeuralNetwork.Connections
             get { return 2; }
         }
 
-        #endregion
+        #endregion Properties
     }
 }

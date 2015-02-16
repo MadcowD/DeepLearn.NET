@@ -1,7 +1,4 @@
-﻿using System.Linq;
-
-
-namespace NeuralLibrary.NeuralNetwork
+﻿namespace NeuralLibrary.NeuralNetwork
 {
     /// <summary>
     /// The base unit of the neural network.

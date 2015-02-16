@@ -1,11 +1,5 @@
 ﻿using NeuralLibrary.NeuralNetwork;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace NeuralLibrary
 {
@@ -46,7 +40,6 @@ namespace NeuralLibrary
 
         #region Properties
 
-
         /// <summary>
         /// The datastore location
         /// </summary>
@@ -56,12 +49,15 @@ namespace NeuralLibrary
         /// THE FOLDER IN WHICH THE DATA WILL GO
         /// </summary>
         public abstract string PERSIST { get; }
-        #endregion
+
+        #endregion Properties
 
         #region Fields
-        Thread worker;
+
+        private Thread worker;
         protected DataSet trainingSet;
         protected DataSet testingSet;
+
         #endregion Fields
     }
 }

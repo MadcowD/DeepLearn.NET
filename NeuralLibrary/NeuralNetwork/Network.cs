@@ -115,7 +115,6 @@ namespace NeuralLibrary.NeuralNetwork
             BackPropagate(dp.Desired);
             UpdateWeights(learningParameters);
 
-
             return GlobalError;
         }
 
@@ -151,9 +150,9 @@ namespace NeuralLibrary.NeuralNetwork
         {
             List<string> contents = new List<string>();
             contents.Add(Neurons.Length.ToString());
-            foreach(Neuron[] n in Neurons)
+            foreach (Neuron[] n in Neurons)
                 contents.Add(n.Length.ToString());
-            
+
             contents.Add(Connections.Length.ToString());
             foreach (Connection[] cs in Connections)
             {
@@ -163,10 +162,7 @@ namespace NeuralLibrary.NeuralNetwork
                         + c.PosteriorNeuron.GetID(this).ToString() + ") " + c.Weight.ToString());
             }
 
-            
-
-
-            System.IO.File.WriteAllLines(fileName, contents);                                                                                                                                                     
+            System.IO.File.WriteAllLines(fileName, contents);
         }
 
         /// <summary>
@@ -179,7 +175,6 @@ namespace NeuralLibrary.NeuralNetwork
             string[] file = System.IO.File.ReadAllLines(fileName);
 
             int ln = 0; //lineNumber
-            
 
             //Info to extract
             int[] neurons;
@@ -192,7 +187,7 @@ namespace NeuralLibrary.NeuralNetwork
 
             //Neuron size
             for (int i = 0; i < neurons.Length; ln++, i++)
-                neurons[i] = int.Parse(file[ln]); 
+                neurons[i] = int.Parse(file[ln]);
 
             //Create network
             loadWork = new Network(connectionType, neurons);
@@ -215,11 +210,8 @@ namespace NeuralLibrary.NeuralNetwork
                     double weight = double.Parse(line[2]);
 
                     loadWork.GetConnection(i, anteriorNeuron, posteriorNeuron).Weight = weight;
-
                 }
-                    
             }
-
 
             //Return the loadWOrk
             return loadWork;
@@ -228,6 +220,7 @@ namespace NeuralLibrary.NeuralNetwork
         #endregion Read/Write
 
         #region Network Functions
+
         /// <summary>
         /// Nudges all of the weights in the network
         /// </summary>
@@ -295,7 +288,7 @@ namespace NeuralLibrary.NeuralNetwork
             for (int i = 0; i < desired.Length; i++)
             {
                 (Neurons[Neurons.Length - 1][i] as OutputNeuron).UpdateError(this.Activations[Neurons.Length - 1], desired[i]);
-                GlobalError += 0.5*Math.Pow(Neurons[Neurons.Length - 1][i].Output - desired[i],2);
+                GlobalError += 0.5 * Math.Pow(Neurons[Neurons.Length - 1][i].Output - desired[i], 2);
             }
 
             //Propagate the error backwards
@@ -310,7 +303,6 @@ namespace NeuralLibrary.NeuralNetwork
                     {
                         bias.UpdateGradient();
                     }
-                        
 
                     //Take the sum of Posterior Error * weight
                     foreach (Connection con in Connections[layer])
@@ -323,7 +315,6 @@ namespace NeuralLibrary.NeuralNetwork
                             //this may be called many times before
                             //the gradient is finalized
                             con.UpdateGradient();
-                           
                         }
 
                     //Update the error with the derivative of the network's sigmoid
@@ -440,7 +431,6 @@ namespace NeuralLibrary.NeuralNetwork
                 x.AnteriorNeuron.GetID(this) == anteriorNeuron
                 && x.PosteriorNeuron.GetID(this) == posteriorNeuron);
         }
-
 
         /// <summary>
         /// Gets an array of the ewights in the nwetwork.

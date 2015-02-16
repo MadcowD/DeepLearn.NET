@@ -55,10 +55,31 @@ namespace NeuralLibrary.NeuralNetwork
                 }).ToArray();
         }
 
+        /// <summary>
+        /// Calculates the total error on a dataset using a default step.
+        /// </summary>
+        /// <param name="nn">The neural network to process the dataset.</param>
+        /// <param name="step">If -1, no stepping occurs, else use a step point equivalent to this value.</param>
+        /// <returns></returns>
         public double CalculateError(Network nn, double step = -1)
         {
             return CalculateErrors(nn, step).Sum();
         }
 
+
+        /// <summary>
+        /// Print the entire dataset
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            //Join all of the data points.
+            return string.Join("\n",
+                this.Select(x => "["
+                + string.Join(",", x.Input)
+                + "]---> ["
+                + string.Join(",", x.Desired)
+                + "]"));
+        }
     }
 }
