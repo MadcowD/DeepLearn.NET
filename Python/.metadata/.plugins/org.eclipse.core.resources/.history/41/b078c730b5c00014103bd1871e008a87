@@ -1,0 +1,15 @@
+from neuron import Neuron
+from sigmoid import Sigmoid
+class InputNeuron(Neuron):
+    def getOutput(self):
+        self.output = self.getNet()
+        super(self).getOutput()
+    #main point is to not do anything.
+    def updateOutput(self):
+        pass
+
+class OutputNeuron(Neuron):
+    def __init__(self):
+        super(OutputNeuron, self).__init__()
+    def updateError(self, activation, desired):
+        self.error = (self.output-desired)*activation.function(self.net)

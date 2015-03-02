@@ -1,0 +1,14 @@
+INSTUPtrainer
+/home/philkuz/Programming/2015/Neural Network/ALRNeuralNetwork/Python/Neural Network/trainer.py
+INFOS:&&1|1|2|0&&2|3|2|1&&3|4|2|5&&3|6|2|5&&3|7|2|5&&3|8|2|5&&3|9|2|5&&2|10|2|1&&3|9|2|11
+errorHistory=9
+Trainer.train=11
+trainer=2
+Trainer=1
+online=8
+__init__=3
+Trainer.__init__=5
+testingSet=7
+trainingSet=4
+network=6
+train=10

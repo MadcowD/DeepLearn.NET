@@ -1,0 +1,18 @@
+'''
+Included all connections in the file again for quick importation into projects
+'''
+from connection import Connection
+class RPROPMinusConnection(Connection):
+    stepMin = 0.0000016
+    stepMax = 50
+    stepInitial = 0.1
+    stepIncrease = 1.2
+    stepDecrease = 0.5 
+    def __init__(self, anteriorNeuron, posteriorNeuron):
+        super(RPROPMinusConnection, self).__init__(anteriorNeuron, posteriorNeuron)
+        self.lastGradient = 0
+        self.lastStep = 0
+        self.deltaWeight = 0
+        self.step = RPROPMinusConnection.stepInitial
+    def updateWeight(self, learningParameters):
+        Connection.updateWeight(self, learningParameters)

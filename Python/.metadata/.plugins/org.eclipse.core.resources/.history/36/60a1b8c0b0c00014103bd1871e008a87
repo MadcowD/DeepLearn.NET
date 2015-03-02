@@ -1,0 +1,6 @@
+from neuron import Neuron
+from abc import ABCMeta
+from _pyio import __metaclass__
+
+class Connection(object): 
+    __metaclass__ = ABCMETA

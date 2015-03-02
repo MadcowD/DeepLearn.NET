@@ -1,0 +1,8 @@
+class Network:
+    def __init__(self, layers, connectionType = None, activations = None):
+        #TODO
+        if( connectionType == None ):
+            pass
+        if( activations == None):
+            pass
+        

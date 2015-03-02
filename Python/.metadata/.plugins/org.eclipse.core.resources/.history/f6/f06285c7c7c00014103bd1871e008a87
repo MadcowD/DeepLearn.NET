@@ -1,0 +1,9 @@
+class Trainer:
+    def __init__(self, network, trainingSet, testingSet, online=True):
+        self.trainingSet = trainingSet
+        self.network = network
+        self.testingSet = testingSet
+        self.online = online
+        self.errorHistory = list()
+    def train(self, epochs, minimumError, nudging=false, learningParameters):
+        self.errorHistory.clear()

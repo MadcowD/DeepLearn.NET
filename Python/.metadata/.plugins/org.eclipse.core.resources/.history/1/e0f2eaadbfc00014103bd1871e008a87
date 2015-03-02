@@ -1,0 +1,14 @@
+from neurons import BiasNeuron
+class Network:
+    def __init__(self, layers, connectionType = None, activations = None):
+        #TODO
+        if( connectionType == None ):
+            pass
+        if( activations == None):
+            pass
+        if (len(layers) < 2):
+            raise AttributeError("Not enough layers specified")
+        if(len(activations) ! = len(layers)):
+            raise AttributeError("Activation functions do not line up to layers")
+        self.activations = activations
+        self.bias = BiasNeuron()

@@ -1,0 +1,10 @@
+from neuron import Neuron
+from sigmoid import Sigmoid
+class InputNeuron(Neuron):
+	def getOutput(self):
+		self.output = self.getNet()
+		super(self).getOutput()
+	#main point is to not do anything.
+	def updateOutput(self):
+sus = InputNeuron()
+print sus.toString()

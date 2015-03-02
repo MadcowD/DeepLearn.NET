@@ -1,0 +1,7 @@
+from neuron import Neuron
+class BiasNeuron(Neuron):
+    def updateOutput(self, activation):
+        self.net = 1
+        self.error = 1
+    def getOutput(self):
+        return 1

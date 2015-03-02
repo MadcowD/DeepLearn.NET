@@ -1,0 +1,26 @@
+from neuron import Neuron
+from abc import ABCMeta, abstractproperty, abstractmethod
+import random
+
+class Connection(object): 
+    __metaclass__ = ABCMeta
+    def __init__(self, anteriorNeuron, posteriorNeuron, weightInitial=None):
+        if(weightInitial == None):
+            self.nudgeWeight()
+        else:
+            self.weight=weightInitial
+        self.anterior = anteriorNeuron
+        self.posterior = posteriorNeuron
+    def nudgeWeight(self):
+        self.weight=random.random()*2-1
+    def feedForward(self):
+        self.posterior.net += self.anterior*self.weight
+    #learning parameters is a list of doubles
+    @abstractproperty
+    def learningParameterCount(self):
+        pass
+    @abstractmethod
+    def tryUpdateWeight(self, learningParameters):
+        if(self.learningParameterCount() > 0):
+            if(not(learningParameters != None and len(learningParameters)>= self.learningParameterCount())):
+                raise AttributeError("Missing or uneven learning parameters")

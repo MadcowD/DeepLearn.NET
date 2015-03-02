@@ -1,0 +1,7 @@
+'''
+Included all connections in the file again for quick importation into projects
+'''
+from connection import Connection
+class RPROPMinusConnection(Connection):
+    def __init__(self, anteriorNeuron, posteriorNeuron):
+        super(RPROPMinusConnection, self).__init__(anteriorNeuron, posteriorNeuron)

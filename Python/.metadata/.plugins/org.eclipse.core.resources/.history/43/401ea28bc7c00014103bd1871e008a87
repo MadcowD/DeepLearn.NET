@@ -1,0 +1,2 @@
+class Trainer:
+    def __init__(self, network, trainingSet, testingSet, online=true):

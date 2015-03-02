@@ -1,0 +1,9 @@
+from neuron import Neuron
+from sigmoid import Sigmoid
+class OutputNeuron(Neuron):
+	def __init__(self):
+		super(OutputNeuron, self).__init__()
+	def updateError(self, activation, desired):
+		self.error = (self.output-desired)*activation.function(self.net)
+sus = OutputNeuron()
+print sus.toString()

@@ -1,0 +1,4 @@
+from neuron import Neuron
+import abc
+
+class Connection(object): 
