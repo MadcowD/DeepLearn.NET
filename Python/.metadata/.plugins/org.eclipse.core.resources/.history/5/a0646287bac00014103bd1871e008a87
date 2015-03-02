@@ -1,6 +1,0 @@
-class DataPoint:
-    #input and desired are double lists
-    def __init__(self, input, desired):
-        self.input = input
-        self.desired = desired
-    def toString(self):

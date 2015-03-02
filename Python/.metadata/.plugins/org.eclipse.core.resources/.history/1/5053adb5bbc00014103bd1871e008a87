@@ -1,6 +1,0 @@
-#list is a list of datapoints
-class DataSet(list):
-    def load(self):
-        pass
-    def shuffle(self):
-        n = self.count
