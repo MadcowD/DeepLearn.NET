@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DD83C1C8-0F16-4FA0-80A7-C4EE67D6F78B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NeuralLibraryManaged</RootNamespace>
+    <AssemblyName>NeuralLibraryManaged</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Managed</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
+    <TargetPlatform Include="Windows, Version=8.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\NeuralLibrary\Experiment.cs">
+      <Link>Experiment.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Connection.cs">
+      <Link>NeuralNetwork\Connection.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Connections\ALRConnection.cs">
+      <Link>NeuralNetwork\Connections\ALRConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Connections\BPROPConnection.cs">
+      <Link>NeuralNetwork\Connections\BPROPConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Connections\RPROP\RPROPMinusConnection.cs">
+      <Link>NeuralNetwork\Connections\RPROP\RPROPMinusConnection.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\DataPoint.cs">
+      <Link>NeuralNetwork\DataPoint.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\DataSet.cs">
+      <Link>NeuralNetwork\DataSet.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Gaussian.cs">
+      <Link>NeuralNetwork\Gaussian.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Network.cs">
+      <Link>NeuralNetwork\Network.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Neuron.cs">
+      <Link>NeuralNetwork\Neuron.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Neurons\BiasNeuron.cs">
+      <Link>NeuralNetwork\Neurons\BiasNeuron.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Neurons\InputNeuron.cs">
+      <Link>NeuralNetwork\Neurons\InputNeuron.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Neurons\OutputNeuron.cs">
+      <Link>NeuralNetwork\Neurons\OutputNeuron.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Sigmoid.cs">
+      <Link>NeuralNetwork\Sigmoid.cs</Link>
+    </Compile>
+    <Compile Include="..\NeuralLibrary\NeuralNetwork\Trainer.cs">
+      <Link>NeuralNetwork\Trainer.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

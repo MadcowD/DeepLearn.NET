@@ -23,6 +23,8 @@ namespace NeuralLibrary
         /// </summary>
         public abstract void Run();
 
+#if Managed
+#else
         /// <summary>
         /// Runs the experiment as a thread.
         /// </summary>
@@ -44,6 +46,8 @@ namespace NeuralLibrary
             return true;
         }
 
+#endif
+
         #region Properties
 
 
@@ -59,7 +63,10 @@ namespace NeuralLibrary
         #endregion
 
         #region Fields
+#if Managed
+#else
         Thread worker;
+#endif
         protected DataSet trainingSet;
         protected DataSet testingSet;
         #endregion Fields
