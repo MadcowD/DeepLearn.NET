@@ -1,7 +1,6 @@
 ﻿﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 
 namespace NeuralLibrary.NeuralNetwork
 {
@@ -10,7 +9,6 @@ namespace NeuralLibrary.NeuralNetwork
     /// </summary>
     public class Trainer
     {
-
         public Trainer(Network network, DataSet trainingSet, bool online = true) :
             this(network, trainingSet, trainingSet, online)
         {
@@ -54,16 +52,13 @@ namespace NeuralLibrary.NeuralNetwork
 
                 this.ErrorHistory.Add(error);
 
-              
-                
                 //NUDGING
                 if (nudging && ErrorHistory
-                    .SkipWhile( i => i < ErrorHistory.Count()-10)
-                    .StdDev() < .0000075) 
+                    .SkipWhile(i => i < ErrorHistory.Count() - 10)
+                    .StdDev() < .0000075)
                 {
                     network.NudgeWeights(); //Nudge the weights
                 }
-      
 
 #if DEBUG
                 Console.WriteLine("Epoch {0}: Error = {1};", epoch, error);
@@ -105,6 +100,6 @@ namespace NeuralLibrary.NeuralNetwork
             return val > min && val < max ? val : val < min ? min : max;
         }
 
-        #endregion
+        #endregion Helpers
     }
 }

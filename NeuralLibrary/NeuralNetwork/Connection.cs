@@ -47,11 +47,7 @@ namespace NeuralLibrary.NeuralNetwork
             PosteriorNeuron.Net += AnteriorNeuron.Output * Weight;
         }
 
-        #region Fields
 
-
-
-        #endregion Fields
 
         #region Properties
 
@@ -74,14 +70,13 @@ namespace NeuralLibrary.NeuralNetwork
         /// Attempts to update the weight of a given connection.
         /// </summary>
         /// <param name="learningParameters"></param>
-        public  void TryUpdateWeight(params double[] learningParameters) 
+        public void TryUpdateWeight(params double[] learningParameters)
         {
             if (LearningParameterCount > 0)
                 if (!(learningParameters != null && learningParameters.Length >= LearningParameterCount))
                     throw new ArgumentNullException("No--or uneven-- learning parameters given.");
 
             UpdateWeight(learningParameters);
-            
         }
 
         /// <summary>
@@ -116,7 +111,6 @@ namespace NeuralLibrary.NeuralNetwork
             gradient = 0;
         }
 
-
         /// <summary>
         /// Gets the gradient of the connection.
         /// </summary>
@@ -128,9 +122,9 @@ namespace NeuralLibrary.NeuralNetwork
             }
         }
 
-        #endregion
+        #endregion Gradient
 
-        internal Network Network {  set; get; }
+        internal Network Network { set; get; }
 
         /// <summary>
         /// The weight associated with a connection.
